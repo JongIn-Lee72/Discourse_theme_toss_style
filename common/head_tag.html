@@ -68,7 +68,7 @@ body[class*="category-"] #main-outlet {
   box-sizing: border-box !important;
 }
 
-/* 4. Nav Pills: 밑줄 완전 제거 + 36px 알약 칩 형태 */
+/* 4. Nav Pills & Select-Kit: 밑줄 완전 제거 + 36px 알약 칩 형태 동기화 */
 .list-controls .nav-pills,
 .nav-pills {
   border-bottom: none !important;
@@ -82,8 +82,23 @@ body[class*="category-"] #main-outlet {
   margin: 0 !important;
 }
 
+/* active/latest/unread 등 모든 nav item에 대한 동일한 크기 및 폰트 크기 설정 */
 .list-controls .nav-pills > li > a,
-.nav-pills > li > a {
+.nav-pills > li > a,
+.list-controls .select-kit.combo-box .select-kit-header,
+.list-controls .nav-pills > li.nav-item_categories > a,
+.list-controls .nav-pills > li.nav-item_latest > a,
+.list-controls .nav-pills > li.nav-item_unread > a,
+.list-controls .nav-pills > li.nav-item_hot > a,
+.list-controls .nav-pills > li.nav-item_points-mall > a,
+.list-controls .nav-pills > li.categories > a,
+.list-controls .nav-pills > li.latest > a,
+.list-controls .nav-pills > li.unread > a,
+.nav-pills > li.nav-item_categories > a,
+.nav-pills > li.nav-item_latest > a,
+.nav-pills > li.nav-item_unread > a,
+.nav-pills > li.nav-item_hot > a,
+.nav-pills > li.nav-item_points-mall > a {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
@@ -91,25 +106,26 @@ body[class*="category-"] #main-outlet {
   min-height: 36px !important;
   max-height: 36px !important;
   padding: 0 16px !important;
-  font-size: 0.857em !important;
+  font-size: 0.857em !important; /* var(--font-down-1)과 동일 */
   line-height: 1 !important;
   font-weight: 600 !important;
   box-sizing: border-box !important;
   border-radius: 100px !important;
-  border: none !important;
-  border-bottom: none !important;
+  border: 1px solid var(--primary-low) !important; /* select-kit 테두리와 동기화 */
   box-shadow: none !important;
   text-decoration: none !important;
   margin: 0 !important;
-  background-color: rgba(0, 0, 0, 0.04) !important;
+  background-color: var(--secondary) !important; /* 기본 배경색 흰색/배경색으로 통일 */
   color: #4e5968 !important;
-  transition: background-color 0.2s ease, color 0.2s ease !important;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease !important;
 }
 
 .list-controls .nav-pills > li > a:hover,
-.nav-pills > li > a:hover {
-  background-color: rgba(0, 0, 0, 0.08) !important;
+.nav-pills > li > a:hover,
+.list-controls .select-kit.combo-box .select-kit-header:hover {
+  background-color: rgba(0, 0, 0, 0.04) !important;
   color: #191f28 !important;
+  border-color: var(--primary-medium) !important;
 }
 
 /* 활성화된 탭: 파란색 칩 */
@@ -120,13 +136,19 @@ body[class*="category-"] #main-outlet {
   background-color: rgba(49, 130, 246, 0.1) !important;
   color: #3182f6 !important;
   font-weight: 700 !important;
-  border: none !important;
-  border-bottom: none !important;
+  border: 1px solid rgba(49, 130, 246, 0.3) !important;
+  border-bottom: 1px solid rgba(49, 130, 246, 0.3) !important;
   box-shadow: none !important;
 }
 
-/* 5. 내비게이션과 글 목록 사이 간격 축소 */
-.list-controls {
+/* 5. 내비게이션과 글 목록 사이 6번 간격 삭제 */
+#main-outlet .list-controls,
+#main-outlet .navigation-container,
+.navigation-categories .navigation-container,
+.categories-list .navigation-container,
+.navigation-topics .list-controls,
+.list-controls,
+.navigation-container {
   margin-bottom: 0 !important;
   padding-bottom: 0 !important;
 }
@@ -140,7 +162,16 @@ body[class*="category-"] #main-outlet {
 .list-container,
 .category-list,
 .topic-list {
-  margin-top: 0 !important;
+  margin-top: -24px !important;
   padding-top: 0 !important;
+}
+
+@media screen and (max-width: 1099px) {
+  #list-area,
+  .list-container,
+  .category-list,
+  .topic-list {
+    margin-top: -16px !important;
+  }
 }
 </style>
