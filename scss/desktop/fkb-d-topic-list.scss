@@ -330,39 +330,37 @@ body[class*="category-"]:not(.archetype-regular):not(.archetype-banner) {
   background: transparent !important;
   background-color: transparent !important;
 
-  // Welcome 배너 내부 검색바 가로 폭 확대 (category-list 가로폭과 매치)
-  .welcome-search-container,
-  .search-bar,
-  .search-input,
-  .search-widget {
+  // Welcome 배너 내부 중앙 검색바 가로 폭 확대 및 relative 배치 고정 (영역이탈 방지)
+  .search-menu-container,
+  .menu-panel-results,
+  .search-menu-container.menu-panel-results {
+    position: relative !important;
+    left: auto !important;
+    right: auto !important;
     width: 100% !important;
-    max-width: 100% !important;
-    margin: 0 auto !important;
+    max-width: var(--d-max-width) !important;
+    margin: var(--m3-space-m) auto 0 !important;
+    box-sizing: border-box !important;
 
-    input#search-term,
-    input[type="text"] {
-      width: 100% !important;
-      max-width: 100% !important;
-      box-sizing: border-box !important;
+    @media screen and (max-width: 1099px) {
+      max-width: calc(100vw - 40px) !important;
     }
   }
 }
 
 // 2. Responsive gap between navigation-container and category-list (36px -> 24px -> 16px)
+// grid-gap (24px) + margin-bottom (12px) = 36px 실질 시각 간격 완성
 #main-outlet .list-controls,
-#main-outlet .navigation-container,
-.navigation-categories .navigation-container,
-.categories-list .navigation-container,
+.navigation-categories .list-controls,
 .navigation-topics .list-controls,
-.list-controls,
-.navigation-container {
-  margin-bottom: 36px !important; // 데스크톱 36px 고정
+.list-controls {
+  margin-bottom: 12px !important; 
 
   @media screen and (max-width: 1099px) {
-    margin-bottom: 24px !important;
+    margin-bottom: 0px !important; // 태블릿/모바일은 그리드 gap 24px 유지
   }
   @media screen and (max-width: 600px) {
-    margin-bottom: 16px !important;
+    margin-bottom: 0px !important; // 모바일은 그리드 gap 16px 유지
   }
 }
 
@@ -373,6 +371,7 @@ body[class*="category-"]:not(.archetype-regular):not(.archetype-banner) {
 .categories-list {
   margin-top: 0 !important; // 누적 마진 겹침 방지를 위해 탑 마진 리셋
 }
+
 
 
 

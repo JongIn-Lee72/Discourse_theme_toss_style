@@ -216,23 +216,34 @@ img.avatar,
   }
 }
 
-// 높은 구체성 선택자로 네비게이션 탭 크기 강제 적용
+// 높은 구체성 선택자로 네비게이션 탭 크기 강제 적용 (TDS Select-Kit 36px 동화)
 #navigation-bar .nav-pills > li > a,
 #navigation-bar .nav-pills > li a,
 #navigation-bar .nav-pills a,
 .list-controls .nav-pills > li > a,
 .list-controls .nav-pills a,
 .nav-pills > li > a,
-.nav-pills a {
+.nav-pills a,
+.nav-pills > li,
+.nav-pills > li.categories,
+.nav-pills > li.hot,
+.nav-pills > li.latest,
+.nav-pills > li.points-mall,
+.nav-pills .nav-item_categories,
+.nav-pills .nav-item_hot,
+.nav-pills .nav-item_latest,
+.nav-pills .nav-item_points-mall,
+.nav-pills [class*="nav-item_"] {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
   height: 36px !important; // select-kit-header(36px)와 완전 일치
-  padding: 0 16px !important;
+  padding: 0 16px !important; // Toss 칩 패딩
   font-size: var(--font-down-1) !important;
   line-height: var(--line-height-small) !important;
   box-sizing: border-box !important;
 }
+
 
 
 
