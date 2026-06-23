@@ -329,22 +329,36 @@ body[class*="category-"]:not(.archetype-regular):not(.archetype-banner) {
   box-shadow: none !important;
   background: transparent !important;
   background-color: transparent !important;
+}
 
-  // Welcome 배너 내부 중앙 검색바 가로 폭 확대 및 relative 배치 고정 (영역이탈 방지)
-  .search-menu-container,
-  .menu-panel-results,
-  .search-menu-container.menu-panel-results {
-    position: relative !important;
-    left: auto !important;
-    right: auto !important;
+// 중앙 검색바 가로 폭 확대 및 relative 배치 고정 (배너 외부 독립 요소 대응)
+.search-menu-container,
+.menu-panel-results,
+.search-menu-container.menu-panel-results {
+  position: relative !important;
+  left: auto !important;
+  right: auto !important;
+  width: 100% !important;
+  max-width: var(--d-max-width) !important;
+  margin: var(--m3-space-m) auto 0 !important;
+  box-sizing: border-box !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+
+  // 내부 폼, 인풋 등의 요소 가로폭 전체로 채우기
+  form,
+  .search-input,
+  .search-bar,
+  input,
+  input[type="text"] {
     width: 100% !important;
-    max-width: var(--d-max-width) !important;
-    margin: var(--m3-space-m) auto 0 !important;
+    max-width: 100% !important;
     box-sizing: border-box !important;
+  }
 
-    @media screen and (max-width: 1099px) {
-      max-width: calc(100vw - 40px) !important;
-    }
+  @media screen and (max-width: 1099px) {
+    max-width: calc(100vw - 40px) !important;
   }
 }
 
@@ -355,6 +369,12 @@ body[class*="category-"]:not(.archetype-regular):not(.archetype-banner) {
 .navigation-topics .list-controls,
 .list-controls {
   margin-bottom: 12px !important; 
+  padding-bottom: 0 !important;
+
+  .container {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
 
   @media screen and (max-width: 1099px) {
     margin-bottom: 0px !important; // 태블릿/모바일은 그리드 gap 24px 유지
@@ -365,11 +385,14 @@ body[class*="category-"]:not(.archetype-regular):not(.archetype-banner) {
 }
 
 #list-area,
+.list-container,
 .category-list,
 .category-boxes,
 .categories-and-latest,
-.categories-list {
+.categories-list,
+.topic-list {
   margin-top: 0 !important; // 누적 마진 겹침 방지를 위해 탑 마진 리셋
+  padding-top: 0 !important;
 }
 
 
