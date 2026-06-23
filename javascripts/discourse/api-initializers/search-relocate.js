@@ -3,7 +3,9 @@ import { apiInitializer } from "discourse/lib/api";
 export default apiInitializer("1.8.0", (api) => {
   const relocateSearch = () => {
     const navControls = document.querySelector(".navigation-controls");
-    const searchBar = document.querySelector(".custom-search-banner-wrap .search-input") || 
+    const searchBar = document.querySelector(".custom-search-banner-wrap form") || 
+                      document.querySelector(".search-menu-container form") || 
+                      (document.querySelector(".search-input") ? document.querySelector(".search-input").closest("form") : null) ||
                       document.querySelector(".search-menu-container") || 
                       document.querySelector(".search-input");
 
@@ -19,7 +21,9 @@ export default apiInitializer("1.8.0", (api) => {
     // Watch for dynamic DOM insertions
     const observer = new MutationObserver((mutations, obs) => {
       const navControls = document.querySelector(".navigation-controls");
-      const searchBar = document.querySelector(".custom-search-banner-wrap .search-input") || 
+      const searchBar = document.querySelector(".custom-search-banner-wrap form") || 
+                        document.querySelector(".search-menu-container form") || 
+                        (document.querySelector(".search-input") ? document.querySelector(".search-input").closest("form") : null) ||
                         document.querySelector(".search-menu-container") || 
                         document.querySelector(".search-input");
       if (navControls && searchBar && !navControls.contains(searchBar)) {
