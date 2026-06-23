@@ -1,0 +1,24 @@
+// FKBD - Header
+
+// Header
+
+.d-header {
+  border-bottom: 1px solid rgba(var(--primary-rgb), 0.04) !important;
+  box-shadow: none !important;
+  background: var(--secondary) !important;
+  
+  > .wrap {
+    max-width: calc(var(--d-sidebar-width) + var(--d-max-width));
+    .contents {
+      margin: auto;
+    }
+  }
+}
+
+// Menu panel
+
+.menu-panel.drop-down {
+  border: none !important;
+  border-radius: var(--tds-radius-m) !important;
+  box-shadow: var(--tds-shadow-l) !important;
+}

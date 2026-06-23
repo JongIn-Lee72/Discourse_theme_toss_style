@@ -1,0 +1,177 @@
+// FKBC - Global
+
+// Global
+
+body {
+  background: var(--fkb-bg);
+  font-family: 'Toss Product Sans', 'Tossface', 'Pretendard', -apple-system, BlinkMacSystemFont, 'SF Pro KR', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+  letter-spacing: -0.018em;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+}
+
+// Resets the Versatille banner modified width on main-outlet
+#main > div #main-outlet {
+  max-width: 100%;
+  width: 100%;
+}
+
+img.avatar,
+.card-avatar-placeholder,
+.placeholder-avatar {
+  border-radius: var(--d-avatar-border-radius);
+}
+
+.fk-d-toasts {
+  .fk-d-toast {
+    border-radius: var(--m3-radius-m);
+  }
+}
+
+.tippy-box {
+  border-radius: var(--m3-radius-s);
+}
+
+.popup-tip {
+  border-radius: var(--m3-radius-s);
+}
+
+.btn.show-summary {
+  background: var(--fkb-btn);
+}
+
+.btn-default {
+  background: var(--fkb-btn);
+}
+
+.list-controls .combo-box .combo-box-header {
+  background: var(--secondary);
+}
+
+// Spinner
+
+.spinner {
+  height: 40px;
+  width: 40px;
+  border: none;
+  box-shadow: inset 0 1px 1px var(--tertiary);
+}
+
+// Banner
+
+.alert.alert-info {
+  background: var(--tertiary-500);
+  border-radius: var(--m3-radius-m);
+}
+
+#banner {
+  background: var(--tertiary-low);
+  border-radius: var(--m3-radius-l);
+  .lightbox-wrapper,
+  .lightbox-wrapper a.lightbox,
+  .lightbox-wrapper img {
+    border-radius: var(--m3-radius-l);
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+.navigation-topics,
+.navigation-categories,
+.category {
+  .alert.alert-info {
+    box-sizing: border-box;
+    margin: 0 auto 1em;
+  }
+}
+
+// Modal
+// Modal Global
+
+.dialog-content {
+  border-radius: var(--m3-radius-xl);
+  outline: 0;
+}
+
+.d-modal {
+  &__container {
+    border-radius: var(--m3-radius-xl);
+    .mobile-view & {
+      border-radius: var(--m3-radius-xl) var(--m3-radius-xl) 0 0;
+    }
+  }
+}
+
+.modal.has-tabs {
+  .modal-tabs {
+    .modal-tab {
+      border-radius: var(--m3-radius-m);
+    }
+  }
+}
+
+// Admin
+
+.admin-controls .nav-pills > li a.active {
+  background: transparent;
+}
+
+.boxed.white {
+  padding: 1em;
+  box-sizing: border-box;
+  @include bg-br;
+}
+
+// TDS Pill Navigation Tabs (nav-pills)
+.nav-pills {
+  > li {
+    margin: 0 !important;
+    
+    a {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.5em 0.75em !important; // select-kit-header와 동일하게 조정
+      font-size: var(--font-down-1) !important; // select-kit-header와 동일하게 조정
+      line-height: var(--line-height-small) !important; // select-kit-header와 동일하게 조정
+      font-weight: 600 !important;
+      color: var(--primary-medium) !important;
+      background-color: rgba(var(--primary-rgb), 0.04) !important;
+      border: none !important;
+      border-radius: var(--tds-radius-full) !important;
+      transition: background-color 0.2s ease, color 0.2s ease, transform 0.1s ease;
+      letter-spacing: -0.015em;
+      box-sizing: border-box !important;
+      
+      &:hover {
+        background-color: rgba(var(--primary-rgb), 0.07) !important;
+        color: var(--primary) !important;
+      }
+      
+      &:active {
+        transform: scale(0.96);
+      }
+      
+      &.active {
+        background-color: rgba(var(--tertiary-rgb), 0.08) !important;
+        color: var(--tertiary) !important;
+        font-weight: 700 !important;
+        
+        &:hover {
+          background-color: rgba(var(--tertiary-rgb), 0.12) !important;
+        }
+      }
+    }
+    
+    &.active a {
+      background-color: rgba(var(--tertiary-rgb), 0.08) !important;
+      color: var(--tertiary) !important;
+      font-weight: 700 !important;
+      
+      &:hover {
+        background-color: rgba(var(--tertiary-rgb), 0.12) !important;
+      }
+    }
+  }
+}
+

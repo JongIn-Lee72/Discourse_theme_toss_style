@@ -1,0 +1,66 @@
+// FKBD - Search
+
+// Search Widget
+
+.search-menu {
+  input[type="text"] {
+    box-shadow: none;
+  }
+  .search-context .show-help {
+    border-radius: var(--d-default-border-radius);
+    line-height: var(--line-height-large);
+  }
+  .search-input {
+    border-radius: var(--d-input-border-radius);
+    &:focus {
+      background: var(--secondary);
+    }
+    &:focus-within {
+      outline: none;
+      border-radius: var(--d-input-border-radius);
+      box-shadow: 0px 0px 0px 1px var(--tertiary);
+    }
+    input#search-term {
+      border-radius: var(--d-input-border-radius);
+      &:focus {
+        background: var(--secondary);
+      }
+    }
+  }
+  .search-menu-recent {
+    border-top: none;
+    margin-top: 0;
+    padding-top: 0;
+  }
+  .results {
+    .search-result-topic .second-line {
+      .discourse-tags .discourse-tag {
+        .d-icon {
+          margin-right: 4px;
+        }
+      }
+    }
+    .search-random-quick-tip {
+      .tip-label.tip-clickable {
+        border-radius: 4px;
+      }
+    }
+  }
+}
+
+// Responsive search dropdown menu matching category-list width
+.search-menu-container,
+.menu-panel-results {
+  width: 100% !important;
+  max-width: calc(100vw - 40px) !important;
+  box-sizing: border-box;
+
+  @media screen and (min-width: 1100px) {
+    max-width: var(--d-max-width) !important;
+
+    .has-sidebar-page & {
+      max-width: calc(var(--d-max-width) - var(--d-sidebar-width) - var(--tds-space-xl)) !important;
+    }
+  }
+}
+

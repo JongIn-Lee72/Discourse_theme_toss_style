@@ -1,0 +1,162 @@
+disable_topic_list_modification:
+  type: bool
+  default: false
+  description: "Enable this setting to revert topic list to default Discourse version. It's useful if you want to use theme components like: Topic List Thumbnails..."
+f_nav_enabled:
+  type: bool
+  default: false
+  description: "Enable this setting if you have installed the F NAV theme component."
+topic_image_height: 
+  default: "300px"
+  description: "Change the topic list image (thumbnail) section height."
+topic_image_fit:
+  default: cover
+  type: enum
+  choices:
+    - contain
+    - scale-down
+    - none
+  description: "Select the topic list image (thumbnail) fit. More info: https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit"
+topic_image_backdrop:
+  type: bool
+  default: false
+  description: "Add backdrop to topic list image (thumbnail)."
+topic_image_backdrop_blur: 
+  default: "50px"
+  description: "Change the topic_image_backdrop blur size. Set a lower value for less blurred backdrop image."
+topic_image_backdrop_brightness: 
+  default: "0.65"
+  description: "Change the topic_image_backdrop brightness size. Set a lower value for less bright backdrop image."
+
+category_badge_style:
+  default: bullet
+  type: enum
+  choices:
+    - box
+  description: "Select the category badge style."
+  
+right_sidebar_blocks_enabled:
+  type: bool
+  default: false
+  description: "Enabling this will add Right Sidebar Blocks theme component support and replace the original fkb panel with it."
+
+right_sidebar_below_fkb_panel:
+  type: bool
+  default: false
+  description: "Enabling this will add Right Sidebar Blocks theme component below the FKB Panel."
+
+right_sidebar_blocks_expanded:
+  type: bool
+  default: false
+  description: "In this mode the components appears separately and the last component is sticky."
+  
+custom_sidebar_enabled:
+  type: bool
+  default: false
+  description: "Custom sidebar content for visitor."
+custom_sidebar_image:
+  type: upload
+  default: ""
+  description: "Upload an image to display on the sidebar for visitor."
+custom_sidebar_description:
+  type: string
+  textarea: true
+  default: |
+            <strong>Lorem ipsum</strong> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation 
+            ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit 
+            in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+  description: "Custom sidebar description for visitors. (HTML allowed)"
+
+fkb_panel_cache_ttl:
+  default: 10
+  type: integer
+  description: "The duration (in minutes) for which user data is cached in the browser. Reduces server load by preventing re-fetching data on every page refresh. (Default: 10)"
+
+fkb_panel_items:
+  description: "Set up the FKB Panel Items."
+  type: objects
+  default: 
+    [
+      { "title": Summary, "link": /my/summary, "icon": user },
+      { "title": Settings, "link": /my/preferences/account, "icon": gear },
+      { "title": Drafts, "link": /my/activity/drafts, "icon": pencil },
+      { "title": Bookmarks, "link": /my/activity/bookmarks, "icon": bookmark },
+      { "title": Messages, "link": /my/messages, "icon": envelope },
+    ]
+  schema:
+    name: item
+    identifier: title
+    properties:
+      title:
+        type: string
+        required: true
+      link:
+        type: string
+        required: true
+        validations:
+          url: true
+      icon:
+        type: string
+        required: true
+        
+fkb_panel_show_solutions:
+  type: bool
+  default: false
+  description: "Enable if you use Discourse Solved plugin."
+fkb_panel_show_badges:
+  type: bool
+  default: true
+border_radius_avatar: 
+  type: enum
+  default: 50%
+  choices: 
+    - 0%
+    - 10%
+    - 20%
+    - 30%
+    - 40%
+    - 50%
+  description: "Avatar shape."
+border_radius_em: 
+  default: "1em"
+  description: "Highly rounded corners. We use it on topic list items, posts and modals."
+border_radius_button: 
+  default: "2em"
+  description: "Rounded corners. We use it on buttons. inputs etc..."
+border_radius_input: 
+  default: "2em"
+  description: "Rounded corners. We use it on inputs etc..." 
+border_radius_select_body: 
+  default: "0.75em"
+  description: "Rounded corners. We use it on select-kit body etc..."
+light_bg:
+  default: "#f0f2f5"
+  description: "Light background color"
+dark_bg:
+  default: "#18191a"
+  description: "Dark background color"
+light_header_btn:
+  default: "#e1e5eb"
+  description: "Light header buttons color"
+dark_header_btn:
+  default: "#3a3b3e"
+  description: "Dark header buttons color"
+light_header_btn_hover:
+  default: "#d2d8e1"
+  description: "Light header buttons hover color"
+dark_header_btn_hover:
+  default: "rgba(var(--primary-rgb),.1)"
+  description: "Dark header buttons hover color"
+light_btn:
+  default: "#e1e5eb"
+  description: "Light buttons color"
+dark_btn:
+  default: "#383838"
+  description: "Dark buttons color"
+light_btn_hover:
+  default: "#d2d8e1"
+  description: "Light buttons hover color"
+dark_btn_hover:
+  default: "rgba(var(--primary-rgb),.1)"
+  description: "Dark buttons hover color"

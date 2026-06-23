@@ -1,0 +1,26 @@
+// FKBM - Docs
+
+// Docs
+
+body:not(.categories-list) .docs-browse {
+  .docs-topic-list {
+    .topic-list {
+      .main-link {
+        padding: 0.5em 0;
+
+        .link-bottom-line {
+          .badge-category__wrapper {
+            .badge-category__name {
+              overflow: hidden !important;
+              max-width: 45vw;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.mobile-view .docs-expander {
+  border-radius: 0;
+}

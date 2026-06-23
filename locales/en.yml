@@ -1,0 +1,12 @@
+en: 
+  sidebar: 
+    welcome: "Welcome"
+    all_badges: "all badges"
+    toggle: "Toggle sidebar"
+    items:
+      summary: "Summary"
+      settings: "Settings"
+      drafts: "Drafts"
+      bookmarks: "Bookmarks"
+      messages: "Messages"
+  created_at: "Created"

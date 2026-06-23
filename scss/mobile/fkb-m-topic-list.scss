@@ -1,0 +1,227 @@
+// FKBM - Topic List
+
+// Topic List
+
+.navigation-topics,
+.categories-list,
+body[class*="tag-"]:not(.archetype-regular):not(.archetype-banner),
+body[class*="category-"]:not(.archetype-regular):not(.archetype-banner) {
+  .list-controls {
+    z-index: z("usercard");
+    .container {
+      max-width: 100%;
+      padding: 1em;
+      margin-bottom: 1em;
+      @include bg-br;
+    }
+    .navigation-container {
+      position: relative;
+      .category-breadcrumb {
+        display: flex !important;
+        margin-bottom: 0;
+      }
+      // Navigation Bar 
+      #navigation-bar {
+        position: fixed;
+        bottom: 1.5em;
+        left: 0.75em;
+        margin-bottom: env(safe-area-inset-bottom); 
+        z-index: z("dropdown");
+        .list-control-toggle-link-trigger {
+          padding: 0.5em 0.65em;
+          color: var(--primary-high);
+          background: var(--secondary);
+          box-shadow: 0 0 0 1px var(--primary-high), var(--shadow-card);
+          border-radius: var(--d-button-border-radius);
+        }
+        html.footer-nav-visible:not(.footer-nav-ipad) & {
+          bottom: calc(var(--footer-nav-height) + 1.5em);
+          transition: bottom linear 0.1s;
+        }
+      }
+      // Navigation Controls
+      .navigation-controls {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        position: fixed;
+        bottom: 1em;
+        right: 1em;
+        grid-gap: 0.5em;
+        margin-bottom: env(safe-area-inset-bottom);
+        transition: right 0.25s ease-in;
+        z-index: z("usercard");
+        > *:not(:last-child) {
+          margin-right: 0;
+        }
+        .btn {
+          transition: background 0.25s;
+        }
+        .btn:not(#create-topic) {
+          padding: 0.75em 0.817em;
+          border-radius: var(--d-button-border-radius);
+          background: var(--primary-low);
+          order: 1;
+          &:hover,
+          &:focus {
+            background: var(--primary-medium);
+            .d-icon {
+              color: var(--primary-low);
+            }
+          }
+          
+          .d-icon {
+            color: var(--primary-high);
+          }
+        }
+        #create-topic {
+          order: 2;
+          margin-right: 0;
+          padding: 1.25em;
+          border-radius: var(--d-button-border-radius);
+          border: none;
+          background: var(--tertiary);
+          font-size: var(--font-0);
+          transition: transform 0.25s ease, box-shadow 0.25s ease;
+          box-shadow: 0px 5px 5px -1px rgba(0, 0, 0, 0.25);
+          &:active {
+            background: var(--tertiary-hover);
+            box-shadow: 0px 0px 5px -1px rgba(0, 0, 0, 0.25);
+            transform: scale(0.9);
+          }
+          &:focus {
+            background: var(--tertiary-hover);
+          }
+          
+          .d-icon {
+            width: 1.5em;
+            height: 1.5em;
+            margin-left: 0;
+            margin-right: 0;
+            color: var(--secondary);
+            transition: color 0s;
+          }
+          .d-button-label {
+            display: none;
+          }
+          &.open-draft {
+            background: var(--primary-medium);
+            .d-icon {
+              color: var(--secondary);
+            }
+            &:active {
+              background: var(--primary-high);
+            }
+            &:focus {
+              background: var(--primary-medium);
+            }
+          }
+        }
+        // Dropdown
+        .select-kit {
+          &.single-select.dropdown-select-box {
+            order: 1;
+          }
+        }
+        .bulk-select.btn {
+          display: none;
+        }
+      }
+    }
+  }
+  
+    // If footer nav active on iPhone
+  html.footer-nav-visible:not(.footer-nav-ipad) & {
+    .list-controls {
+      .navigation-container {
+        .navigation-controls {
+          bottom: calc(var(--footer-nav-height) + 1em);
+        }
+      }
+    }
+    #reply-control.draft {
+      bottom: calc(-60px - var(--footer-nav-height));
+    }
+  }
+  
+  #reply-control.draft {
+    bottom: -60px;
+    transition: bottom 0.25s ease-in;
+  }
+}
+
+body.nav-controls-hidden {
+  &.navigation-topics,
+  &.categories-list,
+  &[class*="tag-"]:not(.archetype-regular):not(.archetype-banner),
+  &[class*="category-"]:not(.archetype-regular):not(.archetype-banner) {
+    .list-controls {
+      .navigation-container .navigation-controls {
+        right: -80px;
+        transition: right 0.25s ease-in;
+      }
+    }
+    
+    // If footer nav active on iPhone
+    html.footer-nav-visible:not(.footer-nav-ipad) & {
+      .list-controls {
+        .navigation-container {
+          .navigation-controls {
+            bottom: calc(var(--footer-nav-height) + 1em);
+            transition: right linear 0.1s;
+          }
+        }
+      }
+    }
+    
+    #reply-control.draft {
+      bottom: 0;
+    }
+  }
+}
+
+// Topic List
+
+.topic-list {
+  .topic-excerpt {
+    width: 100%;
+  }
+}
+
+.topic-list {
+  .topic-list-item-separator {
+    display: block;
+  }
+}
+
+.extra-info-wrapper h1 {
+  margin: 0;
+}
+
+// Navigation bar modal
+.fk-d-menu-modal {
+  &.list-control-toggle-link-content {
+    .d-modal__body {
+      padding-block: 0;
+    }
+    .dropdown-menu__item {
+      &:first-child {
+        a {
+          border-radius: var(--d-default-border-radius) var(--d-default-border-radius) 0 0;
+        }
+      }
+      &:not(last-child) {
+        a {
+          border-bottom: 1px solid var(--primary-low);
+        }
+      }
+      
+      a {
+        display: flex;
+        align-items: center;
+        gap: 0.5em;
+        padding: 1em;
+      }
+    }
+  }
+}

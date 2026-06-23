@@ -1,0 +1,273 @@
+// Global
+
+:root {
+  // Original variables
+  --d-button-border-radius: #{$border_radius_button};
+  --d-default-border-radius: #{$border_radius_em};
+  --d-input-border-radius: #{$border_radius_input};
+  --d-select-body-border-radius: #{$border_radius_select_body};
+  --d-avatar-border-radius: #{$border_radius_avatar};
+  --topic-list-item-background-color: transparent;
+  --topic-list-item-background-color--visited: transparent;
+
+  // Toss Design System (TDS) Colors
+  --tds-blue: #3182f6;
+  --tds-blue-hover: #1b64da;
+  --tds-bg-light: #f2f4f6;
+  --tds-bg-dark: #17171c;
+  --tds-container-light: #ffffff;
+  --tds-container-dark: #202027;
+  --tds-text-primary-light: #191f28;
+  --tds-text-secondary-light: #4e5968;
+  --tds-text-tertiary-light: #8b95a1;
+
+  // TDS Corner Radii
+  --tds-radius-none: 0px;
+  --tds-radius-xs: 6px;
+  --tds-radius-s: 8px;
+  --tds-radius-m: 12px;
+  --tds-radius-l: 18px;
+  --tds-radius-xl: 24px;
+  --tds-radius-full: 9999px;
+
+  // TDS Shadows
+  --tds-shadow-s: 0 2px 8px rgba(0, 0, 0, 0.02);
+  --tds-shadow-m: 0 4px 16px rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.02);
+  --tds-shadow-l: 0 8px 24px rgba(0, 0, 0, 0.06), 0 2px 8px rgba(0, 0, 0, 0.03);
+  --tds-shadow-xl: 0 12px 32px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.04);
+
+  // TDS Spacing System
+  --tds-space-xs: 4px;
+  --tds-space-s: 8px;
+  --tds-space-m: 12px;
+  --tds-space-l: 16px;
+  --tds-space-xl: 24px;
+  --tds-space-2xl: 32px;
+  --tds-space-3xl: 48px;
+
+  // Compatibility mapping for existing files
+  --m3-radius-none: var(--tds-radius-none);
+  --m3-radius-xs: var(--tds-radius-xs);
+  --m3-radius-s: var(--tds-radius-s);
+  --m3-radius-m: var(--tds-radius-m);
+  --m3-radius-l: var(--tds-radius-l);
+  --m3-radius-xl: var(--tds-radius-xl);
+  --m3-radius-full: var(--tds-radius-full);
+  --m3-shadow-1: var(--tds-shadow-m);
+  --m3-shadow-2: var(--tds-shadow-m);
+  --m3-shadow-3: var(--tds-shadow-l);
+  --m3-shadow-4: var(--tds-shadow-xl);
+  --m3-shadow-5: var(--tds-shadow-xl);
+  --m3-space-xs: var(--tds-space-xs);
+  --m3-space-s: var(--tds-space-s);
+  --m3-space-m: var(--tds-space-m);
+  --m3-space-l: var(--tds-space-l);
+  --m3-space-xl: var(--tds-space-xl);
+  --m3-space-2xl: var(--tds-space-2xl);
+}
+
+/* Mixins */
+
+// Global Mixins
+
+@mixin bg-br {
+  background: var(--secondary);
+  box-shadow: var(--tds-shadow-m);
+  border-radius: var(--tds-radius-l);
+}
+
+@mixin fkb-glass {
+  background: var(--secondary) !important;
+  box-shadow: var(--tds-shadow-m);
+  border-radius: var(--tds-radius-l);
+  border: 1px solid rgba(var(--primary-rgb), 0.03) !important;
+}
+
+@mixin fkb-hover-lift {
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s ease;
+  &:hover {
+    transform: scale(1.008);
+    box-shadow: var(--tds-shadow-l);
+  }
+}
+
+// Toss Style State Layers
+@mixin m3-hover-overlay {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--primary);
+    opacity: 0;
+    transition: opacity 0.15s linear;
+    pointer-events: none;
+    border-radius: inherit;
+  }
+  &:hover::after {
+    opacity: 0.04; /* TDS Hover state layer */
+  }
+  &:active::after {
+    opacity: 0.08; /* TDS Pressed state layer */
+  }
+}
+
+@mixin fkb-focus {
+  outline: none !important;
+  box-shadow: 0px 0px 0px 1px var(--tertiary);
+}
+
+@mixin fkb-word-wrap {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+// Keyframes
+
+// FKB Panel Hide / Show
+
+@keyframes fkb-panel-hide {
+  0% {
+    position: sticky;
+  }
+  100% {
+    position: fixed;
+  }
+}
+
+// Topics and Posts
+@keyframes background-fade-topiclight {
+  0% {
+    background-color: var(--tertiary-medium);
+  }
+  100% {
+    background-color: var(--secondary);
+  }
+}
+
+// PMs
+@keyframes background-fade-mypmpostlight {
+  0% {
+    background-color: var(--secondary);
+  }
+  100% {
+    background-color: var(--tertiary-low);
+  }
+}
+@keyframes background-fade-pmpostlight {
+  0% {
+    background-color: var(--tertiary-medium);
+  }
+  100% {
+    background-color: var(--secondary);
+  }
+}
+
+// New Topic banner
+
+// Animation
+
+@keyframes newPostUpSticky {
+  0% {
+    transform: translateY(-7.5em);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+// Sticky
+
+@mixin sticky-new-topic {
+  position: sticky;
+  top: calc(var(--header-offset) + 0.5em);
+  animation: newPostUpSticky 0.2s ease-out;
+  width: max-content;
+  margin: -22px auto -22px;
+}
+
+// Alert info clickable
+
+@mixin alert-info-clickable-desktop {
+  padding: 13px 16px;
+  margin-bottom: 0;
+  background: var(--tertiary);
+  color: var(--secondary);
+  border-radius: var(--d-button-border-radius);
+  box-shadow: 0px 5px 5px -1px rgba(0, 0, 0, 0.25);
+  transition: background 0.25s ease;
+  &:hover,
+  &:focus {
+    background: var(--tertiary-hover);
+  }
+  span {
+    margin: auto;
+    line-height: 1.199;
+  }
+}
+
+@mixin alert-info-clickable-mobile {
+  padding: 0.75em 1em;
+  background: var(--tertiary);
+  color: var(--secondary);
+  border-radius: var(--d-button-border-radius);
+  box-shadow: 0px 5px 5px -1px rgba(0, 0, 0, 0.25);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  &:active {
+    background: var(--tertiary-hover);
+    box-shadow: 0px 0px 5px -1px rgba(0, 0, 0, 0.25);
+    transform: scale(0.95);
+    &:focus {
+      border-color: var(--tertiary-hover);
+      outline-color: var(--tertiary-hover);
+      @include default-focus;
+    }
+  }
+  &:focus {
+    border-color: var(--tertiary);
+    outline-color: var(--tertiary);
+    @include default-focus;
+  }
+  span {
+    margin: auto;
+  }
+}
+
+// Custom scrollbar
+
+@mixin custom-scrollbar {
+  --scrollbarBg: transparent;
+  --scrollbarThumbBg: var(--primary-low);
+  --scrollbarWidth: 0.5em;
+    
+  scrollbar-color: transparent var(--scrollbarBg);
+  transition: scrollbar-color 0.25s ease-in-out;
+  transition-delay: 0.5s;
+  
+  &:hover {
+    scrollbar-color: var(--scrollbarThumbBg) var(--scrollbarBg);
+    
+    &::scrollbar-thumb {
+      background-color: var(--scrollbarThumbBg);
+    }
+    
+    transition-delay: 0s;
+  }
+    
+  &::scrollbar {
+    width: var(--scrollbarWidth);
+  }
+    
+  &::scrollbar-thumb {
+    background-color: transparent;
+    border-radius: calc(var(--scrollbarWidth) / 2);
+  }
+    
+  &::scrollbar-track {
+    background-color: transparent;
+  }
+}

@@ -1,0 +1,50 @@
+// FKBC - Docs
+
+.docs:not(.nav-item_docs) {
+  background: var(--secondary);
+  padding: 0.5em;
+  border-radius: var(--d-default-border-radius);
+  margin-bottom: 2em;
+  .docs-browse {
+    .docs-topic-list {
+      .topic-list {
+        .topic-list-body {
+          display: table-row-group;
+        }
+        .topic-list-item {
+          display: table-row;
+          border-bottom: 1px solid var(--primary-low);
+        }
+        .main-link {
+          background: none;
+          box-shadow: none;
+          border-radius: 0;
+          .link-bottom-line {
+            padding: 0;
+            font-size: var(--font-0);
+            html.mobile-view & {
+              font-size: var(--font-down-1);
+            }
+          }
+          .topic-excerpt {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+  .topic-avatar {
+    margin: 0 10px 0 0;
+  }
+  .topic-body {
+    width: 100%;
+    background: none;
+    box-shadow: none;
+    border-radius: 0;
+    margin-left: 0;
+  }
+}
+
+.docs-search {
+  border-radius: var(--d-default-border-radius);
+}

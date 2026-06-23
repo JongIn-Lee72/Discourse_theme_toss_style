@@ -1,0 +1,46 @@
+{
+  "name": "Toss Style Theme",
+  "license_url": null,
+  "about_url": "https://github.com/JongIn-Lee72/Discourse_theme_toss_stylee",
+  "authors": null,
+  "assets": {},
+  "color_schemes": {
+    "Toss Style - Light": {
+      "primary": "191f28",
+      "secondary": "ffffff",
+      "tertiary": "3182f6",
+      "quaternary": "3182f6",
+      "header_background": "ffffff",
+      "header_primary": "191f28",
+      "highlight": "3182f6",
+      "selected": "e8f3ff",
+      "hover": "f2f4f6",
+      "danger": "f8745c",
+      "success": "42b72a",
+      "love": "fa6c8d"
+    },
+    "Toss Style - Dark": {
+      "primary": "f9fafb",
+      "secondary": "17171c",
+      "tertiary": "3182f6",
+      "quaternary": "3182f6",
+      "header_background": "17171c",
+      "header_primary": "f9fafb",
+      "highlight": "3182f6",
+      "selected": "1f2e4d",
+      "hover": "202027",
+      "danger": "f8745c",
+      "success": "42b72a",
+      "love": "fa6c8d"
+    }
+  },
+  "modifiers": {
+    "serialize_topic_excerpts": true,
+    "svg_icons": [
+      "far-heart",
+      "far-comment",
+      "far-eye"
+    ]
+  },
+  "learn_more": "https://meta.discourse.org/t/beginners-guide-to-using-discourse-themes/91966"
+}

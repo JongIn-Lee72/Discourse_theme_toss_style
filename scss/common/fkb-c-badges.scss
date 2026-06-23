@@ -1,0 +1,98 @@
+// FKBC - Badges
+
+// Badges
+
+.user-badge,
+.user-card .badge-section .more-user-badges a {
+  border-radius: var(--d-default-border-radius);
+}
+
+@if $category-badge-style == "bullet" {
+  .badge-category__wrapper {
+    .badge-category {
+      &:before {
+        border-radius: 50%;
+      }
+    }
+  }
+}
+
+@if $category-badge-style == "box" {
+  .badge-category__wrapper {
+    .badge-category {
+      background: var(--category-badge-color);
+      color: #ffffff !important;
+      padding: 4px 8px;
+      border-radius: var(--d-default-border-radius);
+      &:before {
+        display: none;
+      }
+    }
+    .d-icon {
+      color: #ffffff !important;
+    }
+    .badge-category__name {
+      line-height: var(--line-height-small);
+    }
+  }
+
+  .navigation-topics,
+  .categories-list,
+  body[class*=tag-]:not(.archetype-regular):not(.archetype-banner),
+  body[class*=category-]:not(.archetype-regular):not(.archetype-banner) {
+    .list-controls {
+      .container {
+        .combo-box.category-drop.has-selection {
+          .combo-box-header {
+            background: var(--category-badge-color) !important;
+            border-color: var(--category-badge-color);
+            .select-kit-header-wrapper {
+              > .d-icon {
+                color: #ffffff;
+              }
+              .select-kit-selected-name .name {
+                > .badge-category__wrapper {
+                  .badge-category {
+                    padding: 0;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+p.favorite-count {
+  margin: 0 0 20px 0;
+}
+
+.extra-info-wrapper {
+  .topic-statuses {
+    .d-icon {
+      color: var(--header_primary);
+    }
+  }
+  .topic-header-extra .discourse-tags {
+    a {
+      color: var(--header_primary) !important;
+    }
+  }
+}
+
+.badge-card {
+  @include bg-br;
+  .favorite-btn {
+    box-shadow: 0px 0px 0px 1px var(--primary-low);
+    border-radius: var(--d-default-border-radius);
+  }
+}
+
+.show-badge-details .badge-set-title {
+  @include bg-br;
+  .user-content {
+    box-shadow: none;
+  }
+}

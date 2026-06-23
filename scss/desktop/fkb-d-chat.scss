@@ -1,0 +1,17 @@
+// FKBD - Chat
+
+// Chat header icon
+
+.header-dropdown-toggle.open-chat {
+  .icon.active {
+    background: var(--tertiary-low);
+    border-radius: 50px;
+    &:hover {
+      background: var(--tertiary-low);
+    }
+    
+    .d-icon-comment {
+      color: var(--tertiary);
+    }
+  }
+}

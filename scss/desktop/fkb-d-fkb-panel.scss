@@ -1,0 +1,455 @@
+// FKBD - FKB Panel
+// Notion-Style Minimal Aesthetics & Glassmorphism
+
+.fkb-panel-sidebar {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: var(--d-sidebar-width);
+  transition: transform var(--d-sidebar-animation-time) cubic-bezier(0.25, 1, 0.5, 1);
+  
+  // Desktop
+  @media screen and (min-width: 1100px) {
+    body.fkb-panel-hidden & {
+      animation: fkb-panel-hide var(--d-sidebar-animation-time) forwards;
+      transform: translateX(100vw);
+    }
+  }
+
+  // Mobile / Tablet Drawer
+  @media screen and (max-width: 1099px) {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 290px;
+    height: 100vh;
+    z-index: 999;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.15);
+    
+    transform: translateX(0);
+    
+    body.fkb-panel-hidden & {
+      transform: translateX(100%);
+      animation: none !important;
+    }
+  }
+
+  .fkb-panel {
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: calc(var(--header-offset) + 2em);
+    margin-bottom: 0.5em;
+    color: var(--primary-high);
+    @include bg-br;
+    border: none !important;
+    border-radius: var(--tds-radius-l);
+    overflow: hidden;
+    transition: box-shadow 0.28s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.28s cubic-bezier(0.2, 0.8, 0.2, 1);
+
+    @media screen and (max-width: 1099px) {
+      height: 100% !important;
+      top: 0 !important;
+      margin-bottom: 0 !important;
+      border-radius: 0 !important;
+      border: none !important;
+      border-left: 1px solid rgba(var(--primary-rgb), 0.08) !important;
+    }
+
+    &:hover {
+      box-shadow: var(--tds-shadow-l);
+      transform: translateY(-2px);
+    }
+
+    .visitor {
+      display: none;
+    }
+
+    .anon & {
+      padding: var(--m3-space-l);
+      .visitor {
+        display: block;
+        background: rgba(var(--primary-rgb), 0.03);
+        border: none !important;
+        border-radius: var(--tds-radius-m);
+        padding: var(--m3-space-l);
+        
+        h2 {
+          font-size: 1.15em;
+          font-weight: 600;
+          margin: 0 0 var(--m3-space-s) 0;
+          color: var(--primary);
+        }
+        
+        img {
+          max-width: 100%;
+          height: auto;
+          border-radius: var(--tds-radius-s);
+          margin-bottom: var(--m3-space-m);
+        }
+
+        p {
+          font-size: 0.9em;
+          color: var(--primary-high);
+          line-height: 1.5;
+          margin-bottom: var(--m3-space-l);
+        }
+        
+        .sign-up-button {
+          display: block;
+          width: 100%;
+          background: var(--tertiary);
+          color: var(--secondary) !important;
+          border-radius: var(--tds-radius-m);
+          font-weight: 500;
+          padding: var(--m3-space-s) var(--m3-space-l);
+          text-align: center;
+          border: none;
+          @include m3-hover-overlay;
+          transition: background 0.2s ease, transform 0.2s ease;
+          &:hover {
+            background: var(--tertiary-hover);
+          }
+          &:active {
+            transform: scale(0.98);
+          }
+        }
+      }
+    }
+
+    .fkb-panel-top {
+      border-radius: var(--m3-radius-l) var(--m3-radius-l) 0 0;
+      background: transparent;
+      background-size: cover;
+      background-position: center;
+      margin: 0 auto;
+      
+      &.has-cover {
+        border-bottom: 1px solid rgba(var(--primary-rgb), 0.08);
+      }
+    }
+
+    .fkb-panel-contents {
+      border-radius: var(--m3-radius-l) var(--m3-radius-l) 0 0;
+      background: transparent;
+    }
+
+    .fkb-panel-contents-top {
+      display: flex;
+      align-items: center;
+      padding: var(--m3-space-l) var(--m3-space-l) var(--m3-space-m);
+      
+      .fkb-avatar {
+        display: flex;
+        align-items: center;
+        gap: var(--m3-space-m);
+        width: 100%;
+        
+        img.avatar {
+          border: 1px solid rgba(var(--primary-rgb), 0.08);
+          box-shadow: none;
+          border-radius: 50%;
+        }
+
+        .fkb-user-names {
+          display: flex;
+          flex-flow: column;
+          max-width: 180px;
+          
+          .fkb-name {
+            font-size: 1.05em;
+            font-weight: 600;
+            color: var(--primary);
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            line-height: 1.3;
+          }
+          
+          .fkb-username {
+            font-size: 0.85em;
+            font-weight: normal;
+            color: var(--primary-medium);
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            line-height: 1.3;
+            margin-top: 2px;
+            
+            &:before {
+              content: '@';
+            }
+          }
+        }
+      }
+    }
+
+    .fkb-panel-contents-stats {
+      display: flex;
+      flex-flow: column;
+      padding: var(--m3-space-m) var(--m3-space-l) var(--m3-space-l);
+      
+      .stats {
+        display: flex;
+        flex-direction: column;
+        gap: var(--tds-space-s);
+        margin-bottom: var(--m3-space-s);
+
+        a {
+          display: block;
+          width: 100%;
+          text-decoration: none;
+        }
+
+        .user-stat {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: var(--tds-space-m) var(--tds-space-l);
+          background: rgba(var(--primary-rgb), 0.03);
+          border-radius: var(--tds-radius-m);
+          border: none;
+          @include m3-hover-overlay;
+          transition: background 0.2s ease, transform 0.15s ease;
+          
+          &:hover {
+            background: rgba(var(--primary-rgb), 0.05);
+          }
+          &:active {
+            transform: scale(0.98);
+          }
+
+          .value {
+            color: var(--tds-blue);
+            font-weight: 700;
+            font-size: 1.05em;
+            order: 2;
+          }
+
+          .label {
+            color: var(--primary-high);
+            font-weight: 600;
+            font-size: 0.9em;
+            order: 1;
+            display: flex;
+            align-items: center;
+            gap: var(--tds-space-s);
+            
+            svg {
+              font-size: 1em;
+              color: var(--primary-medium);
+            }
+            .d-icon-heart {
+              color: var(--love);
+            }
+            .d-icon-square-check {
+              color: var(--success);
+            }
+          }
+        }
+      }
+
+      .badges {
+        display: flex;
+        align-items: center;
+        flex-flow: row wrap;
+        gap: var(--m3-space-xs);
+        border-top: 1px solid rgba(var(--primary-rgb), 0.06);
+        padding-top: var(--m3-space-m);
+        margin-top: var(--m3-space-s);
+
+        .user-badge {
+          background: rgba(var(--primary-rgb), 0.03);
+          border: 1px solid rgba(var(--primary-rgb), 0.05);
+          border-radius: var(--m3-radius-xs);
+          padding: var(--m3-space-xs) var(--m3-space-s);
+          font-size: 0.75em;
+          color: var(--primary-high);
+          display: inline-flex;
+          align-items: center;
+          gap: var(--m3-space-xs);
+          @include m3-hover-overlay;
+          transition: background 0.2s ease, border-color 0.2s ease;
+          
+          &:hover {
+            background: rgba(var(--primary-rgb), 0.05);
+            border-color: rgba(var(--primary-rgb), 0.1);
+          }
+
+          .d-icon {
+            font-size: 0.9em;
+          }
+        }
+        
+        .badge-type-1 .d-icon { color: var(--gold); }
+        .badge-type-2 .d-icon { color: var(--silver); }
+        .badge-type-3 .d-icon { color: var(--bronze); }
+        
+        .count {
+          font-size: 0.85em;
+          color: var(--primary-medium);
+        }
+      }
+    }
+
+    .fkb-panel-contents-bottom {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: var(--tds-space-s);
+      border-top: 1px solid rgba(var(--primary-rgb), 0.04);
+      padding: var(--tds-space-m) var(--tds-space-l);
+      background: transparent;
+      
+      .fkb-link,
+      .fkb-panel-inline-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 38px;
+        height: 38px;
+        padding: 0;
+        color: var(--primary-medium);
+        background: transparent;
+        border: none;
+        border-radius: var(--tds-radius-m);
+        @include m3-hover-overlay;
+        transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
+        
+        .d-icon {
+          font-size: 1.1em;
+          margin: 0;
+        }
+
+        &:hover,
+        &:focus {
+          background: rgba(var(--primary-rgb), 0.04);
+          color: var(--primary);
+        }
+        &:active {
+          transform: scale(0.95);
+        }
+      }
+
+      .fkb-panel-inline-toggle {
+        margin-left: auto;
+        color: var(--primary-medium);
+        
+        &:hover {
+          color: var(--tds-blue);
+        }
+      }
+    }
+  }
+}
+
+// FKB Panel Toggle Button
+.fkb-panel-toggle-button {
+  display: none; // 기본 숨김 (사이드바가 열려 있을 때는 내부 인라인 버튼 사용)
+  
+  body.fkb-panel-hidden & {
+    display: flex;
+    position: fixed;
+    left: auto;
+    right: 0; // Stick to the screen right edge
+    top: 150px;
+    z-index: 99;
+    
+    button.fkb-panel-toggle {
+      border-radius: var(--tds-radius-m) 0 0 var(--tds-radius-m) !important; // TDS Edge Tab Style
+      box-shadow: -2px 2px 12px rgba(0, 0, 0, 0.05);
+      background: var(--secondary) !important;
+      border: 1px solid rgba(var(--primary-rgb), 0.05) !important;
+      border-right: none !important;
+      transform: rotate(180deg); // Rotate icon to point left (open action)
+      width: 36px;
+      height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), 
+                  background-color 0.2s ease, 
+                  box-shadow 0.2s ease;
+      
+      &:hover {
+        transform: rotate(180deg) scale(1.05);
+        background: var(--secondary) !important;
+        box-shadow: -2px 4px 16px rgba(0, 0, 0, 0.08);
+      }
+      
+      &:active {
+        transform: rotate(180deg) scale(0.95);
+      }
+
+      .d-icon {
+        font-size: 0.95em;
+        color: var(--primary-high);
+        margin: 0;
+      }
+    }
+  }
+
+  @media screen and (max-width: 1099px) {
+    body.fkb-panel-hidden & {
+      position: fixed;
+      left: auto;
+      right: 0;
+      bottom: 7.5em;
+      top: auto;
+    }
+  }
+}
+
+// FKBD - Right Sidebar Blocks below FKB Panel
+@if $right-sidebar-below-fkb-panel == "true" {
+  .list-container {
+    .full-width {
+      #list-area {
+        width: 100%;
+      }
+      .tc-right-sidebar {
+        display: none;
+      }
+    }
+  }
+  .fkb-panel-sidebar {
+    .fkb-panel {
+      position: relative;
+      top: 0;
+      margin-bottom: 1em;
+    }
+    
+    .tc-right-sidebar {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      max-width: var(--d-sidebar-width);
+      width: 100%;
+      
+      @if $right-sidebar-blocks-expanded == "false" {
+        position: sticky;
+        top: calc(var(--header-offset) + 2em);
+        padding: 1em;
+        max-height: calc(100vh - var(--header-offset) - 4em);
+        overflow-y: auto;
+        @include bg-br;
+      }
+      
+      .rs-component {
+        @if $right-sidebar-blocks-expanded == "true" {
+          padding: 1em;
+          @include bg-br;
+          
+          &:last-of-type {
+            position: sticky;
+            top: calc(var(--header-offset) + 2em);
+            overflow-y: auto;
+            max-height: calc(100vh - 10em);
+          }
+        }
+      }
+
+      @include custom-scrollbar;
+    }
+  }
+}

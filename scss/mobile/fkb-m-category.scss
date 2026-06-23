@@ -1,0 +1,36 @@
+// FKBM - Category
+
+// Category page
+
+.category-list {
+  width: calc(100vw - 20px);
+  &.subcategory-list {
+    .parent-category {
+      display: none;
+    }
+    .subcategories {
+      .category-list-item {
+        // If only one subcategory (first and last child)
+        &:first-child:last-child {
+          border-radius: var(--d-default-border-radius);
+        }
+      }
+    }
+  }
+  .category-list-item {
+    margin: 0;
+    &:first-child {
+      margin-top: 1em;
+      border-radius: var(--d-default-border-radius) 0 0 0;
+      border-top: none !important;
+    }
+    &:last-child {
+      margin-bottom: 2em;
+      border-radius: 0 0 0 var(--d-default-border-radius);
+      border-bottom: none !important;
+    }
+    .main-link {
+      box-shadow: none;
+    }
+  }
+}
