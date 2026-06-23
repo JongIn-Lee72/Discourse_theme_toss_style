@@ -3,15 +3,30 @@ import { apiInitializer } from "discourse/lib/api";
 export default apiInitializer("1.8.0", (api) => {
   const relocateSearch = () => {
     const navControls = document.querySelector(".navigation-controls");
+    
+    // Find the search bar form or input wrapper
     const searchBar = document.querySelector(".custom-search-banner-wrap form") || 
                       document.querySelector(".search-menu-container form") || 
                       (document.querySelector(".search-input") ? document.querySelector(".search-input").closest("form") : null) ||
                       document.querySelector(".search-menu-container") || 
                       document.querySelector(".search-input");
 
-    if (navControls && searchBar && !navControls.contains(searchBar)) {
-      // Move search bar to the left of the other controls (admin dropdown / create topic)
-      navControls.insertBefore(searchBar, navControls.firstChild);
+    // Find the separate search icon button
+    const searchIcon = document.querySelector(".custom-search-banner-wrap .search-icon") || 
+                       document.querySelector("#main-outlet .search-icon");
+
+    if (navControls) {
+      if (searchBar && !navControls.contains(searchBar)) {
+        navControls.insertBefore(searchBar, navControls.firstChild);
+      }
+      if (searchIcon && !navControls.contains(searchIcon)) {
+        // Insert right after the searchBar (which is currently the first child)
+        if (searchBar && searchBar.nextSibling) {
+          navControls.insertBefore(searchIcon, searchBar.nextSibling);
+        } else {
+          navControls.appendChild(searchIcon);
+        }
+      }
     }
   };
 
@@ -20,16 +35,7 @@ export default apiInitializer("1.8.0", (api) => {
     
     // Watch for dynamic DOM insertions
     const observer = new MutationObserver((mutations, obs) => {
-      const navControls = document.querySelector(".navigation-controls");
-      const searchBar = document.querySelector(".custom-search-banner-wrap form") || 
-                        document.querySelector(".search-menu-container form") || 
-                        (document.querySelector(".search-input") ? document.querySelector(".search-input").closest("form") : null) ||
-                        document.querySelector(".search-menu-container") || 
-                        document.querySelector(".search-input");
-      if (navControls && searchBar && !navControls.contains(searchBar)) {
-        relocateSearch();
-        obs.disconnect();
-      }
+      relocateSearch();
     });
 
     observer.observe(document.body, {
