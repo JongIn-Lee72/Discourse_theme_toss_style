@@ -256,20 +256,33 @@ body[class*="category-"] #main-outlet {
   width: 100% !important;
 }
 
-/* 검색바 상단행 강제 배치를 위한 래퍼 스타일링 */
+/* 검색바 상단행 강제 배치를 위한 래퍼 스타일링 (통합 검색바로 디자인) */
 #main-outlet .list-controls .navigation-container .relocated-search-wrapper,
 .list-controls .navigation-container .relocated-search-wrapper,
 .navigation-container .relocated-search-wrapper,
 .relocated-search-wrapper {
-  width: 100% !important;
-  display: flex !important;
-  justify-content: flex-end !important;
+  width: 320px !important; /* 전체 통합 가로폭 320px */
+  min-width: 320px !important;
+  max-width: 320px !important;
+  height: 36px !important;
+  display: inline-flex !important;
   align-items: center !important;
-  gap: 4px !important;
   order: -1 !important; /* 항상 최상단에 배치 */
+  margin: 0 0 12px auto !important; /* margin-left: auto 로 우측 정렬 강제! */
+  padding: 0 4px 0 16px !important; /* 왼쪽 16px 패딩, 오른쪽 버튼용 4px 패딩 */
   box-sizing: border-box !important;
-  margin: 0 0 12px 0 !important;
-  padding: 0 !important;
+  background-color: var(--secondary) !important;
+  border: 1px solid var(--primary-low) !important;
+  border-radius: 100px !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+  overflow: visible !important;
+}
+
+/* 포커스 시 테두리 색상 변경 */
+#main-outlet .list-controls .navigation-container .relocated-search-wrapper:focus-within,
+.relocated-search-wrapper:focus-within {
+  border-color: var(--tds-blue) !important;
+  box-shadow: 0 0 0 1px var(--tds-blue) !important;
 }
 
 /* 이동된 검색바 폼 */
@@ -280,48 +293,82 @@ body[class*="category-"] #main-outlet {
 .relocated-search-wrapper .relocated-search-form {
   display: inline-flex !important;
   align-items: center !important;
-  gap: 4px !important;
-  margin: 0 0 0 auto !important; /* margin-left: auto 로 우측 정렬 강제! */
+  margin: 0 !important;
   padding: 0 !important;
-  height: 36px !important;
-  width: 320px !important;
-  min-width: 320px !important;
-  max-width: 320px !important;
-  flex: none !important; /* flex-grow 방지 */
+  height: 100% !important;
+  flex: 1 1 auto !important; /* 남은 가로폭을 모두 차지 */
+  width: auto !important;
+  min-width: 0 !important;
+  max-width: none !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
   position: relative !important;
   box-sizing: border-box !important;
 }
 
+/* 검색창 input */
 #main-outlet .list-controls .navigation-container .relocated-search-wrapper .relocated-search-form input,
-.relocated-search-form input,
-.relocated-search-form input[type="text"],
-.relocated-search-form input#search-term[type="text"] {
-  height: 36px !important;
-  min-height: 36px !important;
-  max-height: 36px !important;
-  padding: 0 16px !important;
+.relocated-search-wrapper .relocated-search-form input,
+.relocated-search-wrapper .relocated-search-form input[type="text"],
+.relocated-search-wrapper .relocated-search-form input#search-term[type="text"] {
+  height: 100% !important;
+  min-height: 100% !important;
+  max-height: 100% !important;
+  padding: 0 !important; /* 이미 래퍼에 패딩이 있으므로 0으로 리셋 */
   font-size: 0.857em !important;
   line-height: 1 !important;
-  border-radius: 100px !important;
-  border: 1px solid var(--primary-low) !important;
-  background-color: var(--secondary) !important;
+  border: none !important;
+  background-color: transparent !important;
+  background: transparent !important;
   color: var(--primary) !important;
+  box-shadow: none !important;
   box-sizing: border-box !important;
   width: 100% !important;
+  flex: 1 1 auto !important;
   margin: 0 !important;
   text-align: left !important;
-  transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease !important;
-}
-
-#main-outlet .list-controls .navigation-container .relocated-search-wrapper .relocated-search-form input:focus,
-.relocated-search-form input:focus {
-  background-color: var(--secondary) !important;
-  border-color: var(--tds-blue) !important;
-  box-shadow: 0 0 0 1px var(--tds-blue) !important;
   outline: none !important;
 }
 
-/* 돋보기 버튼 스타일링 */
+/* 포커스 시 기본 인풋 테두리/그림자 차단 */
+#main-outlet .list-controls .navigation-container .relocated-search-wrapper .relocated-search-form input:focus,
+.relocated-search-wrapper .relocated-search-form input:focus {
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+/* 상세 검색(Show Advanced Search) 필터 버튼 */
+#main-outlet .list-controls .navigation-container .relocated-search-wrapper .show-advanced-search,
+.relocated-search-wrapper .show-advanced-search,
+.relocated-search-wrapper form .show-advanced-search {
+  border: none !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  padding: 0 4px !important;
+  margin: 0 !important;
+  height: 32px !important;
+  width: 32px !important;
+  min-width: 32px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: var(--primary-medium) !important;
+  cursor: pointer !important;
+  flex: none !important;
+  transition: color 0.2s ease !important;
+}
+
+#main-outlet .list-controls .navigation-container .relocated-search-wrapper .show-advanced-search:hover,
+.relocated-search-wrapper .show-advanced-search:hover {
+  color: var(--primary) !important;
+  background: transparent !important;
+}
+
+/* 돋보기 버튼 스타일링 (배경 및 테두리 제거하여 래퍼와 통합) */
 #main-outlet .list-controls .navigation-container .relocated-search-wrapper .relocated-search-icon,
 .list-controls .navigation-container .relocated-search-wrapper .relocated-search-icon,
 .navigation-container .relocated-search-wrapper .relocated-search-icon,
@@ -329,29 +376,30 @@ body[class*="category-"] #main-outlet {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  height: 36px !important;
-  min-height: 36px !important;
-  max-height: 36px !important;
-  width: 36px !important;
-  min-width: 36px !important;
-  max-width: 36px !important;
+  height: 32px !important;
+  min-height: 32px !important;
+  max-height: 32px !important;
+  width: 32px !important;
+  min-width: 32px !important;
+  max-width: 32px !important;
   border-radius: 100px !important;
-  border: 1px solid var(--primary-low) !important;
-  background-color: var(--secondary) !important;
+  border: none !important; /* 테두리 제거 */
+  background: transparent !important; /* 배경 제거 */
+  background-color: transparent !important;
+  box-shadow: none !important;
   color: var(--primary-medium) !important;
   padding: 0 !important;
-  margin: 0 !important;
-  flex: none !important; /* flex-grow 방지 */
+  margin: 0 0 0 2px !important; /* 소량의 간격 */
+  flex: none !important;
   box-sizing: border-box !important;
   cursor: pointer !important;
-  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease !important;
+  transition: color 0.2s ease !important;
 }
 
 #main-outlet .list-controls .navigation-container .relocated-search-wrapper .relocated-search-icon:hover,
 .relocated-search-icon:hover {
-  background-color: rgba(0, 0, 0, 0.04) !important;
   color: var(--primary) !important;
-  border-color: var(--primary-medium) !important;
+  background: transparent !important;
 }
 
 #main-outlet .list-controls .navigation-container .relocated-search-wrapper .relocated-search-icon .d-icon,
@@ -386,13 +434,14 @@ body[class*="category-"] #main-outlet {
 
 /* 모바일 정렬 보정 */
 @media screen and (max-width: 800px) {
+  #main-outlet .list-controls .navigation-container .relocated-search-wrapper,
+  .list-controls .navigation-container .relocated-search-wrapper,
+  .navigation-container .relocated-search-wrapper,
   .relocated-search-wrapper {
-    margin-bottom: 8px !important;
-  }
-  .relocated-search-wrapper .relocated-search-form {
-    width: calc(100% - 44px) !important; /* 36px button + 8px gap */
-    min-width: 0 !important;
+    width: 100% !important;
     max-width: none !important;
+    min-width: 0 !important;
+    margin-bottom: 8px !important;
   }
   #main-outlet .list-controls .navigation-container,
   .list-controls .navigation-container {
