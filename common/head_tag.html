@@ -278,6 +278,7 @@ body[class*="category-"] #main-outlet {
   width: 320px !important;
   min-width: 320px !important;
   max-width: 320px !important;
+  flex: none !important; /* flex-grow 방지 */
   position: relative !important;
   box-sizing: border-box !important;
 }
@@ -326,6 +327,7 @@ body[class*="category-"] #main-outlet {
   color: var(--primary-medium) !important;
   padding: 0 !important;
   margin: 0 !important;
+  flex: none !important; /* flex-grow 방지 */
   box-sizing: border-box !important;
   cursor: pointer !important;
   transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease !important;
