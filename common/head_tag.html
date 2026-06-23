@@ -569,6 +569,50 @@ body[class*="category-"] #main-outlet {
   order: 2 !important; /* 검색바(order: 1) 뒤에 배치 */
 }
 
+/* 카테고리 편집 버튼(.edit-category) 깨짐 방지 */
+#main-outlet .list-controls .navigation-controls .edit-category,
+.list-controls .navigation-controls .edit-category,
+.list-controls .navigation-controls button.edit-category,
+.navigation-controls .btn.edit-category,
+.navigation-controls button.btn.edit-category {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 36px !important;
+  min-width: 36px !important;
+  max-width: 36px !important;
+  height: 36px !important;
+  min-height: 36px !important;
+  max-height: 36px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border-radius: 100px !important;
+  border: 1px solid var(--primary-low) !important;
+  background-color: var(--secondary) !important;
+  box-shadow: none !important;
+  box-sizing: border-box !important;
+  cursor: pointer !important;
+  transition: background-color 0.2s ease, border-color 0.2s ease !important;
+  overflow: hidden !important;
+  color: var(--primary-medium) !important;
+}
+
+#main-outlet .list-controls .navigation-controls .edit-category:hover,
+.list-controls .navigation-controls .edit-category:hover,
+.navigation-controls .btn.edit-category:hover {
+  background-color: rgba(0, 0, 0, 0.04) !important;
+  border-color: var(--primary-medium) !important;
+  color: var(--primary) !important;
+}
+
+#main-outlet .list-controls .navigation-controls .edit-category .d-icon,
+.list-controls .navigation-controls .edit-category .d-icon,
+.navigation-controls .btn.edit-category .d-icon {
+  font-size: 0.857em !important;
+  margin: 0 !important;
+  color: inherit !important;
+}
+
 /* 모바일 정렬 보정 */
 @media screen and (max-width: 800px) {
   #main-outlet .list-controls .navigation-container .relocated-search-wrapper,
