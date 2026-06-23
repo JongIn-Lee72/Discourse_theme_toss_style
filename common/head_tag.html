@@ -446,6 +446,25 @@ body[class*="category-"] #main-outlet {
   z-index: 1000 !important;
 }
 
+/* 검색창 자동완성/문법도움말 드롭다운 위치 보정 */
+#main-outlet .list-controls .navigation-container .unified-search-bar .relocated-search-form .autocomplete,
+#main-outlet .list-controls .navigation-container .unified-search-bar .autocomplete,
+.unified-search-bar .autocomplete,
+.unified-search-bar .autocomplete-ac,
+.unified-search-bar .autocomplete-menu,
+.unified-search-bar .relocated-search-form .autocomplete,
+.unified-search-bar .relocated-search-form .autocomplete-ac,
+.unified-search-bar .relocated-search-form .autocomplete-menu {
+  top: calc(100% + 8px) !important;
+  left: 0 !important;
+  transform: none !important;
+  width: 320px !important;
+  max-width: 320px !important;
+  box-sizing: border-box !important;
+  z-index: 10000 !important;
+  position: absolute !important;
+}
+
 /* 우측 글쓰기/설정 버튼들(navigation-controls)을 하단행의 우측 끝으로 배치 */
 #main-outlet .list-controls .navigation-controls,
 .list-controls .navigation-controls {
