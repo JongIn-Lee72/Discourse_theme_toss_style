@@ -321,6 +321,9 @@ body[class*="category-"]:not(.archetype-regular):not(.archetype-banner) {
 
 // 1. Welcome banner transparent override
 .welcome-banner,
+.welcome-banner-wrap,
+.welcome-banner__wrap,
+.welcome-banner-container,
 .welcome-banner.--location-above-topic-content {
   border: none !important;
   box-shadow: none !important;
@@ -349,5 +352,6 @@ body[class*="category-"]:not(.archetype-regular):not(.archetype-banner) {
 .category-list {
   margin-top: 0 !important;
 }
+
 
 

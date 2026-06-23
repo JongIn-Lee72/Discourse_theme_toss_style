@@ -48,10 +48,10 @@
   }
 }
 
-// Responsive search dropdown menu matching category-list width
-.search-menu-container,
-.menu-panel-results,
-.search-menu-container.menu-panel-results {
+// Responsive search dropdown menu matching category-list width (Header-only)
+.d-header .search-menu-container,
+.d-header .menu-panel-results,
+.d-header .search-menu-container.menu-panel-results {
   position: absolute !important;
   right: 0 !important;
   left: auto !important;
@@ -69,5 +69,6 @@
     }
   }
 }
+
 
 
