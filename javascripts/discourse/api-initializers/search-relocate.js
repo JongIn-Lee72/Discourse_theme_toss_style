@@ -7,11 +7,19 @@ export default apiInitializer("1.8.0", (api) => {
     const navContainer = document.querySelector(".navigation-container");
     if (!navContainer) return;
     
-    // Find or create the search wrapper
+    // Find or create the outer search wrapper
     let searchWrapper = document.querySelector(".relocated-search-wrapper");
     if (!searchWrapper) {
       searchWrapper = document.createElement("div");
       searchWrapper.className = "relocated-search-wrapper";
+    }
+
+    // Find or create the inner unified search bar
+    let unifiedSearchBar = searchWrapper.querySelector(".unified-search-bar");
+    if (!unifiedSearchBar) {
+      unifiedSearchBar = document.createElement("div");
+      unifiedSearchBar.className = "unified-search-bar";
+      searchWrapper.appendChild(unifiedSearchBar);
     }
     
     // Find the search bar form or input wrapper
@@ -25,11 +33,11 @@ export default apiInitializer("1.8.0", (api) => {
                     document.querySelector(".search-menu-container") || 
                     document.querySelector(".search-input");
 
-    // Fallback: search for any form that has search inputs and is not already inside navigation controls or search wrapper
+    // Fallback: search for any form that has search inputs and is not already inside navigation controls or unified search bar
     if (!searchBar) {
       const allForms = document.querySelectorAll("form");
       for (const form of allForms) {
-        if (!form.closest(".navigation-controls") && !form.closest(".relocated-search-wrapper") && 
+        if (!form.closest(".navigation-controls") && !form.closest(".unified-search-bar") && 
             (form.querySelector(".search-input") || form.querySelector("input#search-term") || form.classList.contains("search-menu-container"))) {
           searchBar = form;
           break;
@@ -45,11 +53,11 @@ export default apiInitializer("1.8.0", (api) => {
                      document.querySelector(".custom-search-banner-wrap .search-icon") || 
                      document.querySelector("#main-outlet .search-icon");
 
-    // Fallback: search for any .search-icon element not already inside navigation controls or search wrapper
+    // Fallback: search for any .search-icon element not already inside navigation controls or unified search bar
     if (!searchIcon) {
       const allSearchIcons = document.querySelectorAll(".search-icon");
       for (const icon of allSearchIcons) {
-        if (!icon.closest(".navigation-controls") && !icon.closest(".relocated-search-wrapper")) {
+        if (!icon.closest(".navigation-controls") && !icon.closest(".unified-search-bar")) {
           searchIcon = icon;
           break;
         }
@@ -57,15 +65,15 @@ export default apiInitializer("1.8.0", (api) => {
     }
 
     if (searchBar) {
-      if (!searchWrapper.contains(searchBar)) {
-        searchWrapper.appendChild(searchBar);
+      if (!unifiedSearchBar.contains(searchBar)) {
+        unifiedSearchBar.appendChild(searchBar);
       }
       searchBar.classList.add("relocated-search-form");
     }
 
     if (searchIcon) {
-      if (!searchWrapper.contains(searchIcon)) {
-        searchWrapper.appendChild(searchIcon);
+      if (!unifiedSearchBar.contains(searchIcon)) {
+        unifiedSearchBar.appendChild(searchIcon);
       }
       searchIcon.classList.add("relocated-search-icon");
     }
