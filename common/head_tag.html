@@ -16,7 +16,7 @@
   background-color: transparent !important;
 }
 
-/* 2. 그리드 6번 영역(loader) 제거: nav → topic-list 직접 연결 */
+/* 2. 그리드 6번 영역(loader) 제거 및 row-gap 초기화: nav → topic-list 직접 연결 */
 .navigation-topics #main-outlet,
 .categories-list #main-outlet,
 body[class*="tag-"] #main-outlet,
@@ -29,6 +29,7 @@ body[class*="category-"] #main-outlet {
     "nav fkb-panel"
     "topic-list fkb-panel" !important;
   grid-template-rows: auto auto auto auto auto 1fr !important;
+  row-gap: 0px !important;
 }
 
 /* 사이드바 열림 상태 */
@@ -41,6 +42,7 @@ body[class*="category-"] #main-outlet {
     "nav nav"
     "topic-list fkb-panel" !important;
   grid-template-rows: auto auto auto auto auto 1fr !important;
+  row-gap: 0px !important;
 }
 
 /* 3. 중앙 검색바(search-menu-container) 가로 폭 100% 확대 */
@@ -141,37 +143,55 @@ body[class*="category-"] #main-outlet {
   box-shadow: none !important;
 }
 
-/* 5. 내비게이션과 글 목록 사이 6번 간격 삭제 */
+/* 5. 내비게이션과 글 목록 사이 6번 간격 및 list-controls 하단 공백 완전 제거 */
 #main-outlet .list-controls,
-#main-outlet .navigation-container,
-.navigation-categories .navigation-container,
-.categories-list .navigation-container,
-.navigation-topics .list-controls,
+#main-outlet .list-controls .container,
+#main-outlet .list-controls .navigation-container,
+#main-outlet .list-controls .navigation-controls,
+#main-outlet .list-controls .category-breadcrumb,
+#main-outlet .list-controls #navigation-bar,
+#main-outlet .list-controls .nav-pills,
 .list-controls,
-.navigation-container {
+.list-controls .container,
+.list-controls .navigation-container,
+.list-controls .navigation-controls,
+.list-controls .category-breadcrumb,
+.list-controls #navigation-bar,
+.list-controls .nav-pills {
   margin-bottom: 0 !important;
   padding-bottom: 0 !important;
 }
 
-.list-controls .container {
-  margin-bottom: 0 !important;
-  padding-bottom: 0 !important;
+/* 내비게이션 상단 간격 유지 (웰컴 배너와의 사이 24px) */
+.list-controls {
+  margin-top: 24px !important;
 }
 
 #list-area,
 .list-container,
 .category-list,
-.topic-list {
-  margin-top: -24px !important;
+.topic-list,
+.category-boxes,
+.categories-and-latest,
+.categories-and-top,
+.tag-info {
+  margin-top: 0px !important; /* row-gap이 0이므로 음수 마진 불필요 */
   padding-top: 0 !important;
 }
 
 @media screen and (max-width: 1099px) {
+  .list-controls {
+    margin-top: 16px !important;
+  }
   #list-area,
   .list-container,
   .category-list,
-  .topic-list {
-    margin-top: -16px !important;
+  .topic-list,
+  .category-boxes,
+  .categories-and-latest,
+  .categories-and-top,
+  .tag-info {
+    margin-top: 0px !important;
   }
 }
 </style>
