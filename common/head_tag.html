@@ -300,14 +300,36 @@ body[class*="category-"] #main-outlet {
 
 /* 7. category-breadcrumb 및 nav-pills 내부 간격 4px으로 축소 */
 .list-controls .category-breadcrumb,
-.category-breadcrumb {
+.category-breadcrumb,
+#main-outlet .list-controls .category-breadcrumb {
   gap: 4px !important;
+}
+
+.list-controls .category-breadcrumb li,
+.category-breadcrumb li,
+.category-breadcrumb > li,
+#main-outlet .list-controls .category-breadcrumb li {
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+  margin: 0 !important;
 }
 
 .list-controls .nav-pills,
 .nav-pills,
-#navigation-bar {
+#navigation-bar,
+#main-outlet .list-controls .nav-pills {
   gap: 4px !important;
+}
+
+.list-controls .nav-pills > li,
+.nav-pills > li,
+.nav-pills li,
+#navigation-bar li,
+#navigation-bar > li,
+#main-outlet .list-controls .nav-pills li {
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+  margin: 0 !important;
 }
 
 /* 모바일 정렬 보정 */
