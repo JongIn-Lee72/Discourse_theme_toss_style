@@ -329,6 +329,23 @@ body[class*="category-"]:not(.archetype-regular):not(.archetype-banner) {
   box-shadow: none !important;
   background: transparent !important;
   background-color: transparent !important;
+
+  // Welcome 배너 내부 검색바 가로 폭 확대 (category-list 가로폭과 매치)
+  .welcome-search-container,
+  .search-bar,
+  .search-input,
+  .search-widget {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+
+    input#search-term,
+    input[type="text"] {
+      width: 100% !important;
+      max-width: 100% !important;
+      box-sizing: border-box !important;
+    }
+  }
 }
 
 // 2. Responsive gap between navigation-container and category-list (36px -> 24px -> 16px)
@@ -339,7 +356,7 @@ body[class*="category-"]:not(.archetype-regular):not(.archetype-banner) {
 .navigation-topics .list-controls,
 .list-controls,
 .navigation-container {
-  margin-bottom: 36px !important;
+  margin-bottom: 36px !important; // 데스크톱 36px 고정
 
   @media screen and (max-width: 1099px) {
     margin-bottom: 24px !important;
@@ -354,15 +371,9 @@ body[class*="category-"]:not(.archetype-regular):not(.archetype-banner) {
 .category-boxes,
 .categories-and-latest,
 .categories-list {
-  margin-top: 12px !important; // 24px grid-gap + 12px margin-top = 36px 간격 확보!
-
-  @media screen and (max-width: 1099px) {
-    margin-top: 0 !important; // 1열 그리드 gap 24px 유지
-  }
-  @media screen and (max-width: 600px) {
-    margin-top: 0 !important; // 1열 그리드 gap 16px 유지
-  }
+  margin-top: 0 !important; // 누적 마진 겹침 방지를 위해 탑 마진 리셋
 }
+
 
 
 

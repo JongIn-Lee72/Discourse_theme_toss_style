@@ -216,4 +216,23 @@ img.avatar,
   }
 }
 
+// 높은 구체성 선택자로 네비게이션 탭 크기 강제 적용
+#navigation-bar .nav-pills > li > a,
+#navigation-bar .nav-pills > li a,
+#navigation-bar .nav-pills a,
+.list-controls .nav-pills > li > a,
+.list-controls .nav-pills a,
+.nav-pills > li > a,
+.nav-pills a {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 36px !important; // select-kit-header(36px)와 완전 일치
+  padding: 0 16px !important;
+  font-size: var(--font-down-1) !important;
+  line-height: var(--line-height-small) !important;
+  box-sizing: border-box !important;
+}
+
+
 
