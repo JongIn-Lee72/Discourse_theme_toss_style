@@ -203,6 +203,8 @@ body[class*="category-"] #main-outlet {
 .list-controls,
 #main-outlet .list-controls .container,
 .list-controls .container,
+#main-outlet .list-controls .navigation-container,
+.list-controls .navigation-container,
 #main-outlet .list-controls .navigation-controls,
 .navigation-controls {
   overflow: visible !important;
@@ -243,49 +245,50 @@ body[class*="category-"] #main-outlet {
   }
 }
 
-/* 6. 내비게이션 컨트롤 영역(navigation-controls)으로 이동한 검색바 및 버튼 스타일링 */
-.navigation-controls form,
-.navigation-controls .relocated-search-form {
+/* 6. 내비게이션 컨트롤 영역(navigation-container) flex 배치 및 검색바 상단행 우측정렬 */
+#main-outlet .list-controls .navigation-container,
+.list-controls .navigation-container {
+  display: flex !important;
+  flex-flow: row wrap !important;
+  align-items: center !important;
+  row-gap: 12px !important;
+  column-gap: 8px !important;
+  width: 100% !important;
+}
+
+/* 검색바 상단행 강제 배치를 위한 래퍼 스타일링 */
+.relocated-search-wrapper {
+  width: 100% !important;
+  display: flex !important;
+  justify-content: flex-end !important;
+  align-items: center !important;
+  gap: 4px !important;
+  order: -1 !important; /* 항상 최상단에 배치 */
+  box-sizing: border-box !important;
+}
+
+/* 이동된 검색바 폼 */
+.relocated-search-form {
   display: inline-flex !important;
   align-items: center !important;
   gap: 4px !important;
   margin: 0 !important;
   padding: 0 !important;
   height: 36px !important;
-  box-sizing: border-box !important;
-}
-
-.navigation-controls .search-input,
-.navigation-controls .search-menu-container,
-.navigation-controls form .search-input,
-.navigation-controls form .search-menu-container,
-.navigation-controls .relocated-search-form,
-.navigation-controls form.relocated-search-form {
-  display: inline-flex !important;
-  align-items: center !important;
-  height: 36px !important;
-  min-height: 36px !important;
-  max-height: 36px !important;
-  width: 320px !important; /* 200px에서 320px로 확장하여 내부 충돌 방지 */
+  width: 320px !important;
   min-width: 320px !important;
   max-width: 320px !important;
-  margin: 0 !important;
-  padding: 0 !important;
   position: relative !important;
   box-sizing: border-box !important;
 }
 
-.navigation-controls .search-input input#search-term[type=text],
-.navigation-controls .search-menu-container input[type="text"],
-.navigation-controls form .search-input input#search-term[type=text],
-.navigation-controls form .search-menu-container input[type="text"],
-.navigation-controls .relocated-search-form input,
-.navigation-controls .relocated-search-form input[type="text"],
-.navigation-controls .relocated-search-form input#search-term[type=text] {
+.relocated-search-form input,
+.relocated-search-form input[type="text"],
+.relocated-search-form input#search-term[type="text"] {
   height: 36px !important;
   min-height: 36px !important;
   max-height: 36px !important;
-  padding: 0 16px !important; /* 검색 아이콘이 분리되었으므로 패딩을 16px로 대칭화하여 텍스트 깨짐 방지 */
+  padding: 0 16px !important;
   font-size: 0.857em !important;
   line-height: 1 !important;
   border-radius: 100px !important;
@@ -299,22 +302,15 @@ body[class*="category-"] #main-outlet {
   transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease !important;
 }
 
-.navigation-controls .search-input input#search-term[type=text]:focus,
-.navigation-controls .search-menu-container input[type="text"]:focus,
-.navigation-controls form .search-input input#search-term[type=text]:focus,
-.navigation-controls form .search-menu-container input[type="text"]:focus,
-.navigation-controls .relocated-search-form input:focus,
-.navigation-controls .relocated-search-form input[type="text"]:focus {
+.relocated-search-form input:focus {
   background-color: var(--secondary) !important;
   border-color: var(--tds-blue) !important;
   box-shadow: 0 0 0 1px var(--tds-blue) !important;
   outline: none !important;
 }
 
-/* 웰컴 배너에서 같이 이동한 search-icon 버튼 스타일링 (내비게이션 조작부 내 정렬) */
-.navigation-controls .search-icon,
-.navigation-controls form .search-icon,
-.navigation-controls .relocated-search-icon {
+/* 돋보기 버튼 스타일링 */
+.relocated-search-icon {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
@@ -329,42 +325,71 @@ body[class*="category-"] #main-outlet {
   background-color: var(--secondary) !important;
   color: var(--primary-medium) !important;
   padding: 0 !important;
-  margin: 0 0 0 4px !important; /* 검색바와의 간격 살짝 확보 */
+  margin: 0 !important;
   box-sizing: border-box !important;
   cursor: pointer !important;
   transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease !important;
 }
 
-.navigation-controls .search-icon:hover,
-.navigation-controls form .search-icon:hover,
-.navigation-controls .relocated-search-icon:hover {
+.relocated-search-icon:hover {
   background-color: rgba(0, 0, 0, 0.04) !important;
   color: var(--primary) !important;
   border-color: var(--primary-medium) !important;
 }
 
-.navigation-controls .search-icon .d-icon,
-.navigation-controls form .search-icon .d-icon,
-.navigation-controls .search-icon svg,
-.navigation-controls form .search-icon svg,
-.navigation-controls .relocated-search-icon .d-icon,
-.navigation-controls .relocated-search-icon svg {
+.relocated-search-icon .d-icon,
+.relocated-search-icon svg {
   margin: 0 !important;
   font-size: 0.857em !important;
   display: inline-block !important;
 }
 
 /* 검색 결과 드롭다운 위치 보정 */
-.navigation-controls .search-input .results,
-.navigation-controls .search-menu-container .results,
-.navigation-controls form .results,
-.navigation-controls .relocated-search-form .results {
+.relocated-search-form .results {
   top: calc(100% + 8px) !important;
   width: 320px !important;
   max-width: 320px !important;
   left: 0 !important;
   transform: none !important;
   z-index: 1000 !important;
+}
+
+/* 우측 글쓰기/설정 버튼들(navigation-controls)을 하단행의 우측 끝으로 배치 */
+#main-outlet .list-controls .navigation-controls,
+.list-controls .navigation-controls {
+  margin-left: auto !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  height: 36px !important;
+  padding: 0 !important;
+}
+
+/* 모바일 정렬 보정 */
+@media screen and (max-width: 800px) {
+  .relocated-search-wrapper {
+    margin-bottom: 8px !important;
+  }
+  .relocated-search-wrapper .relocated-search-form {
+    width: calc(100% - 44px) !important; /* 36px button + 8px gap */
+    min-width: 0 !important;
+    max-width: none !important;
+  }
+  #main-outlet .list-controls .navigation-container,
+  .list-controls .navigation-container {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+  .list-controls .category-breadcrumb,
+  .list-controls .nav-pills {
+    width: 100% !important;
+  }
+  #main-outlet .list-controls .navigation-controls,
+  .list-controls .navigation-controls {
+    margin-left: 0 !important;
+    width: 100% !important;
+    justify-content: flex-end !important;
+  }
 }
 
 /* 7. category-breadcrumb 및 nav-pills 내부 간격 4px으로 축소 */
