@@ -244,7 +244,8 @@ body[class*="category-"] #main-outlet {
 }
 
 /* 6. 내비게이션 컨트롤 영역(navigation-controls)으로 이동한 검색바 및 버튼 스타일링 */
-.navigation-controls form {
+.navigation-controls form,
+.navigation-controls .relocated-search-form {
   display: inline-flex !important;
   align-items: center !important;
   gap: 4px !important;
@@ -257,13 +258,17 @@ body[class*="category-"] #main-outlet {
 .navigation-controls .search-input,
 .navigation-controls .search-menu-container,
 .navigation-controls form .search-input,
-.navigation-controls form .search-menu-container {
+.navigation-controls form .search-menu-container,
+.navigation-controls .relocated-search-form,
+.navigation-controls form.relocated-search-form {
   display: inline-flex !important;
   align-items: center !important;
   height: 36px !important;
   min-height: 36px !important;
   max-height: 36px !important;
   width: 320px !important; /* 200px에서 320px로 확장하여 내부 충돌 방지 */
+  min-width: 320px !important;
+  max-width: 320px !important;
   margin: 0 !important;
   padding: 0 !important;
   position: relative !important;
@@ -273,7 +278,10 @@ body[class*="category-"] #main-outlet {
 .navigation-controls .search-input input#search-term[type=text],
 .navigation-controls .search-menu-container input[type="text"],
 .navigation-controls form .search-input input#search-term[type=text],
-.navigation-controls form .search-menu-container input[type="text"] {
+.navigation-controls form .search-menu-container input[type="text"],
+.navigation-controls .relocated-search-form input,
+.navigation-controls .relocated-search-form input[type="text"],
+.navigation-controls .relocated-search-form input#search-term[type=text] {
   height: 36px !important;
   min-height: 36px !important;
   max-height: 36px !important;
@@ -294,7 +302,9 @@ body[class*="category-"] #main-outlet {
 .navigation-controls .search-input input#search-term[type=text]:focus,
 .navigation-controls .search-menu-container input[type="text"]:focus,
 .navigation-controls form .search-input input#search-term[type=text]:focus,
-.navigation-controls form .search-menu-container input[type="text"]:focus {
+.navigation-controls form .search-menu-container input[type="text"]:focus,
+.navigation-controls .relocated-search-form input:focus,
+.navigation-controls .relocated-search-form input[type="text"]:focus {
   background-color: var(--secondary) !important;
   border-color: var(--tds-blue) !important;
   box-shadow: 0 0 0 1px var(--tds-blue) !important;
@@ -303,7 +313,8 @@ body[class*="category-"] #main-outlet {
 
 /* 웰컴 배너에서 같이 이동한 search-icon 버튼 스타일링 (내비게이션 조작부 내 정렬) */
 .navigation-controls .search-icon,
-.navigation-controls form .search-icon {
+.navigation-controls form .search-icon,
+.navigation-controls .relocated-search-icon {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
@@ -325,7 +336,8 @@ body[class*="category-"] #main-outlet {
 }
 
 .navigation-controls .search-icon:hover,
-.navigation-controls form .search-icon:hover {
+.navigation-controls form .search-icon:hover,
+.navigation-controls .relocated-search-icon:hover {
   background-color: rgba(0, 0, 0, 0.04) !important;
   color: var(--primary) !important;
   border-color: var(--primary-medium) !important;
@@ -334,7 +346,9 @@ body[class*="category-"] #main-outlet {
 .navigation-controls .search-icon .d-icon,
 .navigation-controls form .search-icon .d-icon,
 .navigation-controls .search-icon svg,
-.navigation-controls form .search-icon svg {
+.navigation-controls form .search-icon svg,
+.navigation-controls .relocated-search-icon .d-icon,
+.navigation-controls .relocated-search-icon svg {
   margin: 0 !important;
   font-size: 0.857em !important;
   display: inline-block !important;
@@ -343,7 +357,8 @@ body[class*="category-"] #main-outlet {
 /* 검색 결과 드롭다운 위치 보정 */
 .navigation-controls .search-input .results,
 .navigation-controls .search-menu-container .results,
-.navigation-controls form .results {
+.navigation-controls form .results,
+.navigation-controls .relocated-search-form .results {
   top: calc(100% + 8px) !important;
   width: 320px !important;
   max-width: 320px !important;
