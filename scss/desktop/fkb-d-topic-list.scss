@@ -340,24 +340,33 @@ body[class*="category-"]:not(.archetype-regular):not(.archetype-banner) {
   right: auto !important;
   width: 100% !important;
   max-width: var(--d-max-width) !important;
-  margin: var(--m3-space-m) auto 0 !important;
+  margin: 12px auto 0 !important;
   box-sizing: border-box !important;
   display: flex !important;
   justify-content: center !important;
   align-items: center !important;
+}
 
-  // 내부 폼, 인풋 등의 요소 가로폭 전체로 채우기
-  form,
-  .search-input,
-  .search-bar,
-  input,
-  input[type="text"] {
-    width: 100% !important;
-    max-width: 100% !important;
-    box-sizing: border-box !important;
-  }
+// 내부 폼, 인풋 등의 요소 가로폭 전체로 채우기 (중첩 해제 평탄화)
+.search-menu-container form,
+.search-menu-container .search-input,
+.search-menu-container .search-bar,
+.search-menu-container input,
+.search-menu-container input[type="text"],
+.menu-panel-results form,
+.menu-panel-results .search-input,
+.menu-panel-results .search-bar,
+.menu-panel-results input,
+.menu-panel-results input[type="text"] {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
 
-  @media screen and (max-width: 1099px) {
+@media screen and (max-width: 1099px) {
+  .search-menu-container,
+  .menu-panel-results,
+  .search-menu-container.menu-panel-results {
     max-width: calc(100vw - 40px) !important;
   }
 }
@@ -370,16 +379,29 @@ body[class*="category-"]:not(.archetype-regular):not(.archetype-banner) {
 .list-controls {
   margin-bottom: 12px !important; 
   padding-bottom: 0 !important;
+}
 
-  .container {
-    margin-bottom: 0 !important;
-    padding-bottom: 0 !important;
-  }
+#main-outlet .list-controls .container,
+.navigation-categories .list-controls .container,
+.navigation-topics .list-controls .container,
+.list-controls .container {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
 
-  @media screen and (max-width: 1099px) {
+@media screen and (max-width: 1099px) {
+  #main-outlet .list-controls,
+  .navigation-categories .list-controls,
+  .navigation-topics .list-controls,
+  .list-controls {
     margin-bottom: 0px !important; // 태블릿/모바일은 그리드 gap 24px 유지
   }
-  @media screen and (max-width: 600px) {
+}
+@media screen and (max-width: 600px) {
+  #main-outlet .list-controls,
+  .navigation-categories .list-controls,
+  .navigation-topics .list-controls,
+  .list-controls {
     margin-bottom: 0px !important; // 모바일은 그리드 gap 16px 유지
   }
 }
