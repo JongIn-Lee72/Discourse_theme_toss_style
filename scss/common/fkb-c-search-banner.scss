@@ -51,7 +51,7 @@
   .search-input {
     margin: 0 auto;
     width: 100%;
-    max-width: 480px;
+    max-width: 100% !important; // 480px 제한을 없애고 100% 너비 확보
     display: flex;
     justify-content: center;
     position: relative;
@@ -66,6 +66,7 @@
       font-size: 0.95em;
       color: var(--primary);
       width: 100%;
+      max-width: 100% !important;
       transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
 
       &:hover {
@@ -87,7 +88,7 @@
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
-    max-width: 480px;
+    max-width: 100% !important; // 결과 드롭다운 창도 100%로 확장
     border: none !important;
     box-shadow: var(--tds-shadow-l);
     background: var(--secondary) !important;

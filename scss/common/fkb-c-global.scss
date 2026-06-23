@@ -129,11 +129,13 @@ img.avatar,
     margin: 0 !important;
     
     a {
-      display: inline-flex;
-      align-items: center;
-      padding: 0.5em 0.75em !important; // select-kit-header와 동일하게 조정
-      font-size: var(--font-down-1) !important; // select-kit-header와 동일하게 조정
-      line-height: var(--line-height-small) !important; // select-kit-header와 동일하게 조정
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      height: 36px !important; // select-kit-header와 동일하게 36px 고정
+      padding: 0 16px !important; // 칩에 어울리는 여백 확보
+      font-size: var(--font-down-1) !important;
+      line-height: var(--line-height-small) !important;
       font-weight: 600 !important;
       color: var(--primary-medium) !important;
       background-color: rgba(var(--primary-rgb), 0.04) !important;
@@ -177,9 +179,11 @@ img.avatar,
   // li 태그가 생략된 직접 자식 a 대응 (select-kit-header 크기 매칭)
   a, 
   > a {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.5em 0.75em !important; 
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: 36px !important; // 36px 높이 지정
+    padding: 0 16px !important; // 여백 매칭
     font-size: var(--font-down-1) !important; 
     line-height: var(--line-height-small) !important; 
     font-weight: 600 !important;

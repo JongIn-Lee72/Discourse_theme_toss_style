@@ -349,9 +349,21 @@ body[class*="category-"]:not(.archetype-regular):not(.archetype-banner) {
   }
 }
 
-.category-list {
-  margin-top: 0 !important;
+#list-area,
+.category-list,
+.category-boxes,
+.categories-and-latest,
+.categories-list {
+  margin-top: 12px !important; // 24px grid-gap + 12px margin-top = 36px 간격 확보!
+
+  @media screen and (max-width: 1099px) {
+    margin-top: 0 !important; // 1열 그리드 gap 24px 유지
+  }
+  @media screen and (max-width: 600px) {
+    margin-top: 0 !important; // 1열 그리드 gap 16px 유지
+  }
 }
+
 
 
 
