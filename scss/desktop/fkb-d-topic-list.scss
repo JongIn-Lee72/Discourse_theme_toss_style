@@ -17,9 +17,8 @@ body[class*="category-"]:not(.archetype-regular):not(.archetype-banner) {
         "pins pins"
         "welcome-banner welcome-banner"
         "nav nav"
-        "loader fkb-panel"
         "topic-list fkb-panel";
-      grid-template-rows: auto auto auto auto auto auto 1fr;
+      grid-template-rows: auto auto auto auto auto 1fr;
       grid-template-columns: minmax(0, 1fr) var(--d-sidebar-width);
       gap: var(--tds-space-xl);
     }
@@ -61,9 +60,8 @@ body[class*="category-"]:not(.archetype-regular):not(.archetype-banner) {
       "pins pins"
       "welcome-banner fkb-panel"
       "nav fkb-panel"
-      "loader fkb-panel"
       "topic-list fkb-panel";
-    grid-template-rows: auto auto auto auto auto auto 1fr;
+    grid-template-rows: auto auto auto auto auto 1fr;
     grid-template-columns: minmax(0, 1fr) var(--d-sidebar-width);
     gap: var(--tds-space-xl);
     
@@ -75,7 +73,6 @@ body[class*="category-"]:not(.archetype-regular):not(.archetype-banner) {
         "pins"
         "welcome-banner"
         "nav"
-        "loader"
         "topic-list";
       grid-template-columns: minmax(0, 1fr);
       gap: var(--tds-space-l);

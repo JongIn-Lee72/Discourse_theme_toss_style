@@ -1,10 +1,7 @@
 <style>
 /* ============================================================
-   TDS Override: SCSS 컴파일러를 우회하여 직접 <head>에 주입
-   1. Welcome 배너 투명화
-   2. 중앙 검색바 가로 폭 확대
-   3. Nav Pills 밑줄 제거 및 36px 알약 칩 형태 고정
-   4. 내비게이션-목록 간격 36px 정밀 보정
+   TDS Override: head_tag.html 순수 CSS 직접 주입
+   SCSS 컴파일러를 우회하여 직접 <head>에 삽입됨
    ============================================================ */
 
 /* 1. Welcome Banner 투명화 및 테두리 제거 */
@@ -19,42 +16,65 @@
   background-color: transparent !important;
 }
 
-/* 2. 중앙 검색바 (배너 내부) 가로 폭 100% 확대 */
-.welcome-banner .search-menu-container,
-.welcome-banner .menu-panel-results,
-.welcome-banner .search-menu-container.menu-panel-results,
-.custom-search-banner-wrap .search-menu-container,
-.custom-search-banner-wrap .menu-panel-results {
+/* 2. 그리드 6번 영역(loader) 제거: nav → topic-list 직접 연결 */
+.navigation-topics #main-outlet,
+.categories-list #main-outlet,
+body[class*="tag-"] #main-outlet,
+body[class*="category-"] #main-outlet {
+  grid-template-areas:
+    "above-outlet above-outlet"
+    "alerts alerts"
+    "pins pins"
+    "welcome-banner fkb-panel"
+    "nav fkb-panel"
+    "topic-list fkb-panel" !important;
+  grid-template-rows: auto auto auto auto auto 1fr !important;
+}
+
+/* 사이드바 열림 상태 */
+.has-sidebar-page #main-outlet {
+  grid-template-areas:
+    "above-outlet above-outlet"
+    "alerts alerts"
+    "pins pins"
+    "welcome-banner welcome-banner"
+    "nav nav"
+    "topic-list fkb-panel" !important;
+  grid-template-rows: auto auto auto auto auto 1fr !important;
+}
+
+/* 3. 중앙 검색바(search-menu-container) 가로 폭 100% 확대 */
+.search-menu-container.menu-panel-results,
+.search-menu-container,
+.menu-panel-results {
   position: relative !important;
   left: auto !important;
   right: auto !important;
   width: 100% !important;
   max-width: 100% !important;
-  margin: 12px auto 0 !important;
   box-sizing: border-box !important;
 }
 
-.welcome-banner .search-menu-container form,
-.welcome-banner .search-menu-container .search-input,
-.welcome-banner .search-menu-container input,
-.welcome-banner .search-menu-container input[type="text"],
-.custom-search-banner-wrap .search-input,
-.custom-search-banner-wrap input#search-term {
+.search-menu-container.menu-panel-results form,
+.search-menu-container.menu-panel-results .search-input,
+.search-menu-container.menu-panel-results input,
+.search-menu-container.menu-panel-results input[type="text"],
+.search-menu-container form,
+.search-menu-container .search-input,
+.search-menu-container input,
+.search-menu-container input[type="text"] {
   width: 100% !important;
   max-width: 100% !important;
   box-sizing: border-box !important;
 }
 
-/* 3. Nav Pills: 밑줄 완전 제거 + 36px 알약(Pill) 칩 형태 + 셀렉트 킷 높이 동기화 */
-
-/* 3-1. 컨테이너(ul) 레벨 밑줄/보더 제거 */
+/* 4. Nav Pills: 밑줄 완전 제거 + 36px 알약 칩 형태 */
 .list-controls .nav-pills,
 .nav-pills {
   border-bottom: none !important;
   box-shadow: none !important;
 }
 
-/* 3-2. li 레벨 밑줄/보더 제거 */
 .list-controls .nav-pills > li,
 .nav-pills > li {
   border-bottom: none !important;
@@ -62,7 +82,6 @@
   margin: 0 !important;
 }
 
-/* 3-3. a (탭 링크) 레벨: 밑줄 제거 + 36px 알약 형태 */
 .list-controls .nav-pills > li > a,
 .nav-pills > li > a {
   display: inline-flex !important;
@@ -93,7 +112,7 @@
   color: #191f28 !important;
 }
 
-/* 3-4. 활성화된 탭: 파란색 칩 */
+/* 활성화된 탭: 파란색 칩 */
 .list-controls .nav-pills > li.active > a,
 .list-controls .nav-pills > li > a.active,
 .nav-pills > li.active > a,
@@ -106,15 +125,9 @@
   box-shadow: none !important;
 }
 
-.list-controls .nav-pills > li.active > a:hover,
-.nav-pills > li.active > a:hover {
-  background-color: rgba(49, 130, 246, 0.15) !important;
-}
-
-/* 4. 내비게이션과 글 목록 사이 간격 36px 정밀 보정 */
-/* grid gap(24px) + margin-bottom(12px) = 36px */
+/* 5. 내비게이션과 글 목록 사이 간격 축소 */
 .list-controls {
-  margin-bottom: 12px !important;
+  margin-bottom: 0 !important;
   padding-bottom: 0 !important;
 }
 
@@ -126,9 +139,6 @@
 #list-area,
 .list-container,
 .category-list,
-.category-boxes,
-.categories-and-latest,
-.categories-list,
 .topic-list {
   margin-top: 0 !important;
   padding-top: 0 !important;
