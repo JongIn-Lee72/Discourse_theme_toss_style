@@ -124,128 +124,92 @@ img.avatar,
 }
 
 // TDS Pill Navigation Tabs (nav-pills)
-// 기존 밑줄(box-shadow, border-bottom)을 완전히 제거하고 Toss 스타일의 36px Pill 칩으로 디자인을 일관화합니다.
-
-.list-controls .nav-pills,
-#navigation-bar.nav-pills,
 .nav-pills {
-  display: flex !important;
-  flex-direction: row !important;
-  align-items: center !important;
-  gap: var(--tds-space-s, 8px) !important;
-  padding: 0 !important;
-  margin: 0 !important;
-  border: none !important;
-  box-shadow: none !important;
-  background: transparent !important;
-  background-color: transparent !important;
-
   > li {
     margin: 0 !important;
-    padding: 0 !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    height: 36px !important;
-    border: none !important;
-    box-shadow: none !important;
-    background: transparent !important;
-
+    
     a {
-      box-shadow: none !important;
+      display: inline-flex;
+      align-items: center;
+      padding: 0.5em 0.75em !important; // select-kit-header와 동일하게 조정
+      font-size: var(--font-down-1) !important; // select-kit-header와 동일하게 조정
+      line-height: var(--line-height-small) !important; // select-kit-header와 동일하게 조정
+      font-weight: 600 !important;
+      color: var(--primary-medium) !important;
+      background-color: rgba(var(--primary-rgb), 0.04) !important;
       border: none !important;
-      border-bottom: none !important;
-      background: transparent !important;
+      border-radius: var(--tds-radius-full) !important;
+      transition: background-color 0.2s ease, color 0.2s ease, transform 0.1s ease;
+      letter-spacing: -0.015em;
+      box-sizing: border-box !important;
+      
+      &:hover {
+        background-color: rgba(var(--primary-rgb), 0.07) !important;
+        color: var(--primary) !important;
+      }
+      
+      &:active {
+        transform: scale(0.96);
+      }
+      
+      &.active {
+        background-color: rgba(var(--tertiary-rgb), 0.08) !important;
+        color: var(--tertiary) !important;
+        font-weight: 700 !important;
+        
+        &:hover {
+          background-color: rgba(var(--tertiary-rgb), 0.12) !important;
+        }
+      }
+    }
+    
+    &.active a {
+      background-color: rgba(var(--tertiary-rgb), 0.08) !important;
+      color: var(--tertiary) !important;
+      font-weight: 700 !important;
+      
+      &:hover {
+        background-color: rgba(var(--tertiary-rgb), 0.12) !important;
+      }
     }
   }
 
-  // li 태그가 생략된 직접 자식 a 대응
+  // li 태그가 생략된 직접 자식 a 대응 (select-kit-header 크기 매칭)
   a, 
   > a {
-    box-shadow: none !important;
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5em 0.75em !important; 
+    font-size: var(--font-down-1) !important; 
+    line-height: var(--line-height-small) !important; 
+    font-weight: 600 !important;
+    color: var(--primary-medium) !important;
+    background-color: rgba(var(--primary-rgb), 0.04) !important;
     border: none !important;
-    border-bottom: none !important;
+    border-radius: var(--tds-radius-full) !important;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.1s ease;
+    letter-spacing: -0.015em;
+    box-sizing: border-box !important;
+    
+    &:hover {
+      background-color: rgba(var(--primary-rgb), 0.07) !important;
+      color: var(--primary) !important;
+    }
+    
+    &:active {
+      transform: scale(0.96);
+    }
+    
+    &.active {
+      background-color: rgba(var(--tertiary-rgb), 0.08) !important;
+      color: var(--tertiary) !important;
+      font-weight: 700 !important;
+      
+      &:hover {
+        background-color: rgba(var(--tertiary-rgb), 0.12) !important;
+      }
+    }
   }
 }
-
-// 칩 형태와 36px 높이 강제 적용 및 구체성 극대화 (TDS Select-Kit 36px 동화)
-.list-controls .nav-pills > li > a,
-.list-controls .nav-pills > li a,
-.list-controls .nav-pills a,
-#navigation-bar.nav-pills > li > a,
-#navigation-bar.nav-pills > li a,
-#navigation-bar.nav-pills a,
-.nav-pills > li > a,
-.nav-pills > li a,
-.nav-pills a,
-.nav-pills > li,
-.nav-pills > li.categories,
-.nav-pills > li.hot,
-.nav-pills > li.latest,
-.nav-pills > li.points-mall,
-.nav-pills .nav-item_categories,
-.nav-pills .nav-item_hot,
-.nav-pills .nav-item_latest,
-.nav-pills .nav-item_points-mall,
-.nav-pills [class*="nav-item_"] {
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  height: 36px !important; // select-kit-header(36px)와 완전 일치
-  min-height: 36px !important;
-  max-height: 36px !important;
-  padding: 0 16px !important; // Toss 칩 패딩
-  font-size: var(--font-down-1, 0.8em) !important;
-  line-height: 1 !important;
-  font-weight: 600 !important;
-  box-sizing: border-box !important;
-  border-radius: 100px !important; // 완벽한 알약 형태 (TDS Pill)
-  transition: background-color 0.2s ease, color 0.2s ease, transform 0.1s ease !important;
-  letter-spacing: -0.015em;
-  border: none !important;
-  border-bottom: none !important;
-  box-shadow: none !important;
-  margin: 0 !important;
-  text-decoration: none !important;
-
-  // 기본(비활성) 칩 색상
-  background-color: var(--primary-low, rgba(0, 0, 0, 0.04)) !important;
-  color: var(--primary-medium, #4e5968) !important;
-
-  &:hover {
-    background-color: var(--primary-low-mid, rgba(0, 0, 0, 0.08)) !important;
-    color: var(--primary, #191f28) !important;
-  }
-
-  &:active {
-    transform: scale(0.96) !important;
-  }
-}
-
-// 활성화(active)된 칩의 강력한 오버라이드
-.list-controls .nav-pills > li.active > a,
-.list-controls .nav-pills > li > a.active,
-.list-controls .nav-pills a.active,
-#navigation-bar.nav-pills > li.active > a,
-#navigation-bar.nav-pills > li > a.active,
-#navigation-bar.nav-pills a.active,
-.nav-pills > li.active > a,
-.nav-pills > li > a.active,
-.nav-pills a.active,
-.nav-pills > li.active,
-.nav-pills .active {
-  background-color: var(--tertiary-low, rgba(49, 130, 246, 0.1)) !important;
-  color: var(--tertiary, #3182f6) !important;
-  font-weight: 700 !important;
-  box-shadow: none !important;
-  border: none !important;
-  border-bottom: none !important;
-
-  &:hover {
-    background-color: var(--tertiary-hover-low, rgba(49, 130, 246, 0.15)) !important;
-    color: var(--tertiary, #3182f6) !important;
-  }
-}
-
-
 
 

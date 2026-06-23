@@ -1,0 +1,136 @@
+<style>
+/* ============================================================
+   TDS Override: SCSS 컴파일러를 우회하여 직접 <head>에 주입
+   1. Welcome 배너 투명화
+   2. 중앙 검색바 가로 폭 확대
+   3. Nav Pills 밑줄 제거 및 36px 알약 칩 형태 고정
+   4. 내비게이션-목록 간격 36px 정밀 보정
+   ============================================================ */
+
+/* 1. Welcome Banner 투명화 및 테두리 제거 */
+.welcome-banner,
+.welcome-banner-wrap,
+.welcome-banner__wrap,
+.welcome-banner-container,
+.welcome-banner.--location-above-topic-content {
+  border: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* 2. 중앙 검색바 (배너 내부) 가로 폭 100% 확대 */
+.welcome-banner .search-menu-container,
+.welcome-banner .menu-panel-results,
+.welcome-banner .search-menu-container.menu-panel-results,
+.custom-search-banner-wrap .search-menu-container,
+.custom-search-banner-wrap .menu-panel-results {
+  position: relative !important;
+  left: auto !important;
+  right: auto !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 12px auto 0 !important;
+  box-sizing: border-box !important;
+}
+
+.welcome-banner .search-menu-container form,
+.welcome-banner .search-menu-container .search-input,
+.welcome-banner .search-menu-container input,
+.welcome-banner .search-menu-container input[type="text"],
+.custom-search-banner-wrap .search-input,
+.custom-search-banner-wrap input#search-term {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* 3. Nav Pills: 밑줄 완전 제거 + 36px 알약(Pill) 칩 형태 + 셀렉트 킷 높이 동기화 */
+
+/* 3-1. 컨테이너(ul) 레벨 밑줄/보더 제거 */
+.list-controls .nav-pills,
+.nav-pills {
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+
+/* 3-2. li 레벨 밑줄/보더 제거 */
+.list-controls .nav-pills > li,
+.nav-pills > li {
+  border-bottom: none !important;
+  box-shadow: none !important;
+  margin: 0 !important;
+}
+
+/* 3-3. a (탭 링크) 레벨: 밑줄 제거 + 36px 알약 형태 */
+.list-controls .nav-pills > li > a,
+.nav-pills > li > a {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 36px !important;
+  min-height: 36px !important;
+  max-height: 36px !important;
+  padding: 0 16px !important;
+  font-size: 0.857em !important;
+  line-height: 1 !important;
+  font-weight: 600 !important;
+  box-sizing: border-box !important;
+  border-radius: 100px !important;
+  border: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+  text-decoration: none !important;
+  margin: 0 !important;
+  background-color: rgba(0, 0, 0, 0.04) !important;
+  color: #4e5968 !important;
+  transition: background-color 0.2s ease, color 0.2s ease !important;
+}
+
+.list-controls .nav-pills > li > a:hover,
+.nav-pills > li > a:hover {
+  background-color: rgba(0, 0, 0, 0.08) !important;
+  color: #191f28 !important;
+}
+
+/* 3-4. 활성화된 탭: 파란색 칩 */
+.list-controls .nav-pills > li.active > a,
+.list-controls .nav-pills > li > a.active,
+.nav-pills > li.active > a,
+.nav-pills > li > a.active {
+  background-color: rgba(49, 130, 246, 0.1) !important;
+  color: #3182f6 !important;
+  font-weight: 700 !important;
+  border: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+
+.list-controls .nav-pills > li.active > a:hover,
+.nav-pills > li.active > a:hover {
+  background-color: rgba(49, 130, 246, 0.15) !important;
+}
+
+/* 4. 내비게이션과 글 목록 사이 간격 36px 정밀 보정 */
+/* grid gap(24px) + margin-bottom(12px) = 36px */
+.list-controls {
+  margin-bottom: 12px !important;
+  padding-bottom: 0 !important;
+}
+
+.list-controls .container {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+#list-area,
+.list-container,
+.category-list,
+.category-boxes,
+.categories-and-latest,
+.categories-list,
+.topic-list {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+</style>

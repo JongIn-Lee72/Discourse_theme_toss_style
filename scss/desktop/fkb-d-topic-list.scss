@@ -321,9 +321,6 @@ body[class*="category-"]:not(.archetype-regular):not(.archetype-banner) {
 
 // 1. Welcome banner transparent override
 .welcome-banner,
-.welcome-banner-wrap,
-.welcome-banner__wrap,
-.welcome-banner-container,
 .welcome-banner.--location-above-topic-content {
   border: none !important;
   box-shadow: none !important;
@@ -331,94 +328,26 @@ body[class*="category-"]:not(.archetype-regular):not(.archetype-banner) {
   background-color: transparent !important;
 }
 
-// 중앙 검색바 가로 폭 확대 및 relative 배치 고정 (배너 외부 독립 요소 대응)
-.search-menu-container,
-.menu-panel-results,
-.search-menu-container.menu-panel-results {
-  position: relative !important;
-  left: auto !important;
-  right: auto !important;
-  width: 100% !important;
-  max-width: var(--d-max-width) !important;
-  margin: 12px auto 0 !important;
-  box-sizing: border-box !important;
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-}
-
-// 내부 폼, 인풋 등의 요소 가로폭 전체로 채우기 (중첩 해제 평탄화)
-.search-menu-container form,
-.search-menu-container .search-input,
-.search-menu-container .search-bar,
-.search-menu-container input,
-.search-menu-container input[type="text"],
-.menu-panel-results form,
-.menu-panel-results .search-input,
-.menu-panel-results .search-bar,
-.menu-panel-results input,
-.menu-panel-results input[type="text"] {
-  width: 100% !important;
-  max-width: 100% !important;
-  box-sizing: border-box !important;
-}
-
-@media screen and (max-width: 1099px) {
-  .search-menu-container,
-  .menu-panel-results,
-  .search-menu-container.menu-panel-results {
-    max-width: calc(100vw - 40px) !important;
-  }
-}
-
 // 2. Responsive gap between navigation-container and category-list (36px -> 24px -> 16px)
-// grid-gap (24px) + margin-bottom (12px) = 36px 실질 시각 간격 완성
 #main-outlet .list-controls,
-.navigation-categories .list-controls,
+#main-outlet .navigation-container,
+.navigation-categories .navigation-container,
+.categories-list .navigation-container,
 .navigation-topics .list-controls,
-.list-controls {
-  margin-bottom: 12px !important; 
-  padding-bottom: 0 !important;
-}
+.list-controls,
+.navigation-container {
+  margin-bottom: 36px !important;
 
-#main-outlet .list-controls .container,
-.navigation-categories .list-controls .container,
-.navigation-topics .list-controls .container,
-.list-controls .container {
-  margin-bottom: 0 !important;
-  padding-bottom: 0 !important;
-}
-
-@media screen and (max-width: 1099px) {
-  #main-outlet .list-controls,
-  .navigation-categories .list-controls,
-  .navigation-topics .list-controls,
-  .list-controls {
-    margin-bottom: 0px !important; // 태블릿/모바일은 그리드 gap 24px 유지
+  @media screen and (max-width: 1099px) {
+    margin-bottom: 24px !important;
   }
-}
-@media screen and (max-width: 600px) {
-  #main-outlet .list-controls,
-  .navigation-categories .list-controls,
-  .navigation-topics .list-controls,
-  .list-controls {
-    margin-bottom: 0px !important; // 모바일은 그리드 gap 16px 유지
+  @media screen and (max-width: 600px) {
+    margin-bottom: 16px !important;
   }
 }
 
-#list-area,
-.list-container,
-.category-list,
-.category-boxes,
-.categories-and-latest,
-.categories-list,
-.topic-list {
-  margin-top: 0 !important; // 누적 마진 겹침 방지를 위해 탑 마진 리셋
-  padding-top: 0 !important;
+.category-list {
+  margin-top: 0 !important;
 }
-
-
-
-
 
 
