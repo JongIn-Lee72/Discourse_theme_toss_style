@@ -131,6 +131,8 @@ body[class*="category-"] #main-outlet {
 }
 
 /* 활성화된 탭: 파란색 칩 */
+#main-outlet .list-controls .nav-pills > li.active > a,
+#main-outlet .list-controls .nav-pills > li > a.active,
 .list-controls .nav-pills > li.active > a,
 .list-controls .nav-pills > li > a.active,
 .nav-pills > li.active > a,
@@ -139,7 +141,36 @@ body[class*="category-"] #main-outlet {
   color: #3182f6 !important;
   font-weight: 700 !important;
   border: 1px solid rgba(49, 130, 246, 0.3) !important;
-  border-bottom: 1px solid rgba(49, 130, 246, 0.3) !important;
+  box-shadow: none !important;
+  text-decoration: none !important;
+}
+
+/* active 탭 밑줄 및 pseudo-elements(::after 등) 완전 제거 */
+#main-outlet .list-controls .nav-pills > li.active,
+.list-controls .nav-pills > li.active,
+.nav-pills > li.active {
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+
+#main-outlet .list-controls .nav-pills > li.active::after,
+#main-outlet .list-controls .nav-pills > li.active::before,
+#main-outlet .list-controls .nav-pills > li > a.active::after,
+#main-outlet .list-controls .nav-pills > li > a.active::before,
+.list-controls .nav-pills > li.active::after,
+.list-controls .nav-pills .nav-item_categories.active::after,
+.list-controls .nav-pills > li.active::before,
+.list-controls .nav-pills > li > a.active::after,
+.list-controls .nav-pills > li > a.active::before,
+.nav-pills > li.active::after,
+.nav-pills > li.active::before,
+.nav-pills > li > a.active::after,
+.nav-pills > li > a.active::before {
+  display: none !important;
+  content: none !important;
+  border: none !important;
+  width: 0 !important;
+  height: 0 !important;
   box-shadow: none !important;
 }
 
