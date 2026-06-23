@@ -1,0 +1,28 @@
+# Logs and caches
+*.log
+.gemini/
+.agents/
+
+# Secret and local environment configurations
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+
+# System Files and OS artifacts
+.DS_Store
+Thumbs.db
+
+# Editor configurations and workspace files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# Node dependencies (if package.json/runners are added in future)
+node_modules/
+dist/

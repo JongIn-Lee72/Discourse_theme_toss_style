@@ -173,5 +173,43 @@ img.avatar,
       }
     }
   }
+
+  // li 태그가 생략된 직접 자식 a 대응 (select-kit-header 크기 매칭)
+  a, 
+  > a {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5em 0.75em !important; 
+    font-size: var(--font-down-1) !important; 
+    line-height: var(--line-height-small) !important; 
+    font-weight: 600 !important;
+    color: var(--primary-medium) !important;
+    background-color: rgba(var(--primary-rgb), 0.04) !important;
+    border: none !important;
+    border-radius: var(--tds-radius-full) !important;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.1s ease;
+    letter-spacing: -0.015em;
+    box-sizing: border-box !important;
+    
+    &:hover {
+      background-color: rgba(var(--primary-rgb), 0.07) !important;
+      color: var(--primary) !important;
+    }
+    
+    &:active {
+      transform: scale(0.96);
+    }
+    
+    &.active {
+      background-color: rgba(var(--tertiary-rgb), 0.08) !important;
+      color: var(--tertiary) !important;
+      font-weight: 700 !important;
+      
+      &:hover {
+        background-color: rgba(var(--tertiary-rgb), 0.12) !important;
+      }
+    }
+  }
 }
+
 
