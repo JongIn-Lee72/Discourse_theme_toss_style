@@ -559,7 +559,8 @@ body[class*="category-"] #main-outlet {
 /* 우측 글쓰기/설정 버튼들(navigation-controls)을 하단행의 우측 끝으로 배치 */
 #main-outlet .list-controls .navigation-controls,
 .list-controls .navigation-controls {
-  margin-left: 8px !important; /* margin-left: auto 대신 소량의 간격을 주어 검색바에 밀착 정렬 */
+  margin-left: auto !important; /* 우측 끝으로 밀어냄 */
+  margin-right: 0 !important;
   display: inline-flex !important;
   align-items: center !important;
   gap: 8px !important;
