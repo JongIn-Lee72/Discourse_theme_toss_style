@@ -257,6 +257,9 @@ body[class*="category-"] #main-outlet {
 }
 
 /* 검색바 상단행 강제 배치를 위한 래퍼 스타일링 */
+#main-outlet .list-controls .navigation-container .relocated-search-wrapper,
+.list-controls .navigation-container .relocated-search-wrapper,
+.navigation-container .relocated-search-wrapper,
 .relocated-search-wrapper {
   width: 100% !important;
   display: flex !important;
@@ -265,14 +268,20 @@ body[class*="category-"] #main-outlet {
   gap: 4px !important;
   order: -1 !important; /* 항상 최상단에 배치 */
   box-sizing: border-box !important;
+  margin: 0 0 12px 0 !important;
+  padding: 0 !important;
 }
 
 /* 이동된 검색바 폼 */
-.relocated-search-form {
+#main-outlet .list-controls .navigation-container .relocated-search-wrapper form.relocated-search-form,
+#main-outlet .list-controls .navigation-container .relocated-search-wrapper .relocated-search-form,
+.list-controls .navigation-container .relocated-search-wrapper .relocated-search-form,
+.navigation-container .relocated-search-wrapper .relocated-search-form,
+.relocated-search-wrapper .relocated-search-form {
   display: inline-flex !important;
   align-items: center !important;
   gap: 4px !important;
-  margin: 0 !important;
+  margin: 0 0 0 auto !important; /* margin-left: auto 로 우측 정렬 강제! */
   padding: 0 !important;
   height: 36px !important;
   width: 320px !important;
@@ -283,6 +292,7 @@ body[class*="category-"] #main-outlet {
   box-sizing: border-box !important;
 }
 
+#main-outlet .list-controls .navigation-container .relocated-search-wrapper .relocated-search-form input,
 .relocated-search-form input,
 .relocated-search-form input[type="text"],
 .relocated-search-form input#search-term[type="text"] {
@@ -303,6 +313,7 @@ body[class*="category-"] #main-outlet {
   transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease !important;
 }
 
+#main-outlet .list-controls .navigation-container .relocated-search-wrapper .relocated-search-form input:focus,
 .relocated-search-form input:focus {
   background-color: var(--secondary) !important;
   border-color: var(--tds-blue) !important;
@@ -311,6 +322,9 @@ body[class*="category-"] #main-outlet {
 }
 
 /* 돋보기 버튼 스타일링 */
+#main-outlet .list-controls .navigation-container .relocated-search-wrapper .relocated-search-icon,
+.list-controls .navigation-container .relocated-search-wrapper .relocated-search-icon,
+.navigation-container .relocated-search-wrapper .relocated-search-icon,
 .relocated-search-icon {
   display: inline-flex !important;
   align-items: center !important;
@@ -333,12 +347,14 @@ body[class*="category-"] #main-outlet {
   transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease !important;
 }
 
+#main-outlet .list-controls .navigation-container .relocated-search-wrapper .relocated-search-icon:hover,
 .relocated-search-icon:hover {
   background-color: rgba(0, 0, 0, 0.04) !important;
   color: var(--primary) !important;
   border-color: var(--primary-medium) !important;
 }
 
+#main-outlet .list-controls .navigation-container .relocated-search-wrapper .relocated-search-icon .d-icon,
 .relocated-search-icon .d-icon,
 .relocated-search-icon svg {
   margin: 0 !important;
@@ -347,6 +363,7 @@ body[class*="category-"] #main-outlet {
 }
 
 /* 검색 결과 드롭다운 위치 보정 */
+#main-outlet .list-controls .navigation-container .relocated-search-wrapper .relocated-search-form .results,
 .relocated-search-form .results {
   top: calc(100% + 8px) !important;
   width: 320px !important;
