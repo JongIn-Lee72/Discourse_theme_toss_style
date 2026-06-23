@@ -7,53 +7,89 @@ export default apiInitializer("1.8.0", (api) => {
     const navContainer = document.querySelector(".navigation-container");
     if (!navContainer) return;
     
-    // Find or create the outer search wrapper
+    // Find or create the outer search wrapper (transparent, full-width row container)
     let searchWrapper = document.querySelector(".relocated-search-wrapper");
     if (!searchWrapper) {
       searchWrapper = document.createElement("div");
       searchWrapper.className = "relocated-search-wrapper";
     }
 
-    // Find or create the inner unified search bar
+    // Find or create the inner unified search bar (the 36px pill-shaped visible bar)
     let unifiedSearchBar = searchWrapper.querySelector(".unified-search-bar");
     if (!unifiedSearchBar) {
       unifiedSearchBar = document.createElement("div");
       unifiedSearchBar.className = "unified-search-bar";
       searchWrapper.appendChild(unifiedSearchBar);
     }
-    
-    // Find the search bar form or input wrapper
-    let searchBar = document.querySelector(".welcome-banner form") ||
-                    document.querySelector(".welcome-banner-wrap form") ||
-                    document.querySelector(".welcome-banner-container form") ||
-                    document.querySelector(".welcome-banner__wrap form") ||
-                    document.querySelector(".custom-search-banner-wrap form") || 
-                    document.querySelector(".search-menu-container form") || 
-                    (document.querySelector(".search-input") ? document.querySelector(".search-input").closest("form") : null) ||
-                    document.querySelector(".search-menu-container") || 
-                    document.querySelector(".search-input");
 
-    // Fallback: search for any form that has search inputs and is not already inside navigation controls or unified search bar
-    if (!searchBar) {
-      const allForms = document.querySelectorAll("form");
-      for (const form of allForms) {
-        if (!form.closest(".navigation-controls") && !form.closest(".unified-search-bar") && 
-            (form.querySelector(".search-input") || form.querySelector("input#search-term") || form.classList.contains("search-menu-container"))) {
-          searchBar = form;
-          break;
+    // Find or create the dropdown anchor (sits below the pill, holds dropdown results)
+    let dropdownAnchor = searchWrapper.querySelector(".search-dropdown-anchor");
+    if (!dropdownAnchor) {
+      dropdownAnchor = document.createElement("div");
+      dropdownAnchor.className = "search-dropdown-anchor";
+      searchWrapper.appendChild(dropdownAnchor);
+    }
+    
+    // --- Locate the search form/input ---
+    // Try to find the form element containing the search input
+    let searchForm = null;
+    let searchMenuContainer = null;
+
+    // First, check if form is already relocated
+    searchForm = unifiedSearchBar.querySelector("form.relocated-search-form");
+
+    if (!searchForm) {
+      // Try various Discourse banner selectors for the form
+      searchForm = document.querySelector(".welcome-banner form") ||
+                   document.querySelector(".welcome-banner-wrap form") ||
+                   document.querySelector(".welcome-banner-container form") ||
+                   document.querySelector(".welcome-banner__wrap form") ||
+                   document.querySelector(".custom-search-banner-wrap form");
+
+      // Try search-menu-container's inner form (NOT the container itself!)
+      if (!searchForm) {
+        searchMenuContainer = document.querySelector("#main-outlet .search-menu-container:not(.relocated-search-form)") ||
+                              document.querySelector(".welcome-banner .search-menu-container") ||
+                              document.querySelector(".welcome-banner-wrap .search-menu-container") ||
+                              document.querySelector(".custom-search-banner-wrap .search-menu-container");
+        if (searchMenuContainer) {
+          searchForm = searchMenuContainer.querySelector("form");
+        }
+      }
+
+      // Try to find a search-input wrapper and its parent form
+      if (!searchForm) {
+        const searchInput = document.querySelector("#main-outlet .search-input:not(.unified-search-bar .search-input)");
+        if (searchInput) {
+          searchForm = searchInput.closest("form");
+          if (!searchForm) {
+            searchForm = searchInput; // Use .search-input itself if no form wraps it
+          }
+        }
+      }
+
+      // Final fallback: look for any form with a search input not already relocated
+      if (!searchForm) {
+        const allForms = document.querySelectorAll("form");
+        for (const form of allForms) {
+          if (!form.closest(".navigation-controls") && !form.closest(".unified-search-bar") && 
+              (form.querySelector(".search-input") || form.querySelector("input#search-term"))) {
+            searchForm = form;
+            break;
+          }
         }
       }
     }
 
-    // Find the separate search icon button
+    // --- Locate the search icon button ---
     let searchIcon = document.querySelector(".welcome-banner .search-icon") ||
                      document.querySelector(".welcome-banner-wrap .search-icon") ||
                      document.querySelector(".welcome-banner-container .search-icon") ||
                      document.querySelector(".welcome-banner__wrap .search-icon") ||
                      document.querySelector(".custom-search-banner-wrap .search-icon") || 
-                     document.querySelector("#main-outlet .search-icon");
+                     document.querySelector("#main-outlet .search-icon:not(.unified-search-bar .search-icon)");
 
-    // Fallback: search for any .search-icon element not already inside navigation controls or unified search bar
+    // Fallback: search for any .search-icon not already inside navigation controls or unified search bar
     if (!searchIcon) {
       const allSearchIcons = document.querySelectorAll(".search-icon");
       for (const icon of allSearchIcons) {
@@ -64,11 +100,12 @@ export default apiInitializer("1.8.0", (api) => {
       }
     }
 
-    if (searchBar) {
-      if (!unifiedSearchBar.contains(searchBar)) {
-        unifiedSearchBar.appendChild(searchBar);
+    // --- Move ONLY the input-related elements into the pill bar ---
+    if (searchForm) {
+      if (!unifiedSearchBar.contains(searchForm)) {
+        unifiedSearchBar.appendChild(searchForm);
       }
-      searchBar.classList.add("relocated-search-form");
+      searchForm.classList.add("relocated-search-form");
     }
 
     if (searchIcon) {
@@ -78,19 +115,35 @@ export default apiInitializer("1.8.0", (api) => {
       searchIcon.classList.add("relocated-search-icon");
     }
 
-    // Relocate autocomplete suggestions and tips inside the unified search bar container (scoped to when search is focused)
-    const searchInput = unifiedSearchBar ? unifiedSearchBar.querySelector("input") : null;
-    const isSearchFocused = document.activeElement && searchInput && (document.activeElement === searchInput || unifiedSearchBar.contains(document.activeElement));
-    if (isSearchFocused) {
-      const popups = document.querySelectorAll("body > .popup-input-tip, body > .autocomplete, body > .ac-menu, body > .ac-results, body > .ac-wrap");
-      popups.forEach((popup) => {
-        if (unifiedSearchBar && !unifiedSearchBar.contains(popup)) {
-          unifiedSearchBar.appendChild(popup);
+    // --- Move dropdown results OUTSIDE the pill, into the dropdown anchor ---
+    // This is the KEY fix: results/dropdowns must NOT be inside the 36px pill
+    const moveDropdownsOutOfPill = () => {
+      // Find any .results, .search-menu-initial-options, .menu-panel-results 
+      // that are INSIDE the unified search bar and move them to the dropdown anchor
+      const dropsInsidePill = unifiedSearchBar.querySelectorAll(
+        ".results, .search-menu-initial-options, .menu-panel-results, .search-menu-assistant"
+      );
+      dropsInsidePill.forEach((drop) => {
+        if (!dropdownAnchor.contains(drop)) {
+          dropdownAnchor.appendChild(drop);
         }
       });
-    }
 
-    if ((searchBar || searchIcon) && !navContainer.contains(searchWrapper)) {
+      // Also catch any popups/autocomplete that might have ended up inside the pill
+      const popupsInsidePill = unifiedSearchBar.querySelectorAll(
+        ".popup-input-tip, .autocomplete, .ac-menu, .ac-results, .ac-wrap"
+      );
+      popupsInsidePill.forEach((popup) => {
+        if (!dropdownAnchor.contains(popup)) {
+          dropdownAnchor.appendChild(popup);
+        }
+      });
+    };
+
+    moveDropdownsOutOfPill();
+
+    // Insert the wrapper into the navigation container
+    if ((searchForm || searchIcon) && !navContainer.contains(searchWrapper)) {
       navContainer.insertBefore(searchWrapper, navContainer.firstChild);
     }
   };
@@ -104,7 +157,7 @@ export default apiInitializer("1.8.0", (api) => {
     }
 
     // Watch for dynamic DOM insertions continuously
-    observer = new MutationObserver((mutations) => {
+    observer = new MutationObserver(() => {
       relocateSearch();
     });
 
