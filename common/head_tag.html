@@ -230,4 +230,91 @@ body[class*="category-"] #main-outlet {
     margin-top: 0px !important;
   }
 }
+
+/* 6. 내비게이션 컨트롤 영역(navigation-controls)으로 이동한 검색바 스타일링 */
+.navigation-controls .search-input,
+.navigation-controls .search-menu-container {
+  display: inline-flex !important;
+  align-items: center !important;
+  height: 36px !important;
+  min-height: 36px !important;
+  max-height: 36px !important;
+  width: 240px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  position: relative !important;
+  box-sizing: border-box !important;
+}
+
+.navigation-controls .search-input input#search-term[type=text],
+.navigation-controls .search-menu-container input[type="text"] {
+  height: 36px !important;
+  min-height: 36px !important;
+  max-height: 36px !important;
+  padding: 0 16px 0 36px !important; /* 검색 아이콘 공간 확보 */
+  font-size: 0.857em !important;
+  line-height: 1 !important;
+  border-radius: 100px !important;
+  border: 1px solid var(--primary-low) !important;
+  background-color: var(--secondary) !important;
+  color: var(--primary) !important;
+  box-sizing: border-box !important;
+  width: 100% !important;
+  margin: 0 !important;
+  text-align: left !important;
+  transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.navigation-controls .search-input input#search-term[type=text]:focus,
+.navigation-controls .search-menu-container input[type="text"]:focus {
+  background-color: var(--secondary) !important;
+  border-color: var(--tds-blue) !important;
+  box-shadow: 0 0 0 1px var(--tds-blue) !important;
+  outline: none !important;
+}
+
+/* 검색 아이콘 절대 배치 및 정렬 */
+.navigation-controls .search-input .d-icon-search,
+.navigation-controls .search-input .fa-search,
+.navigation-controls .search-menu-container .d-icon {
+  position: absolute !important;
+  left: 12px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  color: var(--primary-medium) !important;
+  pointer-events: none !important;
+  margin: 0 !important;
+  font-size: 0.857em !important;
+}
+
+/* 검색 결과 드롭다운 위치 보정 */
+.navigation-controls .search-input .results,
+.navigation-controls .search-menu-container .results {
+  top: calc(100% + 8px) !important;
+  width: 320px !important;
+  max-width: 320px !important;
+  left: 0 !important;
+  transform: none !important;
+  z-index: 1000 !important;
+}
+
+/* 7. category-breadcrumb 및 nav-pills 내부 간격 4px으로 축소 */
+.list-controls .category-breadcrumb,
+.category-breadcrumb {
+  gap: 4px !important;
+}
+
+.list-controls .nav-pills,
+.nav-pills,
+#navigation-bar {
+  gap: 4px !important;
+}
+
+/* 모바일 정렬 보정 */
+@media screen and (max-width: 800px) {
+  .navigation-controls .search-input,
+  .navigation-controls .search-menu-container {
+    width: 100% !important;
+  }
+}
 </style>
