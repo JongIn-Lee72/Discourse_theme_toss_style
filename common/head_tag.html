@@ -256,19 +256,19 @@ body[class*="category-"] #main-outlet {
   width: 100% !important;
 }
 
-/* 검색바 상단행 강제 배치를 위한 래퍼 스타일링 (통합 검색바로 디자인) */
+/* 검색바 하단행 배치를 위한 래퍼 스타일링 */
 #main-outlet .list-controls .navigation-container .relocated-search-wrapper,
 .list-controls .navigation-container .relocated-search-wrapper,
 .navigation-container .relocated-search-wrapper,
 .relocated-search-wrapper {
-  width: 100% !important; /* Row 1을 꽉 채워서 다른 요소들을 다음 행으로 밀어냄 */
-  min-width: 100% !important;
-  max-width: 100% !important;
+  width: auto !important;
+  min-width: 0 !important;
+  max-width: none !important;
   height: auto !important;
   display: flex !important;
   justify-content: flex-end !important; /* 우측 정렬 */
-  order: -1 !important; /* 항상 최상단에 배치 */
-  margin: 0 0 12px 0 !important;
+  order: 1 !important; /* 내비게이션 요소(order: 0) 뒤에 배치하여 2행에 위치시킴 */
+  margin: 0 0 0 auto !important; /* 우측 정렬 강제 */
   padding: 0 !important;
   box-sizing: border-box !important;
   background: transparent !important;
@@ -287,7 +287,7 @@ body[class*="category-"] #main-outlet {
   height: 36px !important;
   display: inline-flex !important;
   align-items: center !important;
-  padding: 0 4px 0 16px !important; /* 왼쪽 16px 패딩, 오른쪽 버튼용 4px 패딩 */
+  padding: 0 4px 0 6px !important; /* 왼쪽 고급검색 버튼 밀착을 위한 6px 패딩, 오른쪽 돋보기 4px 패딩 */
   box-sizing: border-box !important;
   background-color: var(--secondary) !important;
   border: 1px solid var(--primary-low) !important;
@@ -350,6 +350,7 @@ body[class*="category-"] #main-outlet {
   margin: 0 !important;
   text-align: left !important;
   outline: none !important;
+  order: 1 !important; /* 상세 필터(order: -1) 우측에 배치 */
 }
 
 /* 포커스 시 기본 인풋 테두리/그림자 차단 */
@@ -381,6 +382,7 @@ body[class*="category-"] #main-outlet {
   cursor: pointer !important;
   flex: none !important;
   transition: color 0.2s ease !important;
+  order: -1 !important; /* 검색어 인풋 좌측으로 강제 순서 이동 */
 }
 
 #main-outlet .list-controls .navigation-container .unified-search-bar .show-advanced-search:hover,
@@ -447,12 +449,13 @@ body[class*="category-"] #main-outlet {
 /* 우측 글쓰기/설정 버튼들(navigation-controls)을 하단행의 우측 끝으로 배치 */
 #main-outlet .list-controls .navigation-controls,
 .list-controls .navigation-controls {
-  margin-left: auto !important;
+  margin-left: 8px !important; /* margin-left: auto 대신 소량의 간격을 주어 검색바에 밀착 정렬 */
   display: inline-flex !important;
   align-items: center !important;
   gap: 8px !important;
   height: 36px !important;
   padding: 0 !important;
+  order: 2 !important; /* 검색바(order: 1) 뒤에 배치 */
 }
 
 /* 모바일 정렬 보정 */
@@ -464,7 +467,7 @@ body[class*="category-"] #main-outlet {
     width: 100% !important;
     max-width: none !important;
     min-width: 0 !important;
-    margin-bottom: 8px !important;
+    margin: 0 0 8px 0 !important; /* 모바일에서는 margin-left: auto 리셋 */
   }
   
   #main-outlet .list-controls .navigation-container .unified-search-bar,
@@ -513,6 +516,7 @@ body[class*="category-"] #main-outlet {
 #navigation-bar,
 #main-outlet .list-controls .nav-pills {
   gap: 4px !important;
+  flex-grow: 1 !important; /* Row 1의 남은 너비를 모두 채워 검색바를 다음 행으로 밀어냄 */
 }
 
 .list-controls .nav-pills > li,
