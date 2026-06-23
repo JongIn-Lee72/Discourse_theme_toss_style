@@ -78,6 +78,18 @@ export default apiInitializer("1.8.0", (api) => {
       searchIcon.classList.add("relocated-search-icon");
     }
 
+    // Relocate autocomplete suggestions and tips inside the unified search bar container (scoped to when search is focused)
+    const searchInput = unifiedSearchBar ? unifiedSearchBar.querySelector("input") : null;
+    const isSearchFocused = document.activeElement && searchInput && (document.activeElement === searchInput || unifiedSearchBar.contains(document.activeElement));
+    if (isSearchFocused) {
+      const popups = document.querySelectorAll("body > .popup-input-tip, body > .autocomplete, body > .ac-menu, body > .ac-results, body > .ac-wrap");
+      popups.forEach((popup) => {
+        if (unifiedSearchBar && !unifiedSearchBar.contains(popup)) {
+          unifiedSearchBar.appendChild(popup);
+        }
+      });
+    }
+
     if ((searchBar || searchIcon) && !navContainer.contains(searchWrapper)) {
       navContainer.insertBefore(searchWrapper, navContainer.firstChild);
     }

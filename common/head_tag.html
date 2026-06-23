@@ -446,7 +446,7 @@ body[class*="category-"] #main-outlet {
   z-index: 1000 !important;
 }
 
-/* 검색창 자동완성/문법도움말/팁 팝업 위치 보정 */
+/* 검색창 자동완성/문법도움말/팁 팝업 위치 보정 및 TDS 컴포넌트화 */
 #main-outlet .list-controls .navigation-container .unified-search-bar .relocated-search-form .autocomplete,
 #main-outlet .list-controls .navigation-container .unified-search-bar .autocomplete,
 .unified-search-bar .autocomplete,
@@ -473,6 +473,11 @@ body[class*="category-"] #main-outlet {
   box-sizing: border-box !important;
   z-index: 10000 !important;
   position: absolute !important;
+  background-color: var(--secondary) !important;
+  border: 1px solid var(--primary-low) !important;
+  border-radius: 12px !important; /* TDS 표준 라운드 */
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08) !important; /* TDS 부드러운 카드 섀도우 */
+  overflow: hidden !important;
 }
 
 /* 우측 글쓰기/설정 버튼들(navigation-controls)을 하단행의 우측 끝으로 배치 */
