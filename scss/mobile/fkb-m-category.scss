@@ -5,6 +5,21 @@
 .category-list {
   inline-size: calc(100vw - 32px);
   margin-inline: auto;
+  padding-block-end: 120px !important; // Prevent overlapping by bottom floating elements
+
+  // Align category titles to TDS ListRow style (clean typography, no nested white bubbles)
+  .category-title-link,
+  .badge-category__wrapper,
+  .badge-category,
+  .badge-category-bg,
+  .badge-category__name {
+    background: transparent !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
   &.subcategory-list {
     .parent-category {
       display: none;
