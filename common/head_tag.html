@@ -939,7 +939,9 @@ body.tag-page #main-outlet {
   .category-list td.category .subcategories-list,
   .category-details,
   .category-logo,
-  .category-posts {
+  .category-posts,
+  .category-list .subcategories .subcategory,
+  .category-list .subcategories-list .subcategory {
     border-top: none !important;
     border-bottom: none !important;
     border-left: none !important;
@@ -1099,6 +1101,7 @@ body.tag-page #main-outlet {
     width: auto !important;
     display: inline-flex !important;
     margin-inline: var(--tds-space-xs) !important;
+    overflow: hidden !important; /* 내부 버튼들의 넘침을 부모 라운드 영역에 맞추어 잘라내 캡슐화 */
   }
 
   #create-topic {
@@ -1117,16 +1120,28 @@ body.tag-page #main-outlet {
     max-height: 38px !important;
     padding-block: 0 !important;
     padding-inline: var(--tds-space-m) !important;
-    border-radius: var(--tds-radius-full) !important;
     background: var(--tertiary) !important;
     border: none !important;
     box-shadow: none !important;
     font-size: var(--text-xs) !important;
+    border-radius: 0 !important; /* 개별 버튼 라운드를 제로화하여 두 동그라미 결합 버그 차단 */
   }
 
   #create-topic.btn {
     padding-inline: 0 !important;
     width: 38px !important;
+    border-radius: var(--tds-radius-full) !important; /* 단독 FAB 일 때는 둥글게 */
+  }
+
+  /* 콤보 버튼 캡슐 외곽 라운드 정밀 지정 (overflow: hidden이 듣지 않는 일부 환경 대비) */
+  .d-combo-button.topic-create-button__combo .btn:first-child,
+  .d-combo-button.topic-create-button__combo.--has-menu .btn:first-child {
+    border-radius: var(--tds-radius-full) 0 0 var(--tds-radius-full) !important;
+  }
+
+  .d-combo-button.topic-create-button__combo .d-combo-button__menu-trigger,
+  .d-combo-button.topic-create-button__combo.--has-menu .d-combo-button__menu-trigger {
+    border-radius: 0 var(--tds-radius-full) var(--tds-radius-full) 0 !important;
   }
 
   .d-combo-button.topic-create-button__combo .btn .d-icon,
@@ -1146,12 +1161,11 @@ body.tag-page #main-outlet {
     padding-inline: var(--tds-space-s) !important;
     height: 38px !important;
     background: var(--tertiary) !important;
-    border-top-right-radius: var(--tds-radius-full) !important;
-    border-bottom-right-radius: var(--tds-radius-full) !important;
     border-left: 1px solid rgba(255, 255, 255, 0.15) !important;
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
+    box-shadow: none !important;
   }
 
   .d-combo-button.topic-create-button__combo .d-combo-button__menu-trigger .d-icon-angle-down,
