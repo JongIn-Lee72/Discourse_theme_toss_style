@@ -912,7 +912,7 @@ body.tag-page #main-outlet {
     font-size: var(--text-xs) !important;
   }
 
-  /* 6. 모바일 category-description 위아래 선 및 td 내부 선 제거 */
+  /* 6. 모바일 category-description 및 리스트 내부 모든 셀 가로선 완벽 제거 */
   #main-outlet .category-description,
   .category-description,
   .category-list .category-description,
@@ -925,14 +925,25 @@ body.tag-page #main-outlet {
   .category-list td,
   .category-list th,
   .category-list-item td,
+  .category-list-item th,
+  .category-list tbody tr,
+  .category-list tbody td,
+  .category-list tbody th,
+  tr[data-category-id],
+  tr[data-category-id] td,
   .category-list td.category,
   .category-list td.category h3,
   .category-list td.category .category-title-link,
   .category-list td.category .category-name-wrapper,
   .category-list td.category .subcategories,
-  .category-list td.category .subcategories-list {
+  .category-list td.category .subcategories-list,
+  .category-details,
+  .category-logo,
+  .category-posts {
     border-top: none !important;
     border-bottom: none !important;
+    border-left: none !important;
+    border-right: none !important;
     border-block-start: none !important;
     border-block-end: none !important;
     border: none !important;
@@ -946,7 +957,26 @@ body.tag-page #main-outlet {
     padding: 0 !important;
   }
 
-  /* 7. 모바일 하단 플로팅 조작계 (카테고리/렌치/글쓰기) 위치 및 배치 최적화 */
+  /* badge-category__wrapper 내의 폰트 및 아이콘 크기 확대 */
+  .badge-category__wrapper,
+  .badge-category__wrapper .badge-category,
+  .badge-category__wrapper .badge-category__name,
+  .badge-category__wrapper .d-icon,
+  .badge-category__wrapper svg,
+  .category-title-link,
+  .category-title-link .badge-category {
+    font-size: 15px !important;
+    font-weight: 700 !important;
+  }
+
+  .badge-category__wrapper .d-icon,
+  .badge-category__wrapper svg {
+    width: 14px !important;
+    height: 14px !important;
+    margin-inline-end: var(--tds-space-xs) !important;
+  }
+
+  /* 7. 모바일 하단 플로팅 조작계 (카테고리/렌치/글쓰기/관리자 드롭다운) 위치 및 배치 최적화 */
   #main-outlet .list-controls .navigation-container #navigation-bar,
   .list-controls .navigation-container #navigation-bar,
   #navigation-bar {
@@ -965,14 +995,15 @@ body.tag-page #main-outlet {
     bottom: calc(var(--f-nav-height, 49px) + 20px + env(safe-area-inset-bottom)) !important;
   }
 
+  /* 우측 하단 플로팅 컨트롤을 세로가 아닌 '가로 한 줄'로 배치 */
   #main-outlet .list-controls .navigation-controls,
   .list-controls .navigation-controls {
     display: flex !important;
-    flex-direction: column-reverse !important;
+    flex-direction: row !important;
     align-items: center !important;
     justify-content: flex-end !important;
-    gap: var(--tds-space-m) !important;
-    height: auto !important;
+    gap: var(--tds-space-s) !important;
+    height: 38px !important;
     width: auto !important;
     position: fixed !important;
     right: var(--tds-space-l) !important;
@@ -987,14 +1018,15 @@ body.tag-page #main-outlet {
     bottom: calc(var(--f-nav-height, 49px) + 20px + env(safe-area-inset-bottom)) !important;
   }
 
-  /* 8. 필터 버튼 및 렌치 설정 버튼 높이 36px로 최적화 */
+  /* 8. 필터 버튼 및 렌치 설정 버튼 padding, margin 확대 및 38px 크기 최적화 */
   .list-control-toggle-link-trigger {
     height: 36px !important;
     min-height: 36px !important;
     max-height: 36px !important;
     width: auto !important;
     padding-block: 0 !important;
-    padding-inline: var(--tds-space-s) !important;
+    padding-inline: var(--tds-space-m) !important; /* 가로 padding 확대 */
+    margin-inline-end: var(--tds-space-s) !important;
     font-size: var(--text-xs) !important;
     line-height: 36px !important;
     border-radius: var(--tds-radius-full) !important;
@@ -1014,15 +1046,16 @@ body.tag-page #main-outlet {
     margin: 0 !important;
   }
 
+  /* 렌치 설정 버튼 가로 padding/margin 확대 및 Y축 38px 정밀 대응 */
   #main-outlet .list-controls .navigation-controls .btn:not(#create-topic),
   .list-controls .navigation-controls .btn:not(#create-topic),
   .navigation-controls .btn.fk-d-menu__trigger {
-    width: 36px !important;
-    height: 36px !important;
-    min-width: 36px !important;
-    min-height: 36px !important;
-    max-width: 36px !important;
-    max-height: 36px !important;
+    width: 38px !important;
+    height: 38px !important;
+    min-width: 38px !important;
+    min-height: 38px !important;
+    max-width: 38px !important;
+    max-height: 38px !important;
     border-radius: var(--tds-radius-full) !important;
     background: var(--primary-low) !important;
     box-shadow: var(--tds-shadow-m) !important;
@@ -1030,37 +1063,48 @@ body.tag-page #main-outlet {
     align-items: center !important;
     justify-content: center !important;
     padding: 0 !important;
-    margin: 0 !important;
+    margin-inline: var(--tds-space-xs) !important; /* 마진 확대 */
     border: none !important;
   }
 
   #main-outlet .list-controls .navigation-controls .btn:not(#create-topic) .d-icon,
   .list-controls .navigation-controls .btn:not(#create-topic) .d-icon,
   .navigation-controls .btn.fk-d-menu__trigger .d-icon {
-    width: 13px !important;
-    height: 13px !important;
-    font-size: 13px !important;
+    width: 14px !important;
+    height: 14px !important;
+    font-size: 14px !important;
     color: var(--primary-high) !important;
   }
 
-  /* 9. 글쓰기 콤보 버튼 및 FAB 크기 36px 축소 최적화 */
+  /* 카테고리 관리/편집 드롭다운(select-kit)도 글쓰기 버튼과 한 줄에 배치 및 크기 맞춤 */
+  .select-kit.single-select.dropdown-select-box.categories-admin-dropdown,
+  .select-kit.single-select.dropdown-select-box.categories-admin-dropdown .select-kit-header {
+    height: 38px !important;
+    min-height: 38px !important;
+    max-height: 38px !important;
+    border-radius: var(--tds-radius-full) !important;
+    margin-inline: var(--tds-space-xs) !important;
+  }
+
+  /* 9. 글쓰기 콤보 버튼 및 FAB 크기 38px 확대 및 가로 한 줄 정렬 */
   .d-combo-button.topic-create-button__combo,
   .d-combo-button.topic-create-button__combo.--has-menu,
   #create-topic-combo,
   #create-topic {
-    height: 36px !important;
-    min-height: 36px !important;
-    max-height: 36px !important;
+    height: 38px !important;
+    min-height: 38px !important;
+    max-height: 38px !important;
     border-radius: var(--tds-radius-full) !important;
     box-shadow: var(--tds-shadow-xl) !important;
     width: auto !important;
     display: inline-flex !important;
+    margin-inline: var(--tds-space-xs) !important;
   }
 
   #create-topic {
-    width: 36px !important;
-    min-width: 36px !important;
-    max-width: 36px !important;
+    width: 38px !important;
+    min-width: 38px !important;
+    max-width: 38px !important;
   }
 
   .d-combo-button.topic-create-button__combo button,
@@ -1068,9 +1112,9 @@ body.tag-page #main-outlet {
   .d-combo-button.topic-create-button__combo .btn,
   .d-combo-button.topic-create-button__combo.--has-menu .btn,
   #create-topic.btn {
-    height: 36px !important;
-    min-height: 36px !important;
-    max-height: 36px !important;
+    height: 38px !important;
+    min-height: 38px !important;
+    max-height: 38px !important;
     padding-block: 0 !important;
     padding-inline: var(--tds-space-m) !important;
     border-radius: var(--tds-radius-full) !important;
@@ -1082,7 +1126,7 @@ body.tag-page #main-outlet {
 
   #create-topic.btn {
     padding-inline: 0 !important;
-    width: 36px !important;
+    width: 38px !important;
   }
 
   .d-combo-button.topic-create-button__combo .btn .d-icon,
@@ -1091,16 +1135,16 @@ body.tag-page #main-outlet {
   .d-combo-button.topic-create-button__combo.--has-menu svg,
   #create-topic .d-icon,
   #create-topic svg {
-    width: 13px !important;
-    height: 13px !important;
-    font-size: 13px !important;
+    width: 14px !important;
+    height: 14px !important;
+    font-size: 14px !important;
     color: var(--secondary) !important;
   }
 
   .d-combo-button.topic-create-button__combo .d-combo-button__menu-trigger,
   .d-combo-button.topic-create-button__combo.--has-menu .d-combo-button__menu-trigger {
     padding-inline: var(--tds-space-s) !important;
-    height: 36px !important;
+    height: 38px !important;
     background: var(--tertiary) !important;
     border-top-right-radius: var(--tds-radius-full) !important;
     border-bottom-right-radius: var(--tds-radius-full) !important;
