@@ -257,18 +257,18 @@ body[class*="category-"] #main-outlet {
   }
 }
 
-/* 6. 내비게이션 컨트롤 영역(navigation-container) flex 배치 및 검색바 상단행 우측정렬 */
+/* 6. 내비게이션 컨트롤 영역(navigation-container) flex 배치 */
 #main-outlet .list-controls .navigation-container,
 .list-controls .navigation-container {
   display: flex !important;
   flex-flow: row wrap !important;
   align-items: center !important;
-  row-gap: 12px !important;
+  row-gap: 8px !important;
   column-gap: 8px !important;
   width: 100% !important;
 }
 
-/* 검색바 하단행 배치를 위한 래퍼 스타일링 */
+/* 검색바 래퍼 스타일링 */
 #main-outlet .list-controls .navigation-container .relocated-search-wrapper,
 .list-controls .navigation-container .relocated-search-wrapper,
 .navigation-container .relocated-search-wrapper,
@@ -279,9 +279,9 @@ body[class*="category-"] #main-outlet {
   height: auto !important;
   display: flex !important;
   flex-direction: column !important; /* 세로 배치: 검색바 알약 위, 드롭다운 아래 */
-  align-items: flex-end !important; /* 우측 정렬 */
-  order: 1 !important; /* 내비게이션 요소(order: 0) 뒤에 배치하여 2행에 위치시킴 */
-  margin: 0 0 0 auto !important; /* 우측 정렬 강제 */
+  align-items: flex-end !important;
+  order: -2 !important; /* 1행: 가장 먼저 배치 */
+  margin: 0 0 0 auto !important; /* 우측 정렬 */
   padding: 0 !important;
   box-sizing: border-box !important;
   background: transparent !important;
@@ -556,17 +556,17 @@ body[class*="category-"] #main-outlet {
   transform: none !important;
 }
 
-/* 우측 글쓰기/설정 버튼들(navigation-controls)을 하단행의 우측 끝으로 배치 */
+/* 우측 글쓰기/설정 버튼들(navigation-controls)을 1행 우측에 배치 */
 #main-outlet .list-controls .navigation-controls,
 .list-controls .navigation-controls {
-  margin-left: auto !important; /* 우측 끝으로 밀어냄 */
+  margin-left: 8px !important;
   margin-right: 0 !important;
   display: inline-flex !important;
   align-items: center !important;
   gap: 8px !important;
   height: 36px !important;
   padding: 0 !important;
-  order: 2 !important; /* 검색바(order: 1) 뒤에 배치 */
+  order: -1 !important; /* 검색바와 같은 행(1행)에 배치 */
 }
 
 /* 카테고리 편집 버튼(.edit-category) 깨짐 방지 */
@@ -655,6 +655,7 @@ body[class*="category-"] #main-outlet {
 .category-breadcrumb,
 #main-outlet .list-controls .category-breadcrumb {
   gap: 4px !important;
+  order: 1 !important; /* 2행: 검색바/버튼 아래에 배치 */
 }
 
 .list-controls .category-breadcrumb li,
@@ -671,7 +672,8 @@ body[class*="category-"] #main-outlet {
 #navigation-bar,
 #main-outlet .list-controls .nav-pills {
   gap: 4px !important;
-  flex-grow: 1 !important; /* Row 1의 남은 너비를 모두 채워 검색바를 다음 행으로 밀어냄 */
+  flex-grow: 0 !important; /* flex-grow 제거: 더 이상 1행을 독점하지 않음 */
+  order: 1 !important; /* 2행: 검색바/버튼 아래에 배치 */
 }
 
 .list-controls .nav-pills > li,
