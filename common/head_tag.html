@@ -9,9 +9,13 @@
 .welcome-banner-wrap,
 .welcome-banner__wrap,
 .welcome-banner-container,
-.welcome-banner.--location-above-topic-content {
-  border: none;
-  box-shadow: none;
+.welcome-banner.--location-above-topic-content,
+[class*="welcome-banner"],
+[class*="welcome-banner"] .container,
+[class*="welcome-banner"] .wrap,
+[class*="welcome-banner"] .welcome-banner-inner {
+  border: none !important;
+  box-shadow: none !important;
   background: transparent !important;
   background-color: transparent !important;
 }
@@ -46,7 +50,6 @@ body[class*="category-"] #main-outlet {
 }
 
 /* Disable custom grid areas on mobile and plugin/special pages to prevent layout breakdown */
-.mobile-view #main-outlet,
 body.has-full-page-chat #main-outlet,
 body.docs-page #main-outlet,
 body.user-profile-page #main-outlet,
@@ -247,9 +250,10 @@ body.tag-page #main-outlet {
   min-height: 40px !important; /* 검색바 및 드롭다운이 잘리지 않도록 보장 */
 }
 
-/* 내비게이션 상단 간격 유지 (웰컴 배너와의 사이) */
+/* 내비게이션 상하 간격 유지 (웰컴 배너와의 사이 및 목록과의 사이) */
 .list-controls {
   margin-top: var(--tds-space-xl) !important;
+  margin-bottom: 8px !important;
 }
 
 #list-area,
@@ -652,7 +656,7 @@ body.tag-page #main-outlet {
 }
 
 /* 모바일 정렬 보정 */
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 0px) {
   #main-outlet .list-controls .navigation-container .relocated-search-wrapper,
   .list-controls .navigation-container .relocated-search-wrapper,
   .navigation-container .relocated-search-wrapper,
@@ -778,7 +782,7 @@ body.tag-page #main-outlet {
 }
 
 /* 모바일 정렬 보정 */
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 0px) {
   .navigation-controls .search-input,
   .navigation-controls .search-menu-container {
     width: 100% !important;
@@ -786,7 +790,7 @@ body.tag-page #main-outlet {
 }
 
 /* 8. 모바일 nav-pills 탭 가로 스크롤 (P1-6) */
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 0px) {
   #main-outlet .list-controls .nav-pills,
   .list-controls .nav-pills,
   #navigation-bar,

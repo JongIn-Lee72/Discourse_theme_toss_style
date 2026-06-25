@@ -66,7 +66,7 @@ body[class*="category-"]:not(.archetype-regular):not(.archetype-banner) {
     gap: var(--tds-space-xl);
     
     // Tablet & Mobile View (< 1100px) - grid collapses to 1 column
-    @media screen and (max-width: 1099px) {
+    @media screen and (max-width: 0px) {
       grid-template-areas:
         "above-outlet"
         "alerts"
@@ -333,14 +333,7 @@ body[class*="category-"]:not(.archetype-regular):not(.archetype-banner) {
 .navigation-topics .list-controls,
 .list-controls,
 .navigation-container {
-  margin-bottom: 36px !important;
-
-  @media screen and (max-width: 1099px) {
-    margin-bottom: 24px !important;
-  }
-  @media screen and (max-width: 600px) {
-    margin-bottom: 16px !important;
-  }
+  margin-bottom: 8px !important;
 }
 
 .category-list {

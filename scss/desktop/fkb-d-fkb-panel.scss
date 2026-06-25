@@ -16,8 +16,8 @@
     }
   }
 
-  // Mobile / Tablet Drawer
-  @media screen and (max-width: 1099px) {
+  // Mobile / Tablet Drawer (Disabled to preserve PC layout on mobile)
+  @media screen and (max-width: 0px) {
     position: fixed;
     top: 0;
     right: 0;
@@ -47,7 +47,7 @@
     overflow: hidden;
     transition: box-shadow 0.28s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.28s cubic-bezier(0.2, 0.8, 0.2, 1);
 
-    @media screen and (max-width: 1099px) {
+    @media screen and (max-width: 0px) {
       height: 100% !important;
       top: 0 !important;
       margin-bottom: 0 !important;
@@ -389,7 +389,7 @@
     }
   }
 
-  @media screen and (max-width: 1099px) {
+  @media screen and (max-width: 0px) {
     body.fkb-panel-hidden & {
       position: fixed;
       left: auto;
