@@ -25,11 +25,11 @@
       // Navigation controls
       .list-controls {
         .nav-pills {
-          transform: translateY(-1em);
+          transform: translateY(calc(var(--tds-space-l) * -1));
         }
         .navigation-container {
           .navigation-controls {      
-            bottom: calc(var(--f-nav-height) + 1em);
+            bottom: calc(var(--f-nav-height) + var(--tds-space-l) + env(safe-area-inset-bottom));
           }
         }
       }
@@ -48,12 +48,12 @@
         // Navigation controls
         .list-controls {
           .nav-pills {      
-            transform: translateY(calc((var(--f-nav-height) * -1) - 1em));
+            transform: translateY(calc((var(--f-nav-height) * -1) - var(--tds-space-l)));
             transition: transform 0.1s linear;
             bottom: 0 !important;
           }   
           .navigation-controls {
-            bottom: calc(var(--f-nav-height) + 1em);
+            bottom: calc(var(--f-nav-height) + 1em + env(safe-area-inset-bottom));
           }
         }
       }
@@ -71,7 +71,7 @@
         .topic-list,
         .topic-list.sticky-header {
           .topic-list-header {
-            transform: translateY(calc((var(--f-nav-height) * -1) + 1em));
+            transform: translateY(calc((var(--f-nav-height) * -1) + var(--tds-space-l)));
             transition: transform 0.1s linear;
           }
         }
