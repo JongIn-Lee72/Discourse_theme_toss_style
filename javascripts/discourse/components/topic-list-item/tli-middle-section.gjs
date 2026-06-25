@@ -70,9 +70,10 @@ export default class TliMiddleSection extends Component {
       </a>
   
       <div class="tli-bottom-right-wrapper">
-        <a 
+        <a
           href="{{this.topic.lastPostUrl}}"
           class={{concatClass "latest-activity-tlist" this.topic.view.likesHeat}}
+          aria-label={{i18n "last_reply"}}
         >
           {{icon "clock-rotate-left"}}
           {{formatDate this.topic.bumpedAt format="tiny" noTitle="true"~}}

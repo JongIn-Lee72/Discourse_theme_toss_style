@@ -10,8 +10,8 @@
 .welcome-banner__wrap,
 .welcome-banner-container,
 .welcome-banner.--location-above-topic-content {
-  border: none !important;
-  box-shadow: none !important;
+  border: none;
+  box-shadow: none;
   background: transparent !important;
   background-color: transparent !important;
 }
@@ -77,7 +77,7 @@ body.tag-page #main-outlet {
   right: auto !important;
   width: 100% !important;
   max-width: 100% !important;
-  box-sizing: border-box !important;
+  box-sizing: border-box;
 }
 
 /* 통합 검색바 내부의 search-menu-container는 별도 처리 */
@@ -88,8 +88,8 @@ body.tag-page #main-outlet {
   width: auto !important;
   max-width: none !important;
   background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
+  border: none;
+  box-shadow: none;
 }
 
 .search-menu-container.menu-panel-results form,
@@ -102,26 +102,26 @@ body.tag-page #main-outlet {
 .search-menu-container input[type="text"] {
   width: 100% !important;
   max-width: 100% !important;
-  box-sizing: border-box !important;
+  box-sizing: border-box;
 }
 
 /* 4. Nav Pills & Select-Kit: 밑줄 완전 제거 + 36px 알약 칩 형태 동기화 */
 .list-controls .nav-pills,
 .nav-pills,
 #navigation-bar {
-  border-bottom: none !important;
-  box-shadow: none !important;
+  border-bottom: none;
+  box-shadow: none;
   margin-top: 0 !important;
-  margin-bottom: 0 !important;
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 .list-controls .nav-pills > li,
 .nav-pills > li {
-  border-bottom: none !important;
-  box-shadow: none !important;
-  margin: 0 !important;
+  border-bottom: none;
+  box-shadow: none;
+  margin: 0;
 }
 
 /* active/latest/unread 등 모든 nav item에 대한 동일한 크기 및 폰트 크기 설정 */
@@ -148,25 +148,25 @@ body.tag-page #main-outlet {
   min-height: 36px !important;
   max-height: 36px !important;
   padding: 0 var(--tds-space-l) !important;
-  font-size: 0.857em !important; /* var(--font-down-1)과 동일 */
-  line-height: 1 !important;
-  font-weight: 600 !important;
-  box-sizing: border-box !important;
-  border-radius: 100px !important;
+  font-size: 0.857em; /* var(--font-down-1)과 동일 */
+  line-height: 1;
+  font-weight: 600;
+  box-sizing: border-box;
+  border-radius: 100px;
   border: 1px solid var(--primary-low) !important; /* select-kit 테두리와 동기화 */
-  box-shadow: none !important;
-  text-decoration: none !important;
-  margin: 0 !important;
+  box-shadow: none;
+  text-decoration: none;
+  margin: 0;
   background-color: var(--secondary) !important; /* 기본 배경색 흰색/배경색으로 통일 */
-  color: #4e5968 !important;
-  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease !important;
+  color: var(--color-text-muted) !important;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
 .list-controls .nav-pills > li > a:hover,
 .nav-pills > li > a:hover,
 .list-controls .select-kit.combo-box .select-kit-header:hover {
-  background-color: rgba(0, 0, 0, 0.04) !important;
-  color: #191f28 !important;
+  background-color: var(--tds-black-alpha-4) !important;
+  color: var(--color-text) !important;
   border-color: var(--primary-medium) !important;
 }
 
@@ -177,20 +177,20 @@ body.tag-page #main-outlet {
 .list-controls .nav-pills > li > a.active,
 .nav-pills > li.active > a,
 .nav-pills > li > a.active {
-  background-color: rgba(49, 130, 246, 0.1) !important;
-  color: #3182f6 !important;
-  font-weight: 700 !important;
-  border: 1px solid rgba(49, 130, 246, 0.3) !important;
-  box-shadow: none !important;
-  text-decoration: none !important;
+  background-color: var(--tds-blue-alpha-10) !important;
+  color: var(--tds-blue) !important;
+  font-weight: 700;
+  border: 1px solid var(--tds-blue-alpha-30) !important;
+  box-shadow: none;
+  text-decoration: none;
 }
 
 /* active 탭 밑줄 및 pseudo-elements(::after 등) 완전 제거 */
 #main-outlet .list-controls .nav-pills > li.active,
 .list-controls .nav-pills > li.active,
 .nav-pills > li.active {
-  border-bottom: none !important;
-  box-shadow: none !important;
+  border-bottom: none;
+  box-shadow: none;
 }
 
 #main-outlet .list-controls .nav-pills > li.active::after,
@@ -207,11 +207,11 @@ body.tag-page #main-outlet {
 .nav-pills > li > a.active::after,
 .nav-pills > li > a.active::before {
   display: none !important;
-  content: none !important;
-  border: none !important;
+  content: none;
+  border: none;
   width: 0 !important;
   height: 0 !important;
-  box-shadow: none !important;
+  box-shadow: none;
 }
 
 /* 5. 내비게이션과 글 목록 사이 6번 간격 및 list-controls 하단 공백 완전 제거 */
@@ -229,8 +229,8 @@ body.tag-page #main-outlet {
 .list-controls .category-breadcrumb,
 .list-controls #navigation-bar,
 .list-controls .nav-pills {
-  margin-bottom: 0 !important;
-  padding-bottom: 0 !important;
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 
 /* 내비게이션바 컨테이너 높이 및 잘림 방지 (overflow 해제) */
@@ -261,7 +261,7 @@ body.tag-page #main-outlet {
 .categories-and-top,
 .tag-info {
   margin-top: 0px !important; /* row-gap이 0이므로 음수 마진 불필요 */
-  padding-top: 0 !important;
+  padding-top: 0;
 }
 
 @media screen and (max-width: 1099px) {
@@ -294,15 +294,15 @@ body.tag-page #main-outlet {
 /* 1행과 2행 사이 강제 줄바꿈: order -1 이하(검색바/버튼)와 order 1 이상(nav-pills/breadcrumb)을 분리 */
 #main-outlet .list-controls .navigation-container::before,
 .list-controls .navigation-container::before {
-  content: "" !important;
+  content: "";
   flex-basis: 100% !important;
   height: 0 !important;
   order: 0 !important; /* order -2/-1(1행)과 order 1(2행) 사이에 위치 */
-  margin: 0 !important;
-  padding: 0 !important;
-  border: none !important;
-  visibility: hidden !important;
-  pointer-events: none !important;
+  margin: 0;
+  padding: 0;
+  border: none;
+  visibility: hidden;
+  pointer-events: none;
 }
 
 /* 검색바 래퍼 스타일링 */
@@ -319,11 +319,11 @@ body.tag-page #main-outlet {
   align-items: flex-end !important;
   order: -2 !important; /* 1행: 가장 먼저 배치 */
   margin: 0 0 0 auto !important; /* 우측 정렬 */
-  padding: 0 !important;
-  box-sizing: border-box !important;
+  padding: 0;
+  box-sizing: border-box;
   background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
+  border: none;
+  box-shadow: none;
   overflow: visible !important;
   position: relative !important; /* 드롭다운 앵커의 기준점 */
 }
@@ -339,11 +339,11 @@ body.tag-page #main-outlet {
   display: inline-flex !important;
   align-items: center !important;
   padding: 0 var(--tds-space-xs) 0 0.375rem !important;
-  box-sizing: border-box !important;
+  box-sizing: border-box;
   background-color: var(--secondary) !important;
   border: 1px solid var(--primary-low) !important;
-  border-radius: 100px !important;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+  border-radius: 100px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
   overflow: visible !important;
   position: relative !important;
   z-index: 2 !important; /* 알약이 드롭다운 앵커 위에 표시 */
@@ -365,7 +365,7 @@ body.tag-page #main-outlet {
   right: 0 !important;
   width: 320px !important;
   z-index: 10001 !important;
-  pointer-events: none !important;
+  pointer-events: none;
 }
 
 /* 드롭다운 앵커 내부의 검색 결과/자동완성/팝업 스타일 */
@@ -386,15 +386,15 @@ body.tag-page #main-outlet {
   right: 0 !important;
   width: 320px !important;
   max-width: 320px !important;
-  box-sizing: border-box !important;
+  box-sizing: border-box;
   z-index: 10001 !important;
   background-color: var(--secondary) !important;
   border: 1px solid var(--primary-low) !important;
-  border-radius: var(--tds-radius-m) !important;
+  border-radius: var(--tds-radius-m);
   box-shadow: var(--tds-shadow-l) !important;
   overflow: hidden !important;
-  transform: none !important;
-  pointer-events: auto !important;
+  transform: none;
+  pointer-events: auto;
 }
 
 /* 이동된 검색바 폼 */
@@ -406,8 +406,8 @@ body.tag-page #main-outlet {
 .unified-search-bar form .search-input {
   display: inline-flex !important;
   align-items: center !important;
-  margin: 0 !important;
-  padding: 0 !important;
+  margin: 0;
+  padding: 0;
   height: 100% !important;
   flex: 1 1 auto !important;
   width: auto !important;
@@ -415,10 +415,10 @@ body.tag-page #main-outlet {
   max-width: none !important;
   background: transparent !important;
   background-color: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
+  border: none;
+  box-shadow: none;
   position: static !important; /* static: 드롭다운이 이 요소 기준으로 위치잡지 않도록 */
-  box-sizing: border-box !important;
+  box-sizing: border-box;
 }
 
 /* 검색창 input */
@@ -429,20 +429,20 @@ body.tag-page #main-outlet {
   height: 100% !important;
   min-height: 100% !important;
   max-height: 100% !important;
-  padding: 0 !important;
-  font-size: 0.857em !important;
-  line-height: 1 !important;
-  border: none !important;
+  padding: 0;
+  font-size: 0.857em;
+  line-height: 1;
+  border: none;
   background-color: transparent !important;
   background: transparent !important;
   color: var(--primary) !important;
-  box-shadow: none !important;
-  box-sizing: border-box !important;
+  box-shadow: none;
+  box-sizing: border-box;
   width: 100% !important;
   flex: 1 1 auto !important;
-  margin: 0 !important;
-  text-align: left !important;
-  outline: none !important;
+  margin: 0;
+  text-align: left;
+  outline: none;
   order: 1 !important; /* 상세 필터(order: -1) 우측에 배치 */
 }
 
@@ -450,21 +450,21 @@ body.tag-page #main-outlet {
 #main-outlet .list-controls .navigation-container .unified-search-bar .relocated-search-form input:focus,
 .unified-search-bar .relocated-search-form input:focus {
   background-color: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-  outline: none !important;
+  border: none;
+  box-shadow: none;
+  outline: none;
 }
 
 /* 상세 검색(Show Advanced Search) 필터 버튼 */
 #main-outlet .list-controls .navigation-container .unified-search-bar .show-advanced-search,
 .unified-search-bar .show-advanced-search,
 .unified-search-bar form .show-advanced-search {
-  border: none !important;
+  border: none;
   background: transparent !important;
   background-color: transparent !important;
-  box-shadow: none !important;
+  box-shadow: none;
   padding: 0 var(--tds-space-xs) !important;
-  margin: 0 !important;
+  margin: 0;
   height: 32px !important;
   width: 32px !important;
   min-width: 32px !important;
@@ -472,9 +472,9 @@ body.tag-page #main-outlet {
   align-items: center !important;
   justify-content: center !important;
   color: var(--primary-medium) !important;
-  cursor: pointer !important;
+  cursor: pointer;
   flex: none !important;
-  transition: color 0.2s ease !important;
+  transition: color 0.2s ease;
   order: -1 !important; /* 검색어 인풋 좌측으로 강제 순서 이동 */
 }
 
@@ -499,18 +499,18 @@ body.tag-page #main-outlet {
   width: 32px !important;
   min-width: 32px !important;
   max-width: 32px !important;
-  border-radius: 100px !important;
-  border: none !important;
+  border-radius: 100px;
+  border: none;
   background: transparent !important;
   background-color: transparent !important;
-  box-shadow: none !important;
+  box-shadow: none;
   color: var(--primary-medium) !important;
-  padding: 0 !important;
+  padding: 0;
   margin: 0 0 0 2px !important;
   flex: none !important;
-  box-sizing: border-box !important;
-  cursor: pointer !important;
-  transition: color 0.2s ease !important;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: color 0.2s ease;
 }
 
 #main-outlet .list-controls .navigation-container .unified-search-bar .relocated-search-icon:hover,
@@ -522,8 +522,8 @@ body.tag-page #main-outlet {
 #main-outlet .list-controls .navigation-container .unified-search-bar .relocated-search-icon .d-icon,
 .unified-search-bar .relocated-search-icon .d-icon,
 .unified-search-bar .relocated-search-icon svg {
-  margin: 0 !important;
-  font-size: 0.857em !important;
+  margin: 0;
+  font-size: 0.857em;
   display: inline-block !important;
 }
 
@@ -541,11 +541,11 @@ body.tag-page #main-outlet {
   z-index: 10001 !important;
   background-color: var(--secondary) !important;
   border: 1px solid var(--primary-low) !important;
-  border-radius: var(--tds-radius-m) !important;
+  border-radius: var(--tds-radius-m);
   box-shadow: var(--tds-shadow-l) !important;
   overflow: hidden !important;
-  transform: none !important;
-  box-sizing: border-box !important;
+  transform: none;
+  box-sizing: border-box;
 }
 
 /* 폼 내부의 .results 드롭다운 (relocated-search-form 내에서 Discourse가 생성) */
@@ -559,11 +559,11 @@ body.tag-page #main-outlet {
   z-index: 10001 !important;
   background-color: var(--secondary) !important;
   border: 1px solid var(--primary-low) !important;
-  border-radius: var(--tds-radius-m) !important;
+  border-radius: var(--tds-radius-m);
   box-shadow: var(--tds-shadow-l) !important;
   overflow: hidden !important;
-  transform: none !important;
-  box-sizing: border-box !important;
+  transform: none;
+  box-sizing: border-box;
 }
 
 /* 검색창 자동완성/문법도움말/팁 팝업: 알약 아래 표시 */
@@ -584,14 +584,14 @@ body.tag-page #main-outlet {
   left: -6px !important;
   width: 320px !important;
   max-width: 320px !important;
-  box-sizing: border-box !important;
+  box-sizing: border-box;
   z-index: 10001 !important;
   background-color: var(--secondary) !important;
   border: 1px solid var(--primary-low) !important;
-  border-radius: var(--tds-radius-m) !important;
+  border-radius: var(--tds-radius-m);
   box-shadow: var(--tds-shadow-l) !important;
   overflow: hidden !important;
-  transform: none !important;
+  transform: none;
 }
 
 /* 우측 글쓰기/설정 버튼들(navigation-controls)을 2행 우측에 배치 */
@@ -603,7 +603,7 @@ body.tag-page #main-outlet {
   align-items: center !important;
   gap: var(--tds-space-s) !important;
   height: 36px !important;
-  padding: 0 !important;
+  padding: 0;
   order: 1 !important; /* nav-pills와 같은 행(2행)에 배치 */
 }
 
@@ -622,15 +622,15 @@ body.tag-page #main-outlet {
   height: 36px !important;
   min-height: 36px !important;
   max-height: 36px !important;
-  padding: 0 !important;
-  margin: 0 !important;
-  border-radius: 100px !important;
+  padding: 0;
+  margin: 0;
+  border-radius: 100px;
   border: 1px solid var(--primary-low) !important;
   background-color: var(--secondary) !important;
-  box-shadow: none !important;
-  box-sizing: border-box !important;
-  cursor: pointer !important;
-  transition: background-color 0.2s ease, border-color 0.2s ease !important;
+  box-shadow: none;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
   overflow: hidden !important;
   color: var(--primary-medium) !important;
 }
@@ -638,7 +638,7 @@ body.tag-page #main-outlet {
 #main-outlet .list-controls .navigation-controls .edit-category:hover,
 .list-controls .navigation-controls .edit-category:hover,
 .navigation-controls .btn.edit-category:hover {
-  background-color: rgba(0, 0, 0, 0.04) !important;
+  background-color: var(--tds-black-alpha-4) !important;
   border-color: var(--primary-medium) !important;
   color: var(--primary) !important;
 }
@@ -646,8 +646,8 @@ body.tag-page #main-outlet {
 #main-outlet .list-controls .navigation-controls .edit-category .d-icon,
 .list-controls .navigation-controls .edit-category .d-icon,
 .navigation-controls .btn.edit-category .d-icon {
-  font-size: 0.857em !important;
-  margin: 0 !important;
+  font-size: 0.857em;
+  margin: 0;
   color: inherit !important;
 }
 
@@ -744,7 +744,7 @@ body.tag-page #main-outlet {
 .list-controls .category-breadcrumb,
 .category-breadcrumb,
 #main-outlet .list-controls .category-breadcrumb {
-  gap: var(--tds-space-xs) !important;
+  gap: var(--tds-space-xs);
   order: 1 !important; /* 2행: 검색바/버튼 아래에 배치 */
 }
 
@@ -754,14 +754,14 @@ body.tag-page #main-outlet {
 #main-outlet .list-controls .category-breadcrumb li {
   margin-right: 0 !important;
   margin-left: 0 !important;
-  margin: 0 !important;
+  margin: 0;
 }
 
 .list-controls .nav-pills,
 .nav-pills,
 #navigation-bar,
 #main-outlet .list-controls .nav-pills {
-  gap: var(--tds-space-xs) !important;
+  gap: var(--tds-space-xs);
   flex-grow: 0 !important; /* flex-grow 제거: 더 이상 1행을 독점하지 않음 */
   order: 1 !important; /* 2행: 검색바/버튼 아래에 배치 */
 }
@@ -774,7 +774,7 @@ body.tag-page #main-outlet {
 #main-outlet .list-controls .nav-pills li {
   margin-right: 0 !important;
   margin-left: 0 !important;
-  margin: 0 !important;
+  margin: 0;
 }
 
 /* 모바일 정렬 보정 */
@@ -782,6 +782,54 @@ body.tag-page #main-outlet {
   .navigation-controls .search-input,
   .navigation-controls .search-menu-container {
     width: 100% !important;
+  }
+}
+
+/* 8. 모바일 nav-pills 탭 가로 스크롤 (P1-6) */
+@media screen and (max-width: 800px) {
+  #main-outlet .list-controls .nav-pills,
+  .list-controls .nav-pills,
+  #navigation-bar,
+  #main-outlet .list-controls #navigation-bar {
+    display: flex !important;
+    flex-flow: row nowrap !important;
+    align-items: center !important;
+    gap: var(--tds-space-xs);
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    overflow-y: hidden;
+    white-space: nowrap;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    -webkit-overflow-scrolling: touch;
+    box-sizing: border-box;
+    padding-bottom: var(--tds-space-xs) !important; /* 스크롤바/터치 여유 */
+  }
+
+  #main-outlet .list-controls .nav-pills::-webkit-scrollbar,
+  .list-controls .nav-pills::-webkit-scrollbar,
+  #navigation-bar::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+  }
+
+  #main-outlet .list-controls .nav-pills > li,
+  .list-controls .nav-pills > li,
+  #navigation-bar > li,
+  .nav-pills > li {
+    flex: 0 0 auto !important;
+    white-space: nowrap;
+    margin: 0;
+  }
+
+  #main-outlet .list-controls .nav-pills > li > a,
+  .list-controls .nav-pills > li > a,
+  #navigation-bar > li > a,
+  .nav-pills > li > a {
+    white-space: nowrap;
+    display: inline-flex !important;
   }
 }
 </style>

@@ -67,14 +67,24 @@ body[class*="category-"]:not(.archetype-regular):not(.archetype-banner) {
           background: var(--primary-low);
           box-shadow: var(--tds-shadow-m);
           order: 1;
-          &:hover,
-          &:focus {
+
+          @media (hover: hover) {
+            &:hover,
+            &:focus {
+              background: var(--primary-medium);
+              .d-icon {
+                color: var(--primary-low);
+              }
+            }
+          }
+
+          &:active {
             background: var(--primary-medium);
             .d-icon {
               color: var(--primary-low);
             }
           }
-          
+
           .d-icon {
             color: var(--primary-high);
             inline-size: 1.25em;

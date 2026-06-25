@@ -5,10 +5,13 @@ import { i18n } from "discourse-i18n";
 import DButton from "discourse/components/d-button";
 
 export default class FKBPanelHideButton extends Component {
-  
+  get isHidden() {
+    return document.body.classList.contains("fkb-panel-hidden");
+  }
+
   @action
   toggle() {
-    const fkbPanelHidden = document.body.classList.contains("fkb-panel-hidden");
+    const fkbPanelHidden = this.isHidden;
     if (fkbPanelHidden) {
       localStorage.setItem("fkb_panel_hidden", "false");
       document.body.classList.remove("fkb-panel-hidden");
@@ -24,6 +27,8 @@ export default class FKBPanelHideButton extends Component {
       @action={{this.toggle}}
       @icon="chevron-right"
       @title={{i18n (themePrefix "sidebar.toggle")}}
+      @ariaLabel={{i18n (themePrefix "sidebar.toggle")}}
+      @ariaPressed={{this.isHidden}}
     />
   </template>
 }
