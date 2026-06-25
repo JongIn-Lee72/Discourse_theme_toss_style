@@ -100,6 +100,11 @@
   --tds-text-secondary-light: oklch(49.2% 0.016 254deg);
   --tds-text-tertiary-light: oklch(62.7% 0.017 254deg);
 
+  // Colors - Dark Mode
+  --tds-text-primary-dark: oklch(98% 0.005 250deg);
+  --tds-text-secondary-dark: oklch(88% 0.01 250deg);
+  --tds-text-tertiary-dark: oklch(70% 0.015 250deg);
+
   // Surfaces
   --color-surface: var(--tds-bg-light);
   --color-surface-raised: var(--tds-container-light);
@@ -125,9 +130,9 @@
     --color-surface: var(--tds-bg-dark);
     --color-surface-raised: var(--tds-container-dark);
     --color-surface-sunken: oklch(15% 0.012 250deg);
-    --color-text: var(--tds-text-primary-light);
-    --color-text-muted: var(--tds-text-tertiary-light);
-    --color-text-inverted: oklch(15% 0.015 250deg);
+    --color-text: var(--tds-text-primary-dark);
+    --color-text-muted: var(--tds-text-secondary-dark);
+    --color-text-inverted: var(--tds-text-primary-light);
     --color-border: oklch(35% 0.015 250deg);
     --color-border-strong: oklch(45% 0.018 250deg);
   }
