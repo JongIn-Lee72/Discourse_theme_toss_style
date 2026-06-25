@@ -34,6 +34,14 @@
   --text-3xl: 1.875rem; /* 30px */
   --text-4xl: 2.25rem;  /* 36px */
 
+  // Mobile Typography Scale (P2-11)
+  --mobile-title-size: 1.2em;
+  --mobile-title-line-height: 1.5;
+  --mobile-excerpt-size: 0.95em;
+  --mobile-excerpt-line-height: 1.6;
+  --mobile-meta-size: 0.85em;
+  --mobile-meta-line-height: 1.4;
+
   // Spacing / Size Scale
   --size-4: 0.25rem;   /* 4px */
   --size-8: 0.5rem;    /* 8px */
@@ -81,6 +89,9 @@
   --tds-blue: oklch(60.15% 0.198 259.08deg); /* TDS Primary Blue #3182f6 */
   --tds-blue-hover: oklch(55.15% 0.198 259.08deg);
   --tds-blue-active: oklch(50.15% 0.198 259.08deg);
+  --tds-blue-alpha-10: oklch(60.15% 0.198 259.08deg / 0.1);
+  --tds-blue-alpha-30: oklch(60.15% 0.198 259.08deg / 0.3);
+  --tds-black-alpha-4: oklch(0% 0 0deg / 0.04);
   --tds-bg-light: oklch(96% 0.005 254deg);
   --tds-bg-dark: oklch(18% 0.015 250deg);
   --tds-container-light: oklch(100% 0 0deg);
@@ -107,6 +118,19 @@
   --color-primary-brand: var(--tds-blue);
   --color-primary-brand-hover: var(--tds-blue-hover);
   --color-primary-brand-active: var(--tds-blue-active);
+
+  // Dark mode token overrides (P2-12)
+  html.dark-mode &,
+  .dark-mode & {
+    --color-surface: var(--tds-bg-dark);
+    --color-surface-raised: var(--tds-container-dark);
+    --color-surface-sunken: oklch(15% 0.012 250deg);
+    --color-text: var(--tds-text-primary-light);
+    --color-text-muted: var(--tds-text-tertiary-light);
+    --color-text-inverted: oklch(15% 0.015 250deg);
+    --color-border: oklch(35% 0.015 250deg);
+    --color-border-strong: oklch(45% 0.018 250deg);
+  }
 
   // Compatibility mapping for existing files
   --m3-radius-none: var(--tds-radius-none);

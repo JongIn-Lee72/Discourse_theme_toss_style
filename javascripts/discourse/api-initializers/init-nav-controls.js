@@ -11,6 +11,18 @@ export default {
       let lastScrollTop = 0;
       
       // Define scroll handler
+      const setNavControlsHidden = (hidden) => {
+        const navControls = document.querySelector(".navigation-controls");
+        if (!navControls) return;
+        if (hidden) {
+          navControls.setAttribute("aria-hidden", "true");
+          navControls.setAttribute("inert", "");
+        } else {
+          navControls.removeAttribute("aria-hidden");
+          navControls.removeAttribute("inert");
+        }
+      };
+
       const onScroll = () => {
         const isMobileView = html.classList.contains("mobile-view");
 
@@ -21,20 +33,23 @@ export default {
           if (scrollTop > lastScrollTop && scrollTop > 0) {
             if (!body.classList.contains(hiddenNavClass)) {
               body.classList.add(hiddenNavClass);
+              setNavControlsHidden(true);
             }
-          } 
+          }
           // Scroll Up -> Show
           else if (scrollTop < lastScrollTop) {
             if (body.classList.contains(hiddenNavClass)) {
               body.classList.remove(hiddenNavClass);
+              setNavControlsHidden(false);
             }
           }
-          
+
           lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
         } else {
           // If NOT mobile (desktop), ensure navigation is visible
           if (body.classList.contains(hiddenNavClass)) {
             body.classList.remove(hiddenNavClass);
+            setNavControlsHidden(false);
           }
         }
       };

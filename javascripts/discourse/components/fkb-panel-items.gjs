@@ -18,6 +18,7 @@ export default class FkbPanelItems extends Component {
     {{#each this.fkbPanelItems as |fi|}}
       <DButton
         @translatedTitle={{i18n (themePrefix fi.translationPath)}}
+        @translatedAriaLabel={{i18n (themePrefix fi.translationPath)}}
         @class="fkb-link btn-default btn no-text btn-icon"
         @href={{fi.link}}
         @icon={{fi.icon}}
