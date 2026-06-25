@@ -729,18 +729,19 @@ body.tag-page #main-outlet {
 
   #main-outlet .list-controls .navigation-container,
   .list-controls .navigation-container {
-    flex-direction: column !important;
-    align-items: stretch !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    justify-content: space-between !important;
+    align-items: center !important;
   }
   .list-controls .category-breadcrumb,
   .list-controls .nav-pills {
-    width: 100% !important;
+    inline-size: auto !important;
   }
   #main-outlet .list-controls .navigation-controls,
   .list-controls .navigation-controls {
-    margin-left: 0 !important;
-    width: auto !important;
-    justify-content: flex-end !important;
+    margin-inline-start: auto !important;
+    inline-size: auto !important;
   }
 
   html.footer-nav-visible:not(.footer-nav-ipad) #main-outlet .list-controls .navigation-controls,

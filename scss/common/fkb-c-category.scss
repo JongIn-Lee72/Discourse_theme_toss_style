@@ -102,6 +102,9 @@ body[class*="category-"] {
           }
           
           .category-description {
+            border-block-start: none !important;
+            border-block-end: none !important;
+            border: none !important;
             margin-top: 6px;
             font-size: 0.9em;
             color: var(--primary-medium);
@@ -167,4 +170,22 @@ body[class*="category-"] {
   text-align: center;
   background: var(--highlight-low);
   color: var(--primary);
+}
+
+@media screen and (max-width: 767px) {
+  .navigation-categories .category-list tbody tr td.category {
+    min-block-size: 0 !important;
+    padding-block: var(--tds-space-s) !important;
+  }
+  
+  .navigation-categories .category-list tbody tr {
+    .category-stat,
+    .category-stats,
+    td.topics,
+    td.posts {
+      margin-inline-start: auto !important;
+      text-align: right !important;
+      padding-inline-start: var(--tds-space-s) !important;
+    }
+  }
 }
