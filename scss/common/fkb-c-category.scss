@@ -212,7 +212,9 @@ body[class*="category-"] {
         font-size: var(--text-sm) !important;
       }
     }
-    .category-description {
+    .category-description,
+    &.category-description,
+    tbody tr td.category .category-description {
       font-size: var(--text-xs) !important; /* 12px instead of 0.9em */
       margin-block-start: 4px !important;
       border-top: none !important;

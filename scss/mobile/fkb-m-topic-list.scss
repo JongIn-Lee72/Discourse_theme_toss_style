@@ -105,6 +105,7 @@ body[class*="category-"]:not(.archetype-regular):not(.archetype-banner) {
             block-size: 1.25em;
           }
         }
+        .d-combo-button.topic-create-button__combo,
         .d-combo-button.topic-create-button__combo.--has-menu,
         #create-topic {
           order: 2;
@@ -134,6 +135,7 @@ body[class*="category-"]:not(.archetype-regular):not(.archetype-banner) {
             background: var(--tertiary) !important;
             border: none !important;
             box-shadow: none !important;
+            font-size: var(--text-sm) !important;
             
             .d-icon,
             svg {
@@ -190,9 +192,12 @@ body[class*="category-"]:not(.archetype-regular):not(.archetype-banner) {
         }
         #create-topic {
           inline-size: 44px !important;
+          width: 44px !important;
         }
+        .d-combo-button.topic-create-button__combo,
         .d-combo-button.topic-create-button__combo.--has-menu {
           inline-size: auto !important;
+          width: auto !important;
         }
         // Dropdown
         .select-kit {
