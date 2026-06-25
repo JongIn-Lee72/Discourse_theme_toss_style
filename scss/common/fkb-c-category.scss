@@ -182,6 +182,21 @@ body[class*="category-"] {
     min-block-size: 0 !important;
     padding-block: var(--tds-space-s) !important;
     padding-inline-start: var(--tds-space-m) !important;
+
+    h3 a.badge-wrapper.box,
+    .badge-wrapper.box,
+    .badge-category,
+    .badge-category-bg,
+    .category-title-link {
+      background: transparent !important;
+      background-color: transparent !important;
+      box-shadow: none !important;
+      border: none !important;
+      border-left: none !important;
+      padding: var(--tds-radius-none) !important;
+      margin: var(--tds-radius-none) !important;
+      border-radius: var(--tds-radius-none) !important;
+    }
   }
   
   .navigation-categories .category-list tbody tr {
@@ -193,5 +208,9 @@ body[class*="category-"] {
       text-align: right !important;
       padding-inline-start: var(--tds-space-s) !important;
     }
+  }
+
+  .list-container {
+    padding-block-end: calc(120px + env(safe-area-inset-bottom)) !important;
   }
 }
