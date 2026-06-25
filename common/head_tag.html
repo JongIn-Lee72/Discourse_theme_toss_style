@@ -922,15 +922,18 @@ body.tag-page #main-outlet {
   .category-title-header .category-description,
   #main-outlet .category-title-header .category-description,
   #main-outlet .category-heading .category-description,
+  /* tr, td, th 자체 및 하위의 가로선/세로선 완전 제거 (box-shadow 및 논리 속성 차단) */
+  #main-outlet .category-list tbody tr.category-list-item,
+  #main-outlet .category-list tbody tr[data-category-id],
+  #main-outlet .category-list tbody tr td,
+  #main-outlet .category-list tbody tr th,
+  .category-list tbody tr,
+  .category-list tbody td,
+  .category-list tbody th,
   .category-list td,
   .category-list th,
   .category-list-item td,
   .category-list-item th,
-  .category-list tbody tr,
-  .category-list tbody td,
-  .category-list tbody th,
-  tr[data-category-id],
-  tr[data-category-id] td,
   .category-list td.category,
   .category-list td.category h3,
   .category-list td.category .category-title-link,
@@ -950,6 +953,25 @@ body.tag-page #main-outlet {
     border-block-end: none !important;
     border: none !important;
     box-shadow: none !important;
+  }
+
+  /* 가상 요소(::after, ::before)로 생성된 가로 경계선 물리적 제거 */
+  #main-outlet .category-list-item::after,
+  #main-outlet .category-list-item::before,
+  #main-outlet .category-description::after,
+  #main-outlet .category-description::before,
+  #main-outlet td.category::after,
+  #main-outlet td.category::before,
+  .category-list-item::after,
+  .category-list-item::before,
+  .category-description::after,
+  .category-description::before,
+  td.category::after,
+  td.category::before {
+    content: none !important;
+    display: none !important;
+    height: 0 !important;
+    border: none !important;
   }
 
   .category-list .category-description,
