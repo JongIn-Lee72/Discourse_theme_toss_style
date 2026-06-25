@@ -45,6 +45,16 @@ body[class*="category-"] #main-outlet {
   row-gap: 0px !important;
 }
 
+/* Disable custom grid areas on mobile and plugin pages to prevent layout breakdown */
+.mobile-view #main-outlet,
+body.has-full-page-chat #main-outlet,
+body.docs-page #main-outlet {
+  grid-template-areas: none !important;
+  grid-template-columns: 100% !important;
+  display: block !important;
+}
+
+
 /* 3. 중앙 검색바(search-menu-container) 가로 폭 100% 확대 - 통합 검색바 외부에서만 적용 */
 .search-menu-container.menu-panel-results,
 .search-menu-container,
@@ -660,10 +670,16 @@ body[class*="category-"] #main-outlet {
   #main-outlet .list-controls .navigation-controls,
   .list-controls .navigation-controls {
     margin-left: 0 !important;
-    width: 100% !important;
+    width: auto !important;
     justify-content: flex-end !important;
   }
+  
+  html.footer-nav-visible:not(.footer-nav-ipad) #main-outlet .list-controls .navigation-controls,
+  html.footer-nav-visible:not(.footer-nav-ipad) .list-controls .navigation-controls {
+    bottom: calc(var(--f-nav-height, 49px) + 1em + env(safe-area-inset-bottom)) !important;
+  }
 }
+
 
 /* 7. category-breadcrumb 및 nav-pills 내부 간격 4px으로 축소 */
 .list-controls .category-breadcrumb,

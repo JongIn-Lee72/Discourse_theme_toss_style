@@ -6,7 +6,8 @@
   grid-template-areas: "posts";
   grid-template-columns: auto;
   > .row {
-    max-width: calc(100vw - 20px);
+    max-width: calc(100vw - 32px);
+    margin-inline: auto;
   }
   .topic-navigation {
     grid-area: posts;
@@ -65,7 +66,7 @@
   max-width: 100%;
   margin: 1.5em 0;
   padding-right: 11em;
-  border-radius: var(--d-default-border-radius);
+  border-radius: var(--tds-radius-m) !important;
   .filtered-replies-show-all {
     right: 1em;
   }
@@ -78,7 +79,7 @@
 
 .post-notice {
   max-width: 100%;
-  border-radius: var(--d-default-border-radius);
+  border-radius: var(--tds-radius-m) !important;
   padding: 0.8em;
   margin-bottom: 16px;
   &.old {
@@ -107,7 +108,7 @@
 
 .suggested-topics-wrapper {
   .topic-list-item {
-    border-radius: var(--d-default-border-radius);
+    border-radius: var(--tds-radius-l) !important;
   }
   .topic-list-data {
     box-sizing: border-box;

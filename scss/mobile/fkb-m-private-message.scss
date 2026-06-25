@@ -5,8 +5,9 @@
 .archetype-private_message {
   .post-stream {
     article {
-      max-width: calc(100vw - 20px);
-      margin-bottom: 5px;
+      max-width: calc(100vw - 32px);
+      margin-inline: auto;
+      margin-block-end: 5px;
     }
   }
   .topic-post article {
@@ -35,6 +36,6 @@
   .small-action-desc.timegap {
     padding: 1em;
     margin: 8px 0;
-    border-radius: var(--d-button-border-radius);
+    border-radius: var(--tds-radius-m) !important;
   }
 }
