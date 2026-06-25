@@ -333,7 +333,7 @@ body[class*="category-"]:not(.archetype-regular):not(.archetype-banner) {
 .navigation-topics .list-controls,
 .list-controls,
 .navigation-container {
-  margin-bottom: 8px !important;
+  margin-bottom: var(--tds-space-l) !important;
 }
 
 .category-list {

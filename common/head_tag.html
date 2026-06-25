@@ -5,15 +5,15 @@
    ============================================================ */
 
 /* 1. Welcome Banner 투명화 및 테두리 제거 */
-.welcome-banner,
-.welcome-banner-wrap,
-.welcome-banner__wrap,
-.welcome-banner-container,
-.welcome-banner.--location-above-topic-content,
-[class*="welcome-banner"],
-[class*="welcome-banner"] .container,
-[class*="welcome-banner"] .wrap,
-[class*="welcome-banner"] .welcome-banner-inner {
+#main-outlet .welcome-banner,
+#main-outlet .welcome-banner-wrap,
+#main-outlet .welcome-banner__wrap,
+#main-outlet .welcome-banner-container,
+#main-outlet .welcome-banner.--location-above-topic-content,
+#main-outlet [class*="welcome-banner"],
+#main-outlet [class*="welcome-banner"] .container,
+#main-outlet [class*="welcome-banner"] .wrap,
+#main-outlet [class*="welcome-banner"] .welcome-banner-inner {
   border: none !important;
   box-shadow: none !important;
   background: transparent !important;
@@ -253,7 +253,13 @@ body.tag-page #main-outlet {
 /* 내비게이션 상하 간격 유지 (웰컴 배너와의 사이 및 목록과의 사이) */
 .list-controls {
   margin-top: var(--tds-space-xl) !important;
-  margin-bottom: 8px !important;
+  margin-bottom: var(--tds-space-l) !important; /* 데스크톱 기본값: 16px */
+}
+
+@media screen and (max-width: 767px) {
+  .list-controls {
+    margin-bottom: var(--tds-space-s) !important; /* 모바일: 8px */
+  }
 }
 
 #list-area,
