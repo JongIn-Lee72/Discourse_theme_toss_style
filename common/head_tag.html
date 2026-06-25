@@ -268,6 +268,19 @@ body[class*="category-"] #main-outlet {
   width: 100% !important;
 }
 
+/* 1행과 2행 사이 강제 줄바꿈: order -1 이하(검색바/버튼)와 order 1 이상(nav-pills/breadcrumb)을 분리 */
+#main-outlet .list-controls .navigation-container::before,
+.list-controls .navigation-container::before {
+  content: "" !important;
+  flex-basis: 100% !important;
+  height: 0 !important;
+  order: 0 !important; /* order -2/-1(1행)과 order 1(2행) 사이에 위치 */
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  visibility: hidden !important;
+}
+
 /* 검색바 래퍼 스타일링 */
 #main-outlet .list-controls .navigation-container .relocated-search-wrapper,
 .list-controls .navigation-container .relocated-search-wrapper,
