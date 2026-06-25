@@ -912,7 +912,7 @@ body.tag-page #main-outlet {
     font-size: var(--text-xs) !important;
   }
 
-  /* 6. 모바일 category-description 위아래 선 제거 및 폰트 크기 축소 */
+  /* 6. 모바일 category-description 위아래 선 및 td 내부 선 제거 */
   #main-outlet .category-description,
   .category-description,
   .category-list .category-description,
@@ -921,24 +921,146 @@ body.tag-page #main-outlet {
   .category-heading .category-description,
   .category-title-header .category-description,
   #main-outlet .category-title-header .category-description,
-  #main-outlet .category-heading .category-description {
+  #main-outlet .category-heading .category-description,
+  .category-list td,
+  .category-list th,
+  .category-list-item td,
+  .category-list td.category,
+  .category-list td.category h3,
+  .category-list td.category .category-title-link,
+  .category-list td.category .category-name-wrapper,
+  .category-list td.category .subcategories,
+  .category-list td.category .subcategories-list {
     border-top: none !important;
     border-bottom: none !important;
     border-block-start: none !important;
     border-block-end: none !important;
     border: none !important;
-    font-size: var(--text-xs) !important;
+    box-shadow: none !important;
   }
 
-  /* 7. 플로팅 글쓰기 콤보 버튼 및 FAB 크기 축소 */
+  .category-list .category-description,
+  .category-list-item .category-description {
+    font-size: var(--text-xs) !important;
+    margin-block-start: var(--tds-space-xs) !important;
+    padding: 0 !important;
+  }
+
+  /* 7. 모바일 하단 플로팅 조작계 (카테고리/렌치/글쓰기) 위치 및 배치 최적화 */
+  #main-outlet .list-controls .navigation-container #navigation-bar,
+  .list-controls .navigation-container #navigation-bar,
+  #navigation-bar {
+    position: fixed !important;
+    left: var(--tds-space-l) !important;
+    bottom: calc(20px + env(safe-area-inset-bottom)) !important;
+    margin: 0 !important;
+    z-index: 1000 !important;
+    width: auto !important;
+    max-width: none !important;
+  }
+
+  html.footer-nav-visible:not(.footer-nav-ipad) #main-outlet .list-controls .navigation-container #navigation-bar,
+  html.footer-nav-visible:not(.footer-nav-ipad) .list-controls .navigation-container #navigation-bar,
+  html.footer-nav-visible:not(.footer-nav-ipad) #navigation-bar {
+    bottom: calc(var(--f-nav-height, 49px) + 20px + env(safe-area-inset-bottom)) !important;
+  }
+
+  #main-outlet .list-controls .navigation-controls,
+  .list-controls .navigation-controls {
+    display: flex !important;
+    flex-direction: column-reverse !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: var(--tds-space-m) !important;
+    height: auto !important;
+    width: auto !important;
+    position: fixed !important;
+    right: var(--tds-space-l) !important;
+    bottom: calc(20px + env(safe-area-inset-bottom)) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    z-index: 1000 !important;
+  }
+
+  html.footer-nav-visible:not(.footer-nav-ipad) #main-outlet .list-controls .navigation-controls,
+  html.footer-nav-visible:not(.footer-nav-ipad) .list-controls .navigation-controls {
+    bottom: calc(var(--f-nav-height, 49px) + 20px + env(safe-area-inset-bottom)) !important;
+  }
+
+  /* 8. 필터 버튼 및 렌치 설정 버튼 높이 36px로 최적화 */
+  .list-control-toggle-link-trigger {
+    height: 36px !important;
+    min-height: 36px !important;
+    max-height: 36px !important;
+    width: auto !important;
+    padding-block: 0 !important;
+    padding-inline: var(--tds-space-s) !important;
+    font-size: var(--text-xs) !important;
+    line-height: 36px !important;
+    border-radius: var(--tds-radius-full) !important;
+    box-shadow: var(--tds-shadow-m) !important;
+    background-color: var(--secondary) !important;
+    border: 1px solid var(--primary-low) !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .list-control-toggle-link-trigger .d-icon,
+  .list-control-toggle-link-trigger svg {
+    width: 12px !important;
+    height: 12px !important;
+    font-size: 12px !important;
+    margin: 0 !important;
+  }
+
+  #main-outlet .list-controls .navigation-controls .btn:not(#create-topic),
+  .list-controls .navigation-controls .btn:not(#create-topic),
+  .navigation-controls .btn.fk-d-menu__trigger {
+    width: 36px !important;
+    height: 36px !important;
+    min-width: 36px !important;
+    min-height: 36px !important;
+    max-width: 36px !important;
+    max-height: 36px !important;
+    border-radius: var(--tds-radius-full) !important;
+    background: var(--primary-low) !important;
+    box-shadow: var(--tds-shadow-m) !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+  }
+
+  #main-outlet .list-controls .navigation-controls .btn:not(#create-topic) .d-icon,
+  .list-controls .navigation-controls .btn:not(#create-topic) .d-icon,
+  .navigation-controls .btn.fk-d-menu__trigger .d-icon {
+    width: 13px !important;
+    height: 13px !important;
+    font-size: 13px !important;
+    color: var(--primary-high) !important;
+  }
+
+  /* 9. 글쓰기 콤보 버튼 및 FAB 크기 36px 축소 최적화 */
   .d-combo-button.topic-create-button__combo,
   .d-combo-button.topic-create-button__combo.--has-menu,
   #create-topic-combo,
   #create-topic {
-    height: 44px !important;
-    min-height: 44px !important;
-    max-height: 44px !important;
+    height: 36px !important;
+    min-height: 36px !important;
+    max-height: 36px !important;
     border-radius: var(--tds-radius-full) !important;
+    box-shadow: var(--tds-shadow-xl) !important;
+    width: auto !important;
+    display: inline-flex !important;
+  }
+
+  #create-topic {
+    width: 36px !important;
+    min-width: 36px !important;
+    max-width: 36px !important;
   }
 
   .d-combo-button.topic-create-button__combo button,
@@ -946,16 +1068,21 @@ body.tag-page #main-outlet {
   .d-combo-button.topic-create-button__combo .btn,
   .d-combo-button.topic-create-button__combo.--has-menu .btn,
   #create-topic.btn {
-    height: 44px !important;
-    min-height: 44px !important;
-    max-height: 44px !important;
+    height: 36px !important;
+    min-height: 36px !important;
+    max-height: 36px !important;
     padding-block: 0 !important;
     padding-inline: var(--tds-space-m) !important;
     border-radius: var(--tds-radius-full) !important;
     background: var(--tertiary) !important;
     border: none !important;
     box-shadow: none !important;
-    font-size: var(--text-sm) !important;
+    font-size: var(--text-xs) !important;
+  }
+
+  #create-topic.btn {
+    padding-inline: 0 !important;
+    width: 36px !important;
   }
 
   .d-combo-button.topic-create-button__combo .btn .d-icon,
@@ -964,65 +1091,33 @@ body.tag-page #main-outlet {
   .d-combo-button.topic-create-button__combo.--has-menu svg,
   #create-topic .d-icon,
   #create-topic svg {
-    width: 14px !important;
-    height: 14px !important;
-    font-size: 14px !important;
+    width: 13px !important;
+    height: 13px !important;
+    font-size: 13px !important;
+    color: var(--secondary) !important;
   }
 
   .d-combo-button.topic-create-button__combo .d-combo-button__menu-trigger,
   .d-combo-button.topic-create-button__combo.--has-menu .d-combo-button__menu-trigger {
     padding-inline: var(--tds-space-s) !important;
+    height: 36px !important;
+    background: var(--tertiary) !important;
+    border-top-right-radius: var(--tds-radius-full) !important;
+    border-bottom-right-radius: var(--tds-radius-full) !important;
+    border-left: 1px solid rgba(255, 255, 255, 0.15) !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
   }
 
   .d-combo-button.topic-create-button__combo .d-combo-button__menu-trigger .d-icon-angle-down,
   .d-combo-button.topic-create-button__combo.--has-menu .d-combo-button__menu-trigger .d-icon-angle-down,
   .d-combo-button.topic-create-button__combo .d-combo-button__menu-trigger svg,
   .d-combo-button.topic-create-button__combo.--has-menu .d-combo-button__menu-trigger svg {
-    width: 12px !important;
-    height: 12px !important;
-    font-size: 12px !important;
-  }
-  
-  #create-topic {
-    width: 44px !important;
-    inline-size: 44px !important;
-  }
-  .d-combo-button.topic-create-button__combo,
-  .d-combo-button.topic-create-button__combo.--has-menu {
-    width: auto !important;
-    inline-size: auto !important;
-  }
-
-  /* 8. 필터 트리거 버튼 및 아이콘 크기 축소 */
-  #main-outlet .list-controls .navigation-container #navigation-bar .list-control-toggle-link-trigger,
-  .list-controls .navigation-container #navigation-bar .list-control-toggle-link-trigger,
-  .list-control-toggle-link-trigger,
-  .btn.no-text.fk-d-menu__trigger.list-control-toggle-link-trigger,
-  .fk-d-menu__trigger.list-control-toggle-link-trigger {
-    height: 30px !important;
-    min-height: 30px !important;
-    max-height: 30px !important;
-    width: auto !important;
-    padding-block: 0 !important;
-    padding-inline: var(--tds-space-s) !important;
-    font-size: var(--text-xs) !important;
-    line-height: 30px !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-  }
-
-  #main-outlet .list-controls .navigation-container #navigation-bar .list-control-toggle-link-trigger .d-icon,
-  .list-control-toggle-link-trigger .d-icon,
-  .list-control-toggle-link-trigger svg,
-  .btn.no-text.fk-d-menu__trigger.list-control-toggle-link-trigger svg,
-  .btn.no-text.fk-d-menu__trigger.list-control-toggle-link-trigger .d-icon,
-  .fk-d-menu__trigger.list-control-toggle-link-trigger .d-icon,
-  .fk-d-menu__trigger.list-control-toggle-link-trigger svg {
-    width: 12px !important;
-    height: 12px !important;
-    font-size: 12px !important;
-    margin: 0 !important;
+    width: 11px !important;
+    height: 11px !important;
+    font-size: 11px !important;
+    color: var(--secondary) !important;
   }
 }
 </style>

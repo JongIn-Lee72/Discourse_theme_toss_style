@@ -33,9 +33,9 @@ body[class*="category-"]:not(.archetype-regular):not(.archetype-banner) {
           background: var(--secondary);
           box-shadow: 0 0 0 1px var(--primary-high), var(--shadow-card);
           border-radius: var(--d-button-border-radius);
-          height: 30px !important;
-          min-height: 30px !important;
-          max-height: 30px !important;
+          height: 36px !important;
+          min-height: 36px !important;
+          max-height: 36px !important;
           display: inline-flex !important;
           align-items: center !important;
           justify-content: center !important;
@@ -49,7 +49,7 @@ body[class*="category-"]:not(.archetype-regular):not(.archetype-banner) {
           }
         }
         html.footer-nav-visible:not(.footer-nav-ipad) & {
-          bottom: calc(var(--footer-nav-height) + var(--tds-space-xl) + env(safe-area-inset-bottom));
+          bottom: calc(var(--f-nav-height, 49px) + var(--tds-space-xl) + env(safe-area-inset-bottom));
           transition: bottom linear 0.1s;
         }
       }
@@ -71,8 +71,10 @@ body[class*="category-"]:not(.archetype-regular):not(.archetype-banner) {
           transition: background 0.25s;
         }
         .btn:not(#create-topic) {
-          inline-size: 48px;
-          block-size: 48px;
+          inline-size: 36px !important;
+          block-size: 36px !important;
+          width: 36px !important;
+          height: 36px !important;
           padding: 0;
           display: inline-flex;
           align-items: center;
@@ -101,8 +103,10 @@ body[class*="category-"]:not(.archetype-regular):not(.archetype-banner) {
 
           .d-icon {
             color: var(--primary-high);
-            inline-size: 1.25em;
-            block-size: 1.25em;
+            inline-size: 13px !important;
+            block-size: 13px !important;
+            width: 13px !important;
+            height: 13px !important;
           }
         }
         .d-combo-button.topic-create-button__combo,
@@ -110,10 +114,10 @@ body[class*="category-"]:not(.archetype-regular):not(.archetype-banner) {
         #create-topic {
           order: 2;
           margin-inline-end: 0;
-          block-size: 44px !important;
-          height: 44px !important;
-          min-height: 44px !important;
-          max-height: 44px !important;
+          block-size: 36px !important;
+          height: 36px !important;
+          min-height: 36px !important;
+          max-height: 36px !important;
           padding: 0 !important;
           display: inline-flex;
           align-items: center;
@@ -126,21 +130,21 @@ body[class*="category-"]:not(.archetype-regular):not(.archetype-banner) {
           box-shadow: var(--tds-shadow-xl) !important;
           
           .btn {
-            height: 44px !important;
-            min-height: 44px !important;
-            max-height: 44px !important;
+            height: 36px !important;
+            min-height: 36px !important;
+            max-height: 36px !important;
             padding-block: 0 !important;
             padding-inline: var(--tds-space-m) !important;
             border-radius: var(--tds-radius-full) !important;
             background: var(--tertiary) !important;
             border: none !important;
             box-shadow: none !important;
-            font-size: var(--text-sm) !important;
+            font-size: var(--text-xs) !important;
             
             .d-icon,
             svg {
-              width: 14px !important;
-              height: 14px !important;
+              width: 13px !important;
+              height: 13px !important;
               color: var(--secondary) !important;
             }
           }
@@ -150,8 +154,8 @@ body[class*="category-"]:not(.archetype-regular):not(.archetype-banner) {
             
             .d-icon-angle-down,
             svg.d-icon-angle-down {
-              width: 12px !important;
-              height: 12px !important;
+              width: 11px !important;
+              height: 11px !important;
             }
           }
 
@@ -166,10 +170,10 @@ body[class*="category-"]:not(.archetype-regular):not(.archetype-banner) {
           
           .d-icon,
           svg {
-            inline-size: 14px !important;
-            block-size: 14px !important;
-            width: 14px !important;
-            height: 14px !important;
+            inline-size: 13px !important;
+            block-size: 13px !important;
+            width: 13px !important;
+            height: 13px !important;
             margin-inline: 0;
             color: var(--secondary);
             transition: color 0s;
@@ -191,8 +195,8 @@ body[class*="category-"]:not(.archetype-regular):not(.archetype-banner) {
           }
         }
         #create-topic {
-          inline-size: 44px !important;
-          width: 44px !important;
+          inline-size: 36px !important;
+          width: 36px !important;
         }
         .d-combo-button.topic-create-button__combo,
         .d-combo-button.topic-create-button__combo.--has-menu {
@@ -217,12 +221,12 @@ body[class*="category-"]:not(.archetype-regular):not(.archetype-banner) {
     .list-controls {
       .navigation-container {
         .navigation-controls {
-          bottom: calc(var(--footer-nav-height) + var(--tds-space-l) + env(safe-area-inset-bottom));
+          bottom: calc(var(--f-nav-height, 49px) + var(--tds-space-l) + env(safe-area-inset-bottom));
         }
       }
     }
     #reply-control.draft {
-      bottom: calc(-60px - var(--footer-nav-height) - env(safe-area-inset-bottom));
+      bottom: calc(-60px - var(--f-nav-height, 49px) - env(safe-area-inset-bottom));
     }
   }
   
