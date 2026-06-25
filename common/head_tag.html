@@ -911,5 +911,86 @@ body.tag-page #main-outlet {
   .unified-search-bar .relocated-search-icon svg {
     font-size: var(--text-xs) !important;
   }
+
+  /* 6. 모바일 category-description 위아래 선 제거 및 폰트 크기 축소 */
+  .category-description {
+    border-top: none !important;
+    border-bottom: none !important;
+    border-block-start: none !important;
+    border-block-end: none !important;
+    border: none !important;
+    font-size: var(--text-xs) !important;
+  }
+
+  /* 7. 플로팅 글쓰기 콤보 버튼 및 FAB 크기 축소 */
+  .d-combo-button.topic-create-button__combo.--has-menu,
+  #create-topic {
+    height: 44px !important;
+    min-height: 44px !important;
+    max-height: 44px !important;
+    border-radius: var(--tds-radius-full) !important;
+  }
+
+  .d-combo-button.topic-create-button__combo.--has-menu .btn,
+  #create-topic.btn {
+    height: 44px !important;
+    min-height: 44px !important;
+    max-height: 44px !important;
+    padding-block: 0 !important;
+    padding-inline: var(--tds-space-m) !important;
+    border-radius: var(--tds-radius-full) !important;
+    background: var(--tertiary) !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  .d-combo-button.topic-create-button__combo.--has-menu .btn .d-icon,
+  .d-combo-button.topic-create-button__combo.--has-menu .btn svg,
+  #create-topic .d-icon,
+  #create-topic svg {
+    width: 14px !important;
+    height: 14px !important;
+  }
+
+  .d-combo-button.topic-create-button__combo.--has-menu .d-combo-button__menu-trigger {
+    padding-inline: var(--tds-space-s) !important;
+  }
+
+  .d-combo-button.topic-create-button__combo.--has-menu .d-combo-button__menu-trigger .d-icon-angle-down,
+  .d-combo-button.topic-create-button__combo.--has-menu .d-combo-button__menu-trigger svg.d-icon-angle-down {
+    width: 12px !important;
+    height: 12px !important;
+  }
+  
+  #create-topic {
+    width: 44px !important;
+    inline-size: 44px !important;
+  }
+  .d-combo-button.topic-create-button__combo.--has-menu {
+    width: auto !important;
+    inline-size: auto !important;
+  }
+
+  /* 8. 필터 트리거 버튼 및 아이콘 크기 축소 */
+  .list-control-toggle-link-trigger,
+  .fk-d-menu__trigger.list-control-toggle-link-trigger {
+    height: 30px !important;
+    min-height: 30px !important;
+    max-height: 30px !important;
+    padding-block: 0 !important;
+    padding-inline: var(--tds-space-s) !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .list-control-toggle-link-trigger .d-icon,
+  .list-control-toggle-link-trigger svg,
+  .fk-d-menu__trigger.list-control-toggle-link-trigger .d-icon,
+  .fk-d-menu__trigger.list-control-toggle-link-trigger svg {
+    width: 12px !important;
+    height: 12px !important;
+    margin: 0 !important;
+  }
 }
 </style>

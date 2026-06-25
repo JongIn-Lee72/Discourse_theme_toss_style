@@ -28,11 +28,25 @@ body[class*="category-"]:not(.archetype-regular):not(.archetype-banner) {
         margin-bottom: env(safe-area-inset-bottom); 
         z-index: z("dropdown");
         .list-control-toggle-link-trigger {
-          padding: 0.5em 0.65em;
+          padding: 0 var(--tds-space-s) !important;
           color: var(--primary-high);
           background: var(--secondary);
           box-shadow: 0 0 0 1px var(--primary-high), var(--shadow-card);
           border-radius: var(--d-button-border-radius);
+          height: 30px !important;
+          min-height: 30px !important;
+          max-height: 30px !important;
+          display: inline-flex !important;
+          align-items: center !important;
+          justify-content: center !important;
+          
+          .d-icon,
+          svg {
+            font-size: var(--text-xs) !important;
+            width: 12px !important;
+            height: 12px !important;
+            margin: 0 !important;
+          }
         }
         html.footer-nav-visible:not(.footer-nav-ipad) & {
           bottom: calc(var(--footer-nav-height) + var(--tds-space-xl) + env(safe-area-inset-bottom));
@@ -91,21 +105,54 @@ body[class*="category-"]:not(.archetype-regular):not(.archetype-banner) {
             block-size: 1.25em;
           }
         }
+        .d-combo-button.topic-create-button__combo.--has-menu,
         #create-topic {
           order: 2;
           margin-inline-end: 0;
-          inline-size: 56px;
-          block-size: 56px;
-          padding: 0;
+          block-size: 44px !important;
+          height: 44px !important;
+          min-height: 44px !important;
+          max-height: 44px !important;
+          padding: 0 !important;
           display: inline-flex;
           align-items: center;
           justify-content: center;
-          border-radius: var(--tds-radius-full);
+          border-radius: var(--tds-radius-full) !important;
           border: none;
           background: var(--tertiary);
           font-size: var(--font-0);
           transition: transform 0.25s ease, box-shadow 0.25s ease;
           box-shadow: var(--tds-shadow-xl) !important;
+          
+          .btn {
+            height: 44px !important;
+            min-height: 44px !important;
+            max-height: 44px !important;
+            padding-block: 0 !important;
+            padding-inline: var(--tds-space-m) !important;
+            border-radius: var(--tds-radius-full) !important;
+            background: var(--tertiary) !important;
+            border: none !important;
+            box-shadow: none !important;
+            
+            .d-icon,
+            svg {
+              width: 14px !important;
+              height: 14px !important;
+              color: var(--secondary) !important;
+            }
+          }
+
+          .d-combo-button__menu-trigger {
+            padding-inline: var(--tds-space-s) !important;
+            
+            .d-icon-angle-down,
+            svg.d-icon-angle-down {
+              width: 12px !important;
+              height: 12px !important;
+            }
+          }
+
           &:active {
             background: var(--tertiary-hover);
             box-shadow: var(--tds-shadow-l) !important;
@@ -115,9 +162,12 @@ body[class*="category-"]:not(.archetype-regular):not(.archetype-banner) {
             background: var(--tertiary-hover);
           }
           
-          .d-icon {
-            inline-size: 1.5em;
-            block-size: 1.5em;
+          .d-icon,
+          svg {
+            inline-size: 14px !important;
+            block-size: 14px !important;
+            width: 14px !important;
+            height: 14px !important;
             margin-inline: 0;
             color: var(--secondary);
             transition: color 0s;
@@ -125,6 +175,13 @@ body[class*="category-"]:not(.archetype-regular):not(.archetype-banner) {
           .d-button-label {
             display: none;
           }
+        }
+        #create-topic {
+          inline-size: 44px !important;
+        }
+        .d-combo-button.topic-create-button__combo.--has-menu {
+          inline-size: auto !important;
+        }
           &.open-draft {
             background: var(--primary-medium);
             .d-icon {
