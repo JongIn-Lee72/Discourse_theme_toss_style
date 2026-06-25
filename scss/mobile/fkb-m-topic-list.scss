@@ -45,20 +45,20 @@ body[class*="category-"]:not(.archetype-regular):not(.archetype-banner) {
         flex-direction: column-reverse;
         align-items: center;
         position: fixed;
-        bottom: calc(var(--f-nav-height, 0px) + 1em + env(safe-area-inset-bottom));
-        right: 1em;
+        inset-block-end: calc(var(--f-nav-height, 0px) + 1em + env(safe-area-inset-bottom));
+        inset-inline-end: 1em;
         grid-gap: 12px; /* Fingertip gap */
         transition: right 0.25s ease-in;
         z-index: z("usercard");
         > *:not(:last-child) {
-          margin-right: 0;
+          margin-inline-end: 0;
         }
         .btn {
           transition: background 0.25s;
         }
         .btn:not(#create-topic) {
-          width: 48px;
-          height: 48px;
+          inline-size: 48px;
+          block-size: 48px;
           padding: 0;
           display: inline-flex;
           align-items: center;
@@ -77,15 +77,15 @@ body[class*="category-"]:not(.archetype-regular):not(.archetype-banner) {
           
           .d-icon {
             color: var(--primary-high);
-            width: 1.25em;
-            height: 1.25em;
+            inline-size: 1.25em;
+            block-size: 1.25em;
           }
         }
         #create-topic {
           order: 2;
-          margin-right: 0;
-          width: 56px;
-          height: 56px;
+          margin-inline-end: 0;
+          inline-size: 56px;
+          block-size: 56px;
           padding: 0;
           display: inline-flex;
           align-items: center;
@@ -106,10 +106,9 @@ body[class*="category-"]:not(.archetype-regular):not(.archetype-banner) {
           }
           
           .d-icon {
-            width: 1.5em;
-            height: 1.5em;
-            margin-left: 0;
-            margin-right: 0;
+            inline-size: 1.5em;
+            block-size: 1.5em;
+            margin-inline: 0;
             color: var(--secondary);
             transition: color 0s;
           }
@@ -241,8 +240,9 @@ body.nav-controls-hidden {
 // Topic List Card Layout Enhancements & Image Height Overrides
 .topic-list {
   .main-link {
-    padding: var(--tds-space-l) !important; /* 16px padding on mobile */
-    margin-bottom: var(--tds-space-l) !important; /* 16px bottom margin */
+    padding-block: var(--tds-space-l) !important;
+    padding-inline: var(--tds-space-l) !important; /* 16px padding on mobile */
+    margin-block-end: var(--tds-space-l) !important; /* 16px bottom margin */
     transform: none !important; /* Disable hover movement on mobile */
     box-shadow: var(--tds-shadow-m) !important; /* Static standard shadow */
     border: 1px solid rgba(var(--primary-rgb), 0.03) !important; /* Premium subtle border */
@@ -258,7 +258,7 @@ body.nav-controls-hidden {
     
     .tli-middle-section {
       .topic-image {
-        height: 150px !important; /* Compact premium mobile image block */
+        block-size: 150px !important; /* Compact premium mobile image block */
       }
     }
   }

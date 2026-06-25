@@ -63,10 +63,11 @@
     
     .main-link {
       display: block;
-      padding: var(--m3-space-xl) !important;
-      max-width: 100%;
+      padding-block: var(--tds-space-xl) !important;
+      padding-inline: var(--tds-space-xl) !important;
+      max-inline-size: 100%;
       font-size: var(--font-up-1-rem);
-      margin-bottom: var(--m3-space-xl);
+      margin-block-end: var(--tds-space-xl);
       @include bg-br;
       @include m3-hover-overlay;
       border: none !important;
@@ -208,10 +209,11 @@
 
         .topic-image {
           position: relative;
-          height: 200px;
+          block-size: 200px;
           overflow: hidden;
-          width: 100%;
-          margin: var(--m3-space-m) 0;
+          inline-size: 100%;
+          margin-block: var(--tds-space-m);
+          margin-inline: 0;
           border-radius: var(--tds-radius-l);
           border: none !important;
           
