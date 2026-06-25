@@ -3,9 +3,11 @@
 // Category page
 
 .category-list {
-  inline-size: calc(100vw - 32px);
+  inline-size: 100%;
+  max-inline-size: 100%;
+  box-sizing: border-box;
   margin-inline: auto;
-  padding-block-end: 120px !important; // Prevent overlapping by bottom floating elements
+  padding-block-end: calc(120px + env(safe-area-inset-bottom)) !important; // Prevent overlapping by bottom floating elements
 
   // Align category titles to TDS ListRow style (clean typography, no nested white bubbles)
   .category-title-link,

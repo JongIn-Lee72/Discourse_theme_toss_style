@@ -23,8 +23,8 @@ body[class*="category-"]:not(.archetype-regular):not(.archetype-banner) {
       // Navigation Bar 
       #navigation-bar {
         position: fixed;
-        bottom: 1.5em;
-        left: 0.75em;
+        bottom: var(--tds-space-xl);
+        left: var(--tds-space-m);
         margin-bottom: env(safe-area-inset-bottom); 
         z-index: z("dropdown");
         .list-control-toggle-link-trigger {
@@ -35,7 +35,7 @@ body[class*="category-"]:not(.archetype-regular):not(.archetype-banner) {
           border-radius: var(--d-button-border-radius);
         }
         html.footer-nav-visible:not(.footer-nav-ipad) & {
-          bottom: calc(var(--footer-nav-height) + 1.5em);
+          bottom: calc(var(--footer-nav-height) + var(--tds-space-xl) + env(safe-area-inset-bottom));
           transition: bottom linear 0.1s;
         }
       }
@@ -45,9 +45,9 @@ body[class*="category-"]:not(.archetype-regular):not(.archetype-banner) {
         flex-direction: column-reverse;
         align-items: center;
         position: fixed;
-        inset-block-end: calc(var(--f-nav-height, 0px) + 1em + env(safe-area-inset-bottom));
-        inset-inline-end: 1em;
-        grid-gap: 12px; /* Fingertip gap */
+        inset-block-end: calc(var(--f-nav-height, 0px) + var(--tds-space-l) + env(safe-area-inset-bottom));
+        inset-inline-end: var(--tds-space-l);
+        gap: var(--tds-space-m); /* Fingertip gap */
         transition: right 0.25s ease-in;
         z-index: z("usercard");
         > *:not(:last-child) {
@@ -146,12 +146,12 @@ body[class*="category-"]:not(.archetype-regular):not(.archetype-banner) {
     .list-controls {
       .navigation-container {
         .navigation-controls {
-          bottom: calc(var(--footer-nav-height) + 1em);
+          bottom: calc(var(--footer-nav-height) + var(--tds-space-l) + env(safe-area-inset-bottom));
         }
       }
     }
     #reply-control.draft {
-      bottom: calc(-60px - var(--footer-nav-height));
+      bottom: calc(-60px - var(--footer-nav-height) - env(safe-area-inset-bottom));
     }
   }
   
@@ -168,23 +168,23 @@ body.nav-controls-hidden {
   &[class*="category-"]:not(.archetype-regular):not(.archetype-banner) {
     .list-controls {
       .navigation-container .navigation-controls {
-        right: -80px;
-        transition: right 0.25s ease-in;
+        transform: translateX(calc(100% + 1.5em));
+        transition: transform 0.25s ease-in;
       }
     }
-    
+
     // If footer nav active on iPhone
     html.footer-nav-visible:not(.footer-nav-ipad) & {
       .list-controls {
         .navigation-container {
           .navigation-controls {
-            bottom: calc(var(--footer-nav-height) + 1em);
-            transition: right linear 0.1s;
+            bottom: calc(var(--footer-nav-height) + var(--tds-space-l) + env(safe-area-inset-bottom));
+            transition: transform linear 0.1s;
           }
         }
       }
     }
-    
+
     #reply-control.draft {
       bottom: 0;
     }
@@ -194,7 +194,7 @@ body.nav-controls-hidden {
 // Topic List
 
 .topic-list {
-  padding-block-end: 120px !important; // Prevent overlapping by bottom floating elements
+  padding-block-end: calc(120px + env(safe-area-inset-bottom)) !important; // Prevent overlapping by bottom floating elements
   .topic-excerpt {
     width: 100%;
   }
@@ -241,6 +241,9 @@ body.nav-controls-hidden {
 // Topic List Card Layout Enhancements & Image Height Overrides
 .topic-list {
   .main-link {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
     padding-block: var(--tds-space-l) !important;
     padding-inline: var(--tds-space-l) !important; /* 16px padding on mobile */
     margin-block-end: var(--tds-space-l) !important; /* 16px bottom margin */

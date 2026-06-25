@@ -6,8 +6,9 @@
   grid-template-areas: "posts";
   grid-template-columns: auto;
   > .row {
-    max-inline-size: calc(100vw - 32px);
+    max-inline-size: 100%;
     margin-inline: auto;
+    box-sizing: border-box;
   }
   .topic-navigation {
     grid-area: posts;
