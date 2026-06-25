@@ -912,39 +912,16 @@ body.tag-page #main-outlet {
     font-size: var(--text-xs) !important;
   }
 
-  /* 6. 모바일 category-description 및 리스트 내부 모든 셀 가로선 완벽 제거 */
-  #main-outlet .category-description,
-  .category-description,
-  .category-list .category-description,
-  .category-list-item .category-description,
-  .navigation-categories .category-list tbody tr td.category .category-description,
-  .category-heading .category-description,
-  .category-title-header .category-description,
-  #main-outlet .category-title-header .category-description,
-  #main-outlet .category-heading .category-description,
-  /* tr, td, th 자체 및 하위의 가로선/세로선 완전 제거 (box-shadow 및 논리 속성 차단) */
-  #main-outlet .category-list tbody tr.category-list-item,
-  #main-outlet .category-list tbody tr[data-category-id],
-  #main-outlet .category-list tbody tr td,
-  #main-outlet .category-list tbody tr th,
-  .category-list tbody tr,
-  .category-list tbody td,
-  .category-list tbody th,
-  .category-list td,
-  .category-list th,
-  .category-list-item td,
-  .category-list-item th,
-  .category-list td.category,
-  .category-list td.category h3,
-  .category-list td.category .category-title-link,
-  .category-list td.category .category-name-wrapper,
-  .category-list td.category .subcategories,
-  .category-list td.category .subcategories-list,
-  .category-details,
-  .category-logo,
-  .category-posts,
-  .category-list .subcategories .subcategory,
-  .category-list .subcategories-list .subcategory {
+  /* 6. 모바일 카테고리 카드 내부 모든 잔여 가로선/경계선 완벽 제거 (테이블 및 DIV 구조 전방위 차단) */
+  #main-outlet .category-list-item *,
+  #main-outlet .category-list-item *::after,
+  #main-outlet .category-list-item *::before,
+  .category-list-item *,
+  .category-list-item *::after,
+  .category-list-item *::before,
+  [class*="category-list-item"] *,
+  [class*="category-list-item"] *::after,
+  [class*="category-list-item"] *::before {
     border-top: none !important;
     border-bottom: none !important;
     border-left: none !important;
@@ -953,9 +930,10 @@ body.tag-page #main-outlet {
     border-block-end: none !important;
     border: none !important;
     box-shadow: none !important;
+    outline: none !important;
   }
 
-  /* 가상 요소(::after, ::before)로 생성된 가로 경계선 물리적 제거 */
+  /* 가상 요소(::after, ::before)로 생성된 가로 경계선 물리적 소멸 */
   #main-outlet .category-list-item::after,
   #main-outlet .category-list-item::before,
   #main-outlet .category-description::after,
