@@ -1089,6 +1089,7 @@ body.tag-page #main-outlet {
   }
 
   /* 9. 글쓰기 콤보 버튼 및 FAB 크기 38px 확대 및 가로 한 줄 정렬 */
+  #main-outlet .d-combo-button.topic-create-button__combo,
   .d-combo-button.topic-create-button__combo,
   .d-combo-button.topic-create-button__combo.--has-menu,
   #create-topic-combo,
@@ -1096,12 +1097,14 @@ body.tag-page #main-outlet {
     height: 38px !important;
     min-height: 38px !important;
     max-height: 38px !important;
-    border-radius: var(--tds-radius-full) !important;
+    border-radius: 100px !important; /* 완벽한 알약 모양 */
     box-shadow: var(--tds-shadow-xl) !important;
     width: auto !important;
     display: inline-flex !important;
     margin-inline: var(--tds-space-xs) !important;
-    overflow: hidden !important; /* 내부 버튼들의 넘침을 부모 라운드 영역에 맞추어 잘라내 캡슐화 */
+    overflow: hidden !important; /* 내부 요소들을 캡슐 모양으로 잘라냄 */
+    background: var(--tertiary) !important; /* 부모 컨테이너 배경 파란색 */
+    border: none !important;
   }
 
   #create-topic {
@@ -1110,72 +1113,75 @@ body.tag-page #main-outlet {
     max-width: 38px !important;
   }
 
+  /* 콤보 버튼 내부의 모든 버튼 요소 스타일 강제 통일 */
+  #main-outlet .d-combo-button.topic-create-button__combo button,
+  #main-outlet .d-combo-button.topic-create-button__combo .btn,
   .d-combo-button.topic-create-button__combo button,
-  .d-combo-button.topic-create-button__combo.--has-menu button,
   .d-combo-button.topic-create-button__combo .btn,
+  .d-combo-button.topic-create-button__combo.--has-menu button,
   .d-combo-button.topic-create-button__combo.--has-menu .btn,
   #create-topic.btn {
     height: 38px !important;
     min-height: 38px !important;
     max-height: 38px !important;
+    background: var(--tertiary) !important; /* 모두 파란색 배경으로 통일 */
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important; /* 내부 원형 겹침 현상 원천 차단 */
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
     padding-block: 0 !important;
     padding-inline: var(--tds-space-m) !important;
+    margin: 0 !important;
+  }
+
+  /* 메뉴 트리거 (화살표 버튼)의 가로 패딩 조절 */
+  #main-outlet .d-combo-button.topic-create-button__combo .d-combo-button__menu-trigger,
+  .d-combo-button.topic-create-button__combo .d-combo-button__menu-trigger,
+  .d-combo-button.topic-create-button__combo.--has-menu .d-combo-button__menu-trigger {
+    padding-inline: var(--tds-space-s) !important;
     background: var(--tertiary) !important;
     border: none !important;
     box-shadow: none !important;
-    font-size: var(--text-xs) !important;
-    border-radius: 0 !important; /* 개별 버튼 라운드를 제로화하여 두 동그라미 결합 버그 차단 */
+    border-radius: 0 !important;
   }
 
+  /* 단독 원형 글쓰기 FAB 스타일 보존 */
   #create-topic.btn {
     padding-inline: 0 !important;
     width: 38px !important;
-    border-radius: var(--tds-radius-full) !important; /* 단독 FAB 일 때는 둥글게 */
+    border-radius: 100px !important;
   }
 
-  /* 콤보 버튼 캡슐 외곽 라운드 정밀 지정 (overflow: hidden이 듣지 않는 일부 환경 대비) */
-  .d-combo-button.topic-create-button__combo .btn:first-child,
-  .d-combo-button.topic-create-button__combo.--has-menu .btn:first-child {
-    border-radius: var(--tds-radius-full) 0 0 var(--tds-radius-full) !important;
+  /* 두 버튼 사이의 경계 구분선 자동 지정 */
+  #main-outlet .d-combo-button.topic-create-button__combo button + button,
+  #main-outlet .d-combo-button.topic-create-button__combo .btn + .btn,
+  .d-combo-button.topic-create-button__combo button + button,
+  .d-combo-button.topic-create-button__combo .btn + .btn {
+    border-left: 1px solid rgba(255, 255, 255, 0.2) !important;
   }
 
-  .d-combo-button.topic-create-button__combo .d-combo-button__menu-trigger,
-  .d-combo-button.topic-create-button__combo.--has-menu .d-combo-button__menu-trigger {
-    border-radius: 0 var(--tds-radius-full) var(--tds-radius-full) 0 !important;
-  }
-
-  .d-combo-button.topic-create-button__combo .btn .d-icon,
-  .d-combo-button.topic-create-button__combo.--has-menu .btn .d-icon,
+  /* 콤보 버튼 내부 모든 아이콘 스타일 강제 통일 */
+  #main-outlet .d-combo-button.topic-create-button__combo .d-icon,
+  #main-outlet .d-combo-button.topic-create-button__combo svg,
+  .d-combo-button.topic-create-button__combo .d-icon,
   .d-combo-button.topic-create-button__combo svg,
-  .d-combo-button.topic-create-button__combo.--has-menu svg,
   #create-topic .d-icon,
   #create-topic svg {
     width: 14px !important;
     height: 14px !important;
     font-size: 14px !important;
-    color: var(--secondary) !important;
+    color: var(--secondary) !important; /* 아이콘 흰색 */
+    margin: 0 !important;
   }
 
-  .d-combo-button.topic-create-button__combo .d-combo-button__menu-trigger,
-  .d-combo-button.topic-create-button__combo.--has-menu .d-combo-button__menu-trigger {
-    padding-inline: var(--tds-space-s) !important;
-    height: 38px !important;
-    background: var(--tertiary) !important;
-    border-left: 1px solid rgba(255, 255, 255, 0.15) !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    box-shadow: none !important;
-  }
-
-  .d-combo-button.topic-create-button__combo .d-combo-button__menu-trigger .d-icon-angle-down,
-  .d-combo-button.topic-create-button__combo.--has-menu .d-combo-button__menu-trigger .d-icon-angle-down,
-  .d-combo-button.topic-create-button__combo .d-combo-button__menu-trigger svg,
-  .d-combo-button.topic-create-button__combo.--has-menu .d-combo-button__menu-trigger svg {
+  /* 콤보 버튼 내부 드롭다운 화살표(v) 아이콘 크기 살짝 조정 */
+  #main-outlet .d-combo-button.topic-create-button__combo .d-combo-button__menu-trigger .d-icon,
+  .d-combo-button.topic-create-button__combo .d-combo-button__menu-trigger .d-icon {
     width: 11px !important;
     height: 11px !important;
     font-size: 11px !important;
-    color: var(--secondary) !important;
   }
 }
 </style>
