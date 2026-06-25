@@ -2,25 +2,30 @@
 
 // Category page
 
+.list-container {
+  padding-block-end: calc(120px + env(safe-area-inset-bottom)) !important; /* Prevent overlapping by bottom floating elements */
+}
+
 .category-list {
   inline-size: 100%;
   max-inline-size: 100%;
   box-sizing: border-box;
   margin-inline: auto;
-  padding-block-end: calc(120px + env(safe-area-inset-bottom)) !important; // Prevent overlapping by bottom floating elements
 
   // Align category titles to TDS ListRow style (clean typography, no nested white bubbles)
   .category-title-link,
   .badge-category__wrapper,
   .badge-category,
   .badge-category-bg,
-  .badge-category__name {
+  .badge-category__name,
+  h3,
+  h3 a {
     background: transparent !important;
     background-color: transparent !important;
     box-shadow: none !important;
     border: none !important;
-    padding: 0 !important;
-    margin: 0 !important;
+    padding: var(--tds-radius-none) !important;
+    margin: var(--tds-radius-none) !important;
   }
   &.subcategory-list {
     .parent-category {

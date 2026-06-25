@@ -181,6 +181,7 @@ body[class*="category-"] {
   .navigation-categories .category-list tbody tr td.category {
     min-block-size: 0 !important;
     padding-block: var(--tds-space-s) !important;
+    padding-inline-start: var(--tds-space-m) !important;
   }
   
   .navigation-categories .category-list tbody tr {
