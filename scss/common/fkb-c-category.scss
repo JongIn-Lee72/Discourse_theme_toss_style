@@ -45,6 +45,8 @@ body[class*="category-"] {
     margin-block-end: var(--tds-space-xl);
     @include bg-br;
     border: none !important;
+    border-left: none !important;
+    border-inline-start: none !important;
     box-shadow: var(--tds-shadow-m) !important;
     
     &.with-topics {
@@ -64,6 +66,8 @@ body[class*="category-"] {
         padding-block: var(--tds-radius-none);
         padding-inline: var(--tds-space-xl);
         border-block-end: 1px solid rgba(var(--primary-rgb), 0.04) !important;
+        border-left: none !important;
+        border-inline-start: none !important;
         transition: background-color 0.2s ease;
         
         &:hover {
@@ -182,6 +186,8 @@ body[class*="category-"] {
     min-block-size: 0 !important;
     padding-block: var(--tds-space-s) !important;
     padding-inline-start: var(--tds-space-m) !important;
+    border-left: none !important;
+    border-inline-start: none !important;
 
     h3 a.badge-wrapper.box,
     .badge-wrapper.box,
@@ -193,13 +199,29 @@ body[class*="category-"] {
       box-shadow: none !important;
       border: none !important;
       border-left: none !important;
+      border-inline-start: none !important;
       padding: var(--tds-radius-none) !important;
       margin: var(--tds-radius-none) !important;
       border-radius: var(--tds-radius-none) !important;
     }
+
+    // Scale down category name & description (Request 4)
+    h3 {
+      font-size: var(--text-sm) !important; /* 14px instead of 1.05em */
+      .category-title-link {
+        font-size: var(--text-sm) !important;
+      }
+    }
+    .category-description {
+      font-size: var(--text-xs) !important; /* 12px instead of 0.9em */
+      margin-block-start: 4px !important;
+    }
   }
   
   .navigation-categories .category-list tbody tr {
+    border-left: none !important;
+    border-inline-start: none !important;
+    
     .category-stat,
     .category-stats,
     td.topics,
@@ -207,7 +229,14 @@ body[class*="category-"] {
       margin-inline-start: auto !important;
       text-align: right !important;
       padding-inline-start: var(--tds-space-s) !important;
+      font-size: var(--text-xs) !important; /* 12px instead of 1.1em (Request 4) */
     }
+  }
+
+  .category-list,
+  .category-list-item {
+    border-left: none !important;
+    border-inline-start: none !important;
   }
 
   .list-container {

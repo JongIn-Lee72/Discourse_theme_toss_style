@@ -842,5 +842,74 @@ body.tag-page #main-outlet {
     white-space: nowrap;
     display: inline-flex !important;
   }
+
+  /* 1. 모바일에서 container 여백 지정 및 category-breadcrumb 밀착 현상 개선 */
+  #main-outlet .list-controls .container,
+  .list-controls .container {
+    padding-block: var(--tds-space-m) !important;
+    padding-inline: var(--tds-space-m) !important;
+    margin-block-end: var(--tds-space-m) !important;
+  }
+
+  /* 2. 카테고리 목록 좌측 파란색 컬러 바 제거 */
+  .category-list,
+  .category-list tbody tr,
+  .category-list-item,
+  tr[data-category-id],
+  .category-list tbody tr td.category,
+  .category-list .category {
+    border-left: none !important;
+    border-inline-start: none !important;
+  }
+
+  /* 3. 메인 링크 카드화 스타일 무력화 (Flat List) */
+  .topic-list .main-link {
+    box-shadow: none !important;
+    border: none !important;
+    background: transparent !important;
+    background-color: transparent !important;
+    border-radius: 0 !important;
+    margin-block-end: 0 !important;
+    padding-block: var(--tds-space-m) !important;
+    padding-inline: var(--tds-space-m) !important;
+    border-block-end: 1px solid rgba(var(--primary-rgb), 0.08) !important;
+  }
+
+  /* 4. 내비게이션 칩 크기 모바일 축소 최적화 */
+  #main-outlet .list-controls .nav-pills > li > a,
+  .list-controls .nav-pills > li > a,
+  #navigation-bar > li > a,
+  .nav-pills > li > a,
+  #main-outlet .list-controls .select-kit.combo-box .select-kit-header,
+  .list-controls .select-kit.combo-box .select-kit-header {
+    height: 30px !important;
+    min-height: 30px !important;
+    max-height: 30px !important;
+    padding: 0 var(--tds-space-s) !important;
+    font-size: var(--text-xs) !important;
+  }
+
+  /* 5. 검색바 크기 모바일 축소 최적화 */
+  #main-outlet .list-controls .navigation-container .unified-search-bar,
+  .list-controls .navigation-container .unified-search-bar,
+  .unified-search-bar {
+    height: 30px !important;
+    min-height: 30px !important;
+  }
+
+  #main-outlet .list-controls .navigation-container .unified-search-bar .relocated-search-form input,
+  .unified-search-bar .relocated-search-form input,
+  .unified-search-bar .relocated-search-form input[type="text"],
+  .unified-search-bar .relocated-search-form input#search-term[type="text"] {
+    font-size: var(--text-xs) !important;
+    height: 30px !important;
+    line-height: 30px !important;
+  }
+
+  #main-outlet .list-controls .navigation-container .unified-search-bar .relocated-search-icon .d-icon,
+  .unified-search-bar .relocated-search-icon .d-icon,
+  .unified-search-bar .relocated-search-icon svg {
+    font-size: var(--text-xs) !important;
+  }
 }
 </style>

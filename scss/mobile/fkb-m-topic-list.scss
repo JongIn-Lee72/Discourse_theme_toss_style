@@ -248,32 +248,70 @@ body.nav-controls-hidden {
   }
 }
 
-// Topic List Card Layout Enhancements & Image Height Overrides
 .topic-list {
   .main-link {
     box-sizing: border-box;
     width: 100%;
     max-width: 100%;
-    padding-block: var(--tds-space-l) !important;
-    padding-inline: var(--tds-space-l) !important; /* 16px padding on mobile */
-    margin-block-end: var(--tds-space-l) !important; /* 16px bottom margin */
-    transform: none !important; /* Disable hover movement on mobile */
-    box-shadow: var(--tds-shadow-m) !important; /* Static standard shadow */
-    border: 1px solid rgba(var(--primary-rgb), 0.03) !important; /* Premium subtle border */
+    padding-block: var(--tds-space-m) !important;
+    padding-inline: var(--tds-space-m) !important;
+    margin-block-end: 0 !important;
+    transform: none !important;
+    box-shadow: none !important;
+    border: none !important;
+    background: transparent !important;
+    background-color: transparent !important;
+    border-radius: 0 !important;
+    border-block-end: 1px solid rgba(var(--primary-rgb), 0.08) !important;
     
     &:hover {
       transform: none !important;
-      box-shadow: var(--tds-shadow-m) !important;
+      box-shadow: none !important;
+      background-color: rgba(var(--primary-rgb), 0.02) !important;
       
       .tli-middle-section .topic-image .topic-image__img {
-        transform: none !important; /* Disable image zoom on tap focus */
+        transform: none !important;
       }
     }
     
     .tli-middle-section {
       .topic-image {
-        block-size: 150px !important; /* Compact premium mobile image block */
+        block-size: 120px !important; /* Compact premium mobile image block */
       }
+    }
+
+    // Mobile Typography & Icon size scale down (Request 4)
+    .link-top-line .title {
+      font-size: var(--text-sm) !important; /* 14px instead of 1.2em */
+      line-height: 1.4 !important;
+    }
+
+    .topic-excerpt {
+      font-size: var(--text-xs) !important; /* 12px instead of 0.95em */
+      line-height: 1.5 !important;
+    }
+
+    .name-and-date {
+      .user-names-wrapper .full-name-tlist {
+        font-size: var(--text-xs) !important;
+      }
+      .user-names-wrapper .username,
+      .list-date {
+        font-size: var(--text-xs) !important;
+      }
+    }
+
+    .tli-bottom-section {
+      font-size: var(--text-xs) !important;
+      .d-icon,
+      svg {
+        width: 12px !important;
+        height: 12px !important;
+      }
+    }
+    
+    .badge-category__wrapper {
+      font-size: var(--text-xs) !important;
     }
   }
 }

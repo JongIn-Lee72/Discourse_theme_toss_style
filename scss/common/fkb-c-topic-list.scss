@@ -28,11 +28,12 @@
     }
     .topic-list-item {
       display: block;
-      padding-block: var(--tds-space-s);
+      padding-block: 0;
       padding-inline: var(--tds-radius-none);
       border: none;
+      border-block-end: 1px solid rgba(var(--primary-rgb), 0.08) !important;
       &:first-child {
-        padding-block-start: var(--tds-radius-none);
+        padding-block-start: 0;
       }
       &.highlighted {
         animation: none;
@@ -65,27 +66,29 @@
     
     .main-link {
       display: block;
-      padding-block: var(--tds-space-xl) !important;
-      padding-inline: var(--tds-space-xl) !important;
+      padding-block: var(--tds-space-m) !important;
+      padding-inline: var(--tds-space-m) !important;
       inline-size: 100% !important;
       max-inline-size: 100% !important;
       box-sizing: border-box !important;
       overflow: hidden !important;
       font-size: var(--font-up-1-rem);
-      margin-block-end: var(--tds-space-xl);
-      @include bg-br;
-      @include m3-hover-overlay;
+      margin-block-end: 0 !important;
+      background: transparent !important;
+      background-color: transparent !important;
+      box-shadow: none !important;
       border: none !important;
-      background: var(--secondary);
-      transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+      border-radius: 0 !important;
+      transition: background-color 0.2s ease !important;
 
       @media (hover: hover) {
         &:hover {
-          transform: translateY(-4px) scale(1.002);
-          box-shadow: var(--tds-shadow-l) !important;
+          background-color: rgba(var(--primary-rgb), 0.02) !important;
+          transform: none !important;
+          box-shadow: none !important;
           
           .tli-middle-section .topic-image .topic-image__img {
-            transform: scale(1.04);
+            transform: none !important;
           }
         }
       }
