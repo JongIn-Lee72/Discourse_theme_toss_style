@@ -1184,5 +1184,36 @@ body.tag-page #main-outlet {
     height: 11px !important;
     font-size: 11px !important;
   }
+
+  /* 10. 모바일 카테고리 스탯(category-stat) 우측 정렬 */
+  #main-outlet .category-list-item,
+  .category-list-item {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+  }
+
+  #main-outlet .category-list-item .category-stat,
+  #main-outlet .category-list-item .category-stats,
+  #main-outlet .category-list-item td.topics,
+  #main-outlet .category-list-item td.posts,
+  .category-list-item .category-stat,
+  .category-list-item .category-stats,
+  .category-list-item td.topics,
+  .category-list-item td.posts,
+  .category-list-item .posts,
+  .category-list-item .topics {
+    margin-inline-start: auto !important; /* 우측 끝으로 밀기 */
+    margin-left: auto !important;
+    text-align: right !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    font-size: var(--text-xs) !important;
+    color: var(--primary-medium) !important;
+    padding-inline-start: var(--tds-space-s) !important;
+    flex: 0 0 auto !important;
+  }
 }
 </style>
