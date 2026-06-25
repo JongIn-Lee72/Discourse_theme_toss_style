@@ -175,13 +175,6 @@ body[class*="category-"]:not(.archetype-regular):not(.archetype-banner) {
           .d-button-label {
             display: none;
           }
-        }
-        #create-topic {
-          inline-size: 44px !important;
-        }
-        .d-combo-button.topic-create-button__combo.--has-menu {
-          inline-size: auto !important;
-        }
           &.open-draft {
             background: var(--primary-medium);
             .d-icon {
@@ -194,6 +187,12 @@ body[class*="category-"]:not(.archetype-regular):not(.archetype-banner) {
               background: var(--primary-medium);
             }
           }
+        }
+        #create-topic {
+          inline-size: 44px !important;
+        }
+        .d-combo-button.topic-create-button__combo.--has-menu {
+          inline-size: auto !important;
         }
         // Dropdown
         .select-kit {
