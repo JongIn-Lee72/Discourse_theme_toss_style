@@ -28,10 +28,11 @@
     }
     .topic-list-item {
       display: block;
-      padding: 8px 0;
+      padding-block: var(--tds-space-s);
+      padding-inline: var(--tds-radius-none);
       border: none;
       &:first-child {
-        padding-top: 0;
+        padding-block-start: var(--tds-radius-none);
       }
       &.highlighted {
         animation: none;
@@ -46,8 +47,9 @@
       display: block;
       .topic-list-data {
         display: block;
-        margin: 16px auto;
-        border-top: 1px solid var(--tertiary);
+        margin-block: var(--tds-space-l);
+        margin-inline: auto;
+        border-block-start: 1px solid var(--tertiary);
         span {
           background: var(--tertiary);
           color: #ffffff;
