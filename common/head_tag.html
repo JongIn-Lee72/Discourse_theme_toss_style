@@ -569,17 +569,17 @@ body[class*="category-"] #main-outlet {
   transform: none !important;
 }
 
-/* 우측 글쓰기/설정 버튼들(navigation-controls)을 1행 우측에 배치 */
+/* 우측 글쓰기/설정 버튼들(navigation-controls)을 2행 우측에 배치 */
 #main-outlet .list-controls .navigation-controls,
 .list-controls .navigation-controls {
-  margin-left: 8px !important;
+  margin-left: auto !important; /* 2행 우측 끝 정렬 */
   margin-right: 0 !important;
   display: inline-flex !important;
   align-items: center !important;
   gap: 8px !important;
   height: 36px !important;
   padding: 0 !important;
-  order: -1 !important; /* 검색바와 같은 행(1행)에 배치 */
+  order: 1 !important; /* nav-pills와 같은 행(2행)에 배치 */
 }
 
 /* 카테고리 편집 버튼(.edit-category) 깨짐 방지 */
