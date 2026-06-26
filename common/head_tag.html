@@ -972,23 +972,23 @@ body.tag-page #main-outlet {
     padding: 0 !important;
   }
 
-  /* badge-category__wrapper 및 제목 영역 relative 지정 */
+  /* badge-category__wrapper 및 제목 영역 relative 지정 및 24px 오프셋 패딩 확보 */
   .badge-category__wrapper,
   .badge-category,
   .category-title-link {
     display: inline-flex !important;
     align-items: center !important;
     position: relative !important;
-    padding-inline-start: 0 !important;
+    padding-inline-start: 24px !important; /* 24px 왼쪽 아이콘 전용 영역 확보 */
     font-size: 15px !important;
     font-weight: 700 !important;
   }
 
-  /* 카테고리 이름 텍스트 24px 고정 오프셋 시작 */
+  /* 카테고리 이름 자체의 추가 패딩 제거 */
   .badge-category__wrapper .badge-category__name,
   .badge-category .badge-category__name,
   .category-title-link .badge-category__name {
-    padding-inline-start: 24px !important;
+    padding-inline-start: 0 !important;
     display: inline-block !important;
     font-size: 15px !important;
     font-weight: 700 !important;
@@ -1034,8 +1034,9 @@ body.tag-page #main-outlet {
   .navigation-categories .category-list tbody tr .category-stats,
   .navigation-categories .category-list tbody tr td.topics,
   .navigation-categories .category-list tbody tr td.posts {
-    margin-right: 4px !important;
-    padding-right: 0 !important;
+    margin-inline-end: 8px !important; /* 카드 내부 우측 코너에서 8px 안전 마진 확보 */
+    padding-inline-end: 0 !important;
+    white-space: nowrap !important; /* 줄바꿈 방지 */
   }
 
   /* 7. 모바일 하단 플로팅 조작계 (카테고리/렌치/글쓰기/관리자 드롭다운) 위치 및 배치 최적화 */
