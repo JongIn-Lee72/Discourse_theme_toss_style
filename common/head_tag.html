@@ -1487,6 +1487,66 @@ body.tag-page #main-outlet {
     flex: 0 0 auto !important;
     white-space: nowrap !important; /* 줄바꿈 절대 방지 */
   }
+
+  /* 11. Pinned 및 Excerpt 토픽 리스트 카드 배경색 복구 (TDS 스타일) */
+  #main-outlet .topic-list-item.pinned,
+  #main-outlet .topic-list-item.has-excerpt,
+  .topic-list-item.category-5-category.has-excerpt.excerpt-expanded.pinned {
+    background-color: var(--secondary) !important;
+    border-radius: var(--tds-radius-m, 12px) !important;
+    margin-block-end: var(--tds-space-m) !important;
+    border: 1px solid rgba(var(--primary-rgb), 0.08) !important;
+  }
+
+  /* 12. 토픽 하단 액션 버튼 바 모바일 1줄(Nowrap) 최적화 */
+  #main-outlet .topic-footer-main-buttons__actions,
+  .topic-footer-main-buttons__actions {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: var(--tds-space-xs) !important; /* 4px 간격 */
+    overflow-x: auto !important; /* 가로 스크롤 허용 */
+    width: 100% !important;
+    padding-block: var(--tds-space-xs) !important;
+    box-sizing: border-box !important;
+    scrollbar-width: none !important; /* 파이어폭스 스크롤바 감추기 */
+    -ms-overflow-style: none !important; /* IE 스크롤바 감추기 */
+  }
+
+  /* 웹킷 브라우저 크롬/사파리 스크롤바 감추기 */
+  #main-outlet .topic-footer-main-buttons__actions::-webkit-scrollbar,
+  .topic-footer-main-buttons__actions::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+  }
+
+  #main-outlet .topic-footer-main-buttons__actions .btn,
+  .topic-footer-main-buttons__actions .btn {
+    padding-block: 0 !important;
+    padding-inline: var(--tds-space-s) !important; /* 패딩 축소 (8px) */
+    height: 32px !important;
+    min-height: 32px !important;
+    max-height: 32px !important;
+    font-size: var(--text-xs) !important;
+    white-space: nowrap !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex: 0 0 auto !important; /* 크기 축소 방지 */
+  }
+
+  #main-outlet .topic-footer-main-buttons__actions .btn .d-icon,
+  .topic-footer-main-buttons__actions .btn .d-icon,
+  #main-outlet .topic-footer-main-buttons__actions .btn svg,
+  .topic-footer-main-buttons__actions .btn svg {
+    width: 12px !important;
+    height: 12px !important;
+    font-size: 12px !important;
+    margin: 0 var(--tds-space-xs) 0 0 !important; /* 우측 마진 4px */
+  }
 }
 </style>
 
