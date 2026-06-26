@@ -963,8 +963,27 @@ body.tag-page #main-outlet {
     position: relative !important;
   }
 
+  /* Category Box (박스형 카테고리 뷰) 정렬 보정 (가운데 정렬 해제 및 좌측 정렬 강제) */
+  #main-outlet .category-box,
+  .category-box,
+  #main-outlet .category-box-inner,
+  .category-box-inner,
+  #main-outlet .category-box h3,
+  .category-box h3,
+  #main-outlet .category-box .description,
+  .category-box .description,
+  #main-outlet .category-box .category-logo,
+  .category-box .category-logo {
+    text-align: start !important;
+    text-align: left !important;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+  }
+
   .category-list .category-description,
-  .category-list-item .category-description {
+  .category-list-item .category-description,
+  #main-outlet .category-box .description,
+  .category-box .description {
     font-size: var(--text-xs) !important;
     margin-block-start: var(--tds-space-xs) !important;
     margin-inline-start: 30px !important; /* 카테고리명 텍스트 시작선(30px)과 완벽 수직 정렬 */
