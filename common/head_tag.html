@@ -1006,8 +1006,34 @@ body.tag-page #main-outlet {
   .category-box .description {
     font-size: var(--text-xs) !important;
     margin-block-start: var(--tds-space-xs) !important;
-    margin-inline-start: var(--m-category-desc-margin) !important; /* 4px 오프셋으로 가로 폭 극대화 */
+    margin-inline-start: var(--m-category-padding-single) !important; /* 기본 오프셋 (14px 아이콘 + 6px 간격) */
     padding: 0 !important;
+  }
+
+  /* 아이콘이 0개인 경우 설명글 마진 0 */
+  #main-outlet .category-list-item:not(:has(.badge-category-bg)):not(:has(.badge-category-parent-bg)):not(:has(svg)):not(:has(.d-icon)) .category-description,
+  #main-outlet .category-list tbody tr:not(:has(.badge-category-bg)):not(:has(.badge-category-parent-bg)):not(:has(svg)):not(:has(.d-icon)) .category-description,
+  #main-outlet .category-box:not(:has(.badge-category-bg)):not(:has(.badge-category-parent-bg)):not(:has(svg)):not(:has(.d-icon)) .description {
+    margin-inline-start: var(--m-category-padding-none) !important;
+  }
+
+  /* 아이콘이 2개인 경우 설명글 마진 28px */
+  #main-outlet .category-list-item:has(.badge-wrapper:has(.badge-category-parent-bg)) .category-description,
+  #main-outlet .category-list-item:has(.badge-wrapper:has(.badge-category-bg ~ svg)) .category-description,
+  #main-outlet .category-list-item:has(.badge-wrapper:has(.badge-category-bg ~ .d-icon)) .category-description,
+  #main-outlet .category-list-item:has(.badge-wrapper:has(svg + svg)) .category-description,
+  #main-outlet .category-list-item:has(.badge-wrapper:has(.d-icon + .d-icon)) .category-description,
+  #main-outlet .category-list tbody tr:has(.badge-wrapper:has(.badge-category-parent-bg)) .category-description,
+  #main-outlet .category-list tbody tr:has(.badge-wrapper:has(.badge-category-bg ~ svg)) .category-description,
+  #main-outlet .category-list tbody tr:has(.badge-wrapper:has(.badge-category-bg ~ .d-icon)) .category-description,
+  #main-outlet .category-list tbody tr:has(.badge-wrapper:has(svg + svg)) .category-description,
+  #main-outlet .category-list tbody tr:has(.badge-wrapper:has(.d-icon + .d-icon)) .category-description,
+  #main-outlet .category-box:has(.badge-wrapper:has(.badge-category-parent-bg)) .description,
+  #main-outlet .category-box:has(.badge-wrapper:has(.badge-category-bg ~ svg)) .description,
+  #main-outlet .category-box:has(.badge-wrapper:has(.badge-category-bg ~ .d-icon)) .description,
+  #main-outlet .category-box:has(.badge-wrapper:has(svg + svg)) .description,
+  #main-outlet .category-box:has(.badge-wrapper:has(.d-icon + .d-icon)) .description {
+    margin-inline-start: var(--m-category-padding-double) !important;
   }
 
   /* badge-category__wrapper 및 제목 영역 relative 지정 및 20px 기본 오프셋 패딩 확보 (명시도 상향) */
