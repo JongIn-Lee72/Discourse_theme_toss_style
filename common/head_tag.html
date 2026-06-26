@@ -963,7 +963,7 @@ body.tag-page #main-outlet {
     position: relative !important;
   }
 
-  /* 모든 모바일 카테고리 뷰 (리스트/테이블/박스형) 좌측 정렬 강제 및 가운데 정렬 원천 차단 */
+  /* 모든 모바일 카테고리 뷰 (리스트/테이블/박스형) 좌측 정렬 강제 및 가운데 정렬 원천 차단 (스탯 제외 전 하위 노드 강제) */
   #main-outlet .category-list-item,
   .category-list-item,
   #main-outlet .category-list tbody tr td.category,
@@ -981,11 +981,16 @@ body.tag-page #main-outlet {
   #main-outlet .category-box .category-box-heading,
   .category-box .category-box-heading,
   #main-outlet .category-box .category-logo,
-  .category-box .category-logo {
+  .category-box .category-logo,
+  .category-list-item *:not(.category-stat):not(.category-stats):not(.topics):not(.posts):not(.value),
+  .category-list tbody tr *:not(.category-stat):not(.category-stats):not(.topics):not(.posts):not(.value),
+  .category-box *:not(.category-stat):not(.category-stats):not(.topics):not(.posts):not(.value),
+  .category-box-inner *:not(.category-stat):not(.category-stats):not(.topics):not(.posts):not(.value),
+  .categories-list *:not(.category-stat):not(.category-stats):not(.topics):not(.posts):not(.value),
+  .navigation-categories *:not(.category-stat):not(.category-stats):not(.topics):not(.posts):not(.value) {
     text-align: start !important;
     text-align: left !important;
     align-items: flex-start !important;
-    justify-content: flex-start !important;
   }
 
   .category-list .category-description,
