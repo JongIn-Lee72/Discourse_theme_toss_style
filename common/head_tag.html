@@ -796,11 +796,15 @@ body.tag-page #main-outlet {
   }
 }
 
-/* 데스크톱 토픽 리스트 데이터 셀 배경색 복구 */
+/* 데스크톱 토픽 리스트 데이터 셀 배경색 복구 및 여백 축소 */
 .desktop-view .topic-list .topic-list-item,
 .desktop-view .topic-list .topic-list-data,
 .desktop-view .topic-list .main-link.topic-list-data {
   background-color: var(--secondary) !important;
+}
+
+.desktop-view .topic-list .main-link {
+  padding-block: var(--tds-space-s) !important; /* 12px -> 8px 여백 최적화 */
 }
 
 /* 8. 모바일 nav-pills 탭 가로 스크롤 (P1-6) */
@@ -886,7 +890,7 @@ body.tag-page #main-outlet {
     background-color: transparent !important;
     border-radius: 0 !important;
     margin-block-end: 0 !important;
-    padding-block: var(--tds-space-m) !important;
+    padding-block: var(--tds-space-s) !important; /* m (12px) -> s (8px) 여백 최적화 */
     padding-inline: var(--tds-space-m) !important;
     border-block-end: 1px solid rgba(var(--primary-rgb), 0.08) !important;
   }
@@ -1167,8 +1171,8 @@ body.tag-page #main-outlet {
   #main-outlet .category-box .badge-category .d-icon {
     position: absolute !important;
     inset-inline-start: 0 !important;
-    top: 3px !important; /* 텍스트 첫째 줄 정렬선에 완벽 매칭 */
-    transform: none !important;
+    top: 50% !important; /* 세로 중앙 정렬 자동화 */
+    transform: translateY(-50%) !important;
     margin: 0 !important;
     width: var(--m-category-icon-size) !important;
     height: var(--m-category-icon-size) !important;
@@ -1181,8 +1185,8 @@ body.tag-page #main-outlet {
   #main-outlet .category-box .badge-category::before {
     position: absolute !important;
     inset-inline-start: 0 !important;
-    top: 3px !important;
-    transform: none !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
     margin: 0 !important;
     width: var(--m-category-icon-size) !important;
     height: var(--m-category-icon-size) !important;
