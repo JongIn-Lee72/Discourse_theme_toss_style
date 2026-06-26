@@ -184,7 +184,7 @@ body[class*="category-"] {
 @media screen and (max-width: 767px) {
   .navigation-categories .category-list tbody tr td.category {
     min-block-size: 0 !important;
-    padding-block: var(--tds-space-s) !important;
+    padding-block: 0 !important;
     padding-inline-start: var(--tds-space-m) !important;
     border-left: none !important;
     border-inline-start: none !important;

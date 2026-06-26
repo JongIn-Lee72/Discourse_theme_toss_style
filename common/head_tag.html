@@ -987,9 +987,18 @@ body.tag-page #main-outlet {
   #main-outlet .category-list tbody tr td,
   #main-outlet .category-list-item td,
   .category-list tbody tr td,
-  .category-list-item td {
+  .category-list-item td,
+  #main-outlet .category-details,
+  #main-outlet .category-list-item .category-details,
+  .category-list-item .category-details,
+  #main-outlet .category-list-item h3,
+  #main-outlet .category-list tbody tr h3,
+  .category-list-item h3,
+  .category-list tbody tr h3 {
     padding-block: 0 !important;
+    margin-block: 0 !important;
     min-block-size: 0 !important;
+    min-height: 0 !important;
   }
 
   /* 모든 모바일 카테고리 뷰 (리스트/테이블/박스형) 좌측 정렬 강제 및 가운데 정렬 원천 차단 (스탯 제외 전 하위 노드 강제) */
@@ -1075,7 +1084,7 @@ body.tag-page #main-outlet {
     gap: 6px !important; /* 아이콘과 텍스트 사이 간격 */
   }
 
-  /* badge-category 내부에서 다시 padding-inline-start가 중첩되어 겹치는 현상 차단 */
+  /* badge-category 내부에서 다시 padding-inline-start가 중첩되어 겹치는 현상 차단 및 inline-flex 설정 */
   #main-outlet .category-list-item .badge-category,
   #main-outlet .category-list tbody tr .badge-category,
   #main-outlet .category-box .badge-category {
@@ -1084,18 +1093,40 @@ body.tag-page #main-outlet {
     margin-inline-start: 0 !important;
     background: transparent !important;
     background-color: transparent !important;
-    display: inline !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    vertical-align: middle !important;
   }
 
-  /* 카테고리 이름 자체의 추가 패딩 제거 (명시도 상향) */
+  /* 카테고리 이름 자체의 추가 패딩 제거 및 세로 중심선 정렬 */
   #main-outlet .category-list-item .badge-category__name,
   #main-outlet .category-list tbody tr .badge-category__name,
   #main-outlet .category-box .badge-category__name {
     padding-inline-start: 0 !important;
     margin-inline-start: 0 !important;
-    display: inline-block !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    vertical-align: middle !important;
     font-size: 15px !important;
     font-weight: 700 !important;
+    line-height: 1.2 !important;
+  }
+
+  /* 이모지나 커스텀 이미지 아이콘이 있을 경우 강제 수직 정렬 */
+  #main-outlet .badge-category__name img.emoji,
+  #main-outlet .badge-category img.emoji,
+  #main-outlet .badge-category__wrapper img.emoji,
+  .badge-category__name img.emoji,
+  .badge-category img.emoji,
+  .badge-category__wrapper img.emoji {
+    display: inline-block !important;
+    vertical-align: middle !important;
+    align-self: center !important;
+    margin: 0 4px 0 0 !important;
+    height: 1.1em !important;
+    width: 1.1em !important;
+    object-fit: contain !important;
   }
 
   /* 모든 카테고리 컬러 바, 배경 뱃지, 아이콘/자물쇠를 normal flow(static/relative)로 정렬하여 완벽 세로 정렬 */
@@ -1127,6 +1158,7 @@ body.tag-page #main-outlet {
     min-width: var(--m-category-icon-size) !important;
     display: inline-block !important;
     vertical-align: middle !important;
+    align-self: center !important;
     flex-shrink: 0 !important;
   }
 
@@ -1142,6 +1174,7 @@ body.tag-page #main-outlet {
     height: var(--m-category-icon-size) !important;
     display: inline-block !important;
     vertical-align: middle !important;
+    align-self: center !important;
   }
 
   /* 두 번째 자식/동형 아이콘 (자물쇠 등) 음수 마진으로 겹침 처리 */
