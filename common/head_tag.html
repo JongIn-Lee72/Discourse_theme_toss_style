@@ -1010,10 +1010,7 @@ body.tag-page #main-outlet {
   #main-outlet .category-list tbody tr .category-title-link,
   #main-outlet .category-box .badge-wrapper,
   #main-outlet .category-box .badge-category__wrapper,
-  #main-outlet .category-box .category-title-link,
-  .badge-wrapper,
-  .badge-category__wrapper,
-  .category-title-link {
+  #main-outlet .category-box .category-title-link {
     display: inline-flex !important;
     align-items: center !important;
     position: relative !important;
@@ -1025,9 +1022,7 @@ body.tag-page #main-outlet {
   /* badge-category 내부에서 다시 padding-inline-start가 중첩되어 겹치는 현상 차단 */
   #main-outlet .category-list-item .badge-category,
   #main-outlet .category-list tbody tr .badge-category,
-  #main-outlet .category-box .badge-category,
-  .badge-wrapper .badge-category,
-  .badge-category__wrapper .badge-category {
+  #main-outlet .category-box .badge-category {
     position: static !important;
     padding-inline-start: 0 !important;
     margin-inline-start: 0 !important;
@@ -1039,10 +1034,7 @@ body.tag-page #main-outlet {
   /* 카테고리 이름 자체의 추가 패딩 제거 (명시도 상향) */
   #main-outlet .category-list-item .badge-category__name,
   #main-outlet .category-list tbody tr .badge-category__name,
-  #main-outlet .category-box .badge-category__name,
-  .badge-category__wrapper .badge-category__name,
-  .badge-category .badge-category__name,
-  .category-title-link .badge-category__name {
+  #main-outlet .category-box .badge-category__name {
     padding-inline-start: 0 !important;
     margin-inline-start: 0 !important;
     display: inline-block !important;
@@ -1051,18 +1043,24 @@ body.tag-page #main-outlet {
   }
 
   /* 모든 카테고리 컬러 바, 배경 뱃지, 아이콘/자물쇠를 absolute로 지정하여 정렬 */
-  #main-outlet .badge-category-parent-bg,
-  #main-outlet .badge-category-bg,
-  #main-outlet .badge-wrapper svg,
-  #main-outlet .badge-wrapper .d-icon,
-  #main-outlet .badge-category svg,
-  #main-outlet .badge-category .d-icon,
-  .badge-category-parent-bg,
-  .badge-category-bg,
-  .badge-wrapper svg,
-  .badge-wrapper .d-icon,
-  .badge-category svg,
-  .badge-category .d-icon {
+  #main-outlet .category-list-item .badge-category-parent-bg,
+  #main-outlet .category-list-item .badge-category-bg,
+  #main-outlet .category-list-item .badge-wrapper svg,
+  #main-outlet .category-list-item .badge-wrapper .d-icon,
+  #main-outlet .category-list-item .badge-category svg,
+  #main-outlet .category-list-item .badge-category .d-icon,
+  #main-outlet .category-list tbody tr .badge-category-parent-bg,
+  #main-outlet .category-list tbody tr .badge-category-bg,
+  #main-outlet .category-list tbody tr .badge-wrapper svg,
+  #main-outlet .category-list tbody tr .badge-wrapper .d-icon,
+  #main-outlet .category-list tbody tr .badge-category svg,
+  #main-outlet .category-list tbody tr .badge-category .d-icon,
+  #main-outlet .category-box .badge-category-parent-bg,
+  #main-outlet .category-box .badge-category-bg,
+  #main-outlet .category-box .badge-wrapper svg,
+  #main-outlet .category-box .badge-wrapper .d-icon,
+  #main-outlet .category-box .badge-category svg,
+  #main-outlet .category-box .badge-category .d-icon {
     position: absolute !important;
     inset-inline-start: 0 !important;
     top: 50% !important;
@@ -1074,8 +1072,9 @@ body.tag-page #main-outlet {
     display: inline-block !important;
   }
 
-  #main-outlet .badge-category::before,
-  .badge-category::before {
+  #main-outlet .category-list-item .badge-category::before,
+  #main-outlet .category-list tbody tr .badge-category::before,
+  #main-outlet .category-box .badge-category::before {
     position: absolute !important;
     inset-inline-start: 0 !important;
     top: 50% !important;
@@ -1086,32 +1085,45 @@ body.tag-page #main-outlet {
   }
 
   /* 두 번째 자식/동형 아이콘 (자물쇠 등) 위치를 13px로 배치하여 겹침 해결 (30px 여백과 안전거리 확보) */
-  #main-outlet .badge-category-parent-bg ~ .badge-category-bg,
-  #main-outlet .badge-category-parent-bg ~ .badge-category svg,
-  #main-outlet .badge-category-parent-bg ~ .badge-category .d-icon,
-  #main-outlet .badge-category-bg ~ .badge-category svg,
-  #main-outlet .badge-category-bg ~ .badge-category .d-icon,
-  #main-outlet .badge-wrapper svg + svg,
-  #main-outlet .badge-wrapper .d-icon + .d-icon,
-  #main-outlet .badge-wrapper svg + .d-icon,
-  #main-outlet .badge-wrapper .d-icon + svg,
-  #main-outlet .badge-category svg + svg,
-  #main-outlet .badge-category .d-icon + .d-icon,
-  #main-outlet .badge-category svg + .d-icon,
-  #main-outlet .badge-category .d-icon + svg,
-  .badge-category-parent-bg ~ .badge-category-bg,
-  .badge-category-parent-bg ~ .badge-category svg,
-  .badge-category-parent-bg ~ .badge-category .d-icon,
-  .badge-category-bg ~ .badge-category svg,
-  .badge-category-bg ~ .badge-category .d-icon,
-  .badge-wrapper svg + svg,
-  .badge-wrapper .d-icon + .d-icon,
-  .badge-wrapper svg + .d-icon,
-  .badge-wrapper .d-icon + svg,
-  .badge-category svg + svg,
-  .badge-category .d-icon + .d-icon,
-  .badge-category svg + .d-icon,
-  .badge-category .d-icon + svg {
+  #main-outlet .category-list-item .badge-category-parent-bg ~ .badge-category-bg,
+  #main-outlet .category-list-item .badge-category-parent-bg ~ .badge-category svg,
+  #main-outlet .category-list-item .badge-category-parent-bg ~ .badge-category .d-icon,
+  #main-outlet .category-list-item .badge-category-bg ~ .badge-category svg,
+  #main-outlet .category-list-item .badge-category-bg ~ .badge-category .d-icon,
+  #main-outlet .category-list-item .badge-wrapper svg + svg,
+  #main-outlet .category-list-item .badge-wrapper .d-icon + .d-icon,
+  #main-outlet .category-list-item .badge-wrapper svg + .d-icon,
+  #main-outlet .category-list-item .badge-wrapper .d-icon + svg,
+  #main-outlet .category-list-item .badge-category svg + svg,
+  #main-outlet .category-list-item .badge-category .d-icon + .d-icon,
+  #main-outlet .category-list-item .badge-category svg + .d-icon,
+  #main-outlet .category-list-item .badge-category .d-icon + svg,
+  #main-outlet .category-list tbody tr .badge-category-parent-bg ~ .badge-category-bg,
+  #main-outlet .category-list tbody tr .badge-category-parent-bg ~ .badge-category svg,
+  #main-outlet .category-list tbody tr .badge-category-parent-bg ~ .badge-category .d-icon,
+  #main-outlet .category-list tbody tr .badge-category-bg ~ .badge-category svg,
+  #main-outlet .category-list tbody tr .badge-category-bg ~ .badge-category .d-icon,
+  #main-outlet .category-list tbody tr .badge-wrapper svg + svg,
+  #main-outlet .category-list tbody tr .badge-wrapper .d-icon + .d-icon,
+  #main-outlet .category-list tbody tr .badge-wrapper svg + .d-icon,
+  #main-outlet .category-list tbody tr .badge-wrapper .d-icon + svg,
+  #main-outlet .category-list tbody tr .badge-category svg + svg,
+  #main-outlet .category-list tbody tr .badge-category .d-icon + .d-icon,
+  #main-outlet .category-list tbody tr .badge-category svg + .d-icon,
+  #main-outlet .category-list tbody tr .badge-category .d-icon + svg,
+  #main-outlet .category-box .badge-category-parent-bg ~ .badge-category-bg,
+  #main-outlet .category-box .badge-category-parent-bg ~ .badge-category svg,
+  #main-outlet .category-box .badge-category-parent-bg ~ .badge-category .d-icon,
+  #main-outlet .category-box .badge-category-bg ~ .badge-category svg,
+  #main-outlet .category-box .badge-category-bg ~ .badge-category .d-icon,
+  #main-outlet .category-box .badge-wrapper svg + svg,
+  #main-outlet .category-box .badge-wrapper .d-icon + .d-icon,
+  #main-outlet .category-box .badge-wrapper svg + .d-icon,
+  #main-outlet .category-box .badge-wrapper .d-icon + svg,
+  #main-outlet .category-box .badge-category svg + svg,
+  #main-outlet .category-box .badge-category .d-icon + .d-icon,
+  #main-outlet .category-box .badge-category svg + .d-icon,
+  #main-outlet .category-box .badge-category .d-icon + svg {
     inset-inline-start: 13px !important;
   }
 
