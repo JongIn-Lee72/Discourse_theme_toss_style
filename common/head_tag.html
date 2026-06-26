@@ -959,8 +959,8 @@ body.tag-page #main-outlet {
   .category-box,
   #main-outlet .category-list tbody tr,
   .category-list tbody tr {
-    padding-right: var(--tds-space-l) !important; /* 16px 우측 패딩 확보 */
-    padding-left: var(--tds-space-l) !important;  /* 16px 좌측 패딩 확보 */
+    padding-inline-end: var(--tds-space-m) !important; /* 12px 우측 패딩 확보 */
+    padding-inline-start: var(--tds-space-m) !important;  /* 12px 좌측 패딩 확보 */
     position: relative !important;
   }
 
@@ -968,8 +968,7 @@ body.tag-page #main-outlet {
   .category-list-item .category-description {
     font-size: var(--text-xs) !important;
     margin-block-start: var(--tds-space-xs) !important;
-    margin-inline-start: 28px !important; /* 카테고리명 텍스트 시작선(28px)과 완벽 수직 정렬 */
-    margin-left: 28px !important;
+    margin-inline-start: 24px !important; /* 카테고리명 텍스트 시작선(24px)과 완벽 수직 정렬 */
     padding: 0 !important;
   }
 
@@ -980,22 +979,22 @@ body.tag-page #main-outlet {
     display: inline-flex !important;
     align-items: center !important;
     position: relative !important;
-    padding-left: 0 !important;
+    padding-inline-start: 0 !important;
     font-size: 15px !important;
     font-weight: 700 !important;
   }
 
-  /* 카테고리 이름 텍스트 28px 고정 오프셋 시작 */
+  /* 카테고리 이름 텍스트 24px 고정 오프셋 시작 */
   .badge-category__wrapper .badge-category__name,
   .badge-category .badge-category__name,
   .category-title-link .badge-category__name {
-    padding-left: 28px !important;
+    padding-inline-start: 24px !important;
     display: inline-block !important;
     font-size: 15px !important;
     font-weight: 700 !important;
   }
 
-  /* 첫 번째 자식 아이콘 (컬러 바 또는 첫 svg): left: 0 */
+  /* 첫 번째 자식 아이콘 (컬러 바 또는 첫 svg): inset-inline-start: 0 */
   #main-outlet .badge-category-bg,
   .badge-category-bg,
   #main-outlet .badge-category > svg:first-of-type,
@@ -1003,7 +1002,7 @@ body.tag-page #main-outlet {
   #main-outlet .badge-wrapper > svg:first-of-type,
   #main-outlet .badge-wrapper > .d-icon:first-of-type {
     position: absolute !important;
-    left: 0 !important;
+    inset-inline-start: 0 !important;
     top: 50% !important;
     transform: translateY(-50%) !important;
     margin: 0 !important;
@@ -1012,7 +1011,7 @@ body.tag-page #main-outlet {
     min-width: 14px !important;
   }
 
-  /* 두 번째 자식 아이콘 (자물쇠 등): left: 14px (겹침 해결 및 간격 축소) */
+  /* 두 번째 자식 아이콘 (자물쇠 등): inset-inline-start: 10px (겹침 해결 및 간격 축소) */
   #main-outlet .badge-category-bg + svg,
   #main-outlet .badge-category-bg + .d-icon,
   #main-outlet .badge-wrapper .badge-category-bg + .badge-category svg,
@@ -1022,7 +1021,7 @@ body.tag-page #main-outlet {
   #main-outlet .badge-category svg + .d-icon,
   #main-outlet .badge-category .d-icon + svg {
     position: absolute !important;
-    left: 14px !important;
+    inset-inline-start: 10px !important;
     top: 50% !important;
     transform: translateY(-50%) !important;
     margin: 0 !important;

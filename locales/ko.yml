@@ -10,3 +10,8 @@ ko:
       bookmarks: "북마크"
       messages: "메시지"
   created_at: "작성일"
+
+  js:
+    categories:
+      topic_stat_all_time:
+        other: "%{number}"
