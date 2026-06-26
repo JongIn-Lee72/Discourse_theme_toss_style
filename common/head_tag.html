@@ -997,11 +997,37 @@ body.tag-page #main-outlet {
   .category-box .description {
     font-size: var(--text-xs) !important;
     margin-block-start: var(--tds-space-xs) !important;
-    margin-inline-start: 30px !important; /* 카테고리명 텍스트 시작선(30px)과 완벽 수직 정렬 */
+    margin-inline-start: 20px !important; /* 기본 오프셋 (14px 아이콘 + 6px 간격) */
     padding: 0 !important;
   }
 
-  /* badge-category__wrapper 및 제목 영역 relative 지정 및 30px 오프셋 패딩 확보 (명시도 상향) */
+  /* 아이콘이 0개인 경우 설명글 마진 0 */
+  #main-outlet .category-list-item:not(:has(.badge-category-bg)):not(:has(.badge-category-parent-bg)):not(:has(svg)):not(:has(.d-icon)) .category-description,
+  #main-outlet .category-list tbody tr:not(:has(.badge-category-bg)):not(:has(.badge-category-parent-bg)):not(:has(svg)):not(:has(.d-icon)) .category-description,
+  #main-outlet .category-box:not(:has(.badge-category-bg)):not(:has(.badge-category-parent-bg)):not(:has(svg)):not(:has(.d-icon)) .description {
+    margin-inline-start: 0 !important;
+  }
+
+  /* 아이콘이 2개인 경우 설명글 마진 32px (13px + 14px 아이콘 + 5px 간격) */
+  #main-outlet .category-list-item:has(.badge-wrapper:has(.badge-category-parent-bg)) .category-description,
+  #main-outlet .category-list-item:has(.badge-wrapper:has(.badge-category-bg ~ svg)) .category-description,
+  #main-outlet .category-list-item:has(.badge-wrapper:has(.badge-category-bg ~ .d-icon)) .category-description,
+  #main-outlet .category-list-item:has(.badge-wrapper:has(svg + svg)) .category-description,
+  #main-outlet .category-list-item:has(.badge-wrapper:has(.d-icon + .d-icon)) .category-description,
+  #main-outlet .category-list tbody tr:has(.badge-wrapper:has(.badge-category-parent-bg)) .category-description,
+  #main-outlet .category-list tbody tr:has(.badge-wrapper:has(.badge-category-bg ~ svg)) .category-description,
+  #main-outlet .category-list tbody tr:has(.badge-wrapper:has(.badge-category-bg ~ .d-icon)) .category-description,
+  #main-outlet .category-list tbody tr:has(.badge-wrapper:has(svg + svg)) .category-description,
+  #main-outlet .category-list tbody tr:has(.badge-wrapper:has(.d-icon + .d-icon)) .category-description,
+  #main-outlet .category-box:has(.badge-wrapper:has(.badge-category-parent-bg)) .description,
+  #main-outlet .category-box:has(.badge-wrapper:has(.badge-category-bg ~ svg)) .description,
+  #main-outlet .category-box:has(.badge-wrapper:has(.badge-category-bg ~ .d-icon)) .description,
+  #main-outlet .category-box:has(.badge-wrapper:has(svg + svg)) .description,
+  #main-outlet .category-box:has(.badge-wrapper:has(.d-icon + .d-icon)) .description {
+    margin-inline-start: 32px !important;
+  }
+
+  /* badge-category__wrapper 및 제목 영역 relative 지정 및 20px 기본 오프셋 패딩 확보 (명시도 상향) */
   #main-outlet .category-list-item .badge-wrapper,
   #main-outlet .category-list-item .badge-category__wrapper,
   #main-outlet .category-list-item .category-title-link,
@@ -1014,9 +1040,71 @@ body.tag-page #main-outlet {
     display: inline-flex !important;
     align-items: center !important;
     position: relative !important;
-    padding-inline-start: 30px !important; /* 30px 왼쪽 아이콘 전용 영역 확보 */
+    padding-inline-start: 20px !important; /* 기본 오프셋 (14px 아이콘 + 6px 간격) */
     font-size: 15px !important;
     font-weight: 700 !important;
+  }
+
+  /* 아이콘이 0개인 경우 제목 패딩 0 */
+  #main-outlet .category-list-item .badge-wrapper:not(:has(.badge-category-bg)):not(:has(.badge-category-parent-bg)):not(:has(svg)):not(:has(.d-icon)),
+  #main-outlet .category-list-item .badge-category__wrapper:not(:has(.badge-category-bg)):not(:has(.badge-category-parent-bg)):not(:has(svg)):not(:has(.d-icon)),
+  #main-outlet .category-list-item .category-title-link:not(:has(.badge-category-bg)):not(:has(.badge-category-parent-bg)):not(:has(svg)):not(:has(.d-icon)),
+  #main-outlet .category-list tbody tr .badge-wrapper:not(:has(.badge-category-bg)):not(:has(.badge-category-parent-bg)):not(:has(svg)):not(:has(.d-icon)),
+  #main-outlet .category-list tbody tr .badge-category__wrapper:not(:has(.badge-category-bg)):not(:has(.badge-category-parent-bg)):not(:has(svg)):not(:has(.d-icon)),
+  #main-outlet .category-list tbody tr .category-title-link:not(:has(.badge-category-bg)):not(:has(.badge-category-parent-bg)):not(:has(svg)):not(:has(.d-icon)),
+  #main-outlet .category-box .badge-wrapper:not(:has(.badge-category-bg)):not(:has(.badge-category-parent-bg)):not(:has(svg)):not(:has(.d-icon)),
+  #main-outlet .category-box .badge-category__wrapper:not(:has(.badge-category-bg)):not(:has(.badge-category-parent-bg)):not(:has(svg)):not(:has(.d-icon)),
+  #main-outlet .category-box .category-title-link:not(:has(.badge-category-bg)):not(:has(.badge-category-parent-bg)):not(:has(svg)):not(:has(.d-icon)) {
+    padding-inline-start: 0 !important;
+  }
+
+  /* 아이콘이 2개인 경우 제목 패딩 32px */
+  #main-outlet .category-list-item .badge-wrapper:has(.badge-category-parent-bg),
+  #main-outlet .category-list-item .badge-wrapper:has(.badge-category-bg ~ svg),
+  #main-outlet .category-list-item .badge-wrapper:has(.badge-category-bg ~ .d-icon),
+  #main-outlet .category-list-item .badge-wrapper:has(svg + svg),
+  #main-outlet .category-list-item .badge-wrapper:has(.d-icon + .d-icon),
+  #main-outlet .category-list-item .badge-category__wrapper:has(.badge-category-parent-bg),
+  #main-outlet .category-list-item .badge-category__wrapper:has(.badge-category-bg ~ svg),
+  #main-outlet .category-list-item .badge-category__wrapper:has(.badge-category-bg ~ .d-icon),
+  #main-outlet .category-list-item .badge-category__wrapper:has(svg + svg),
+  #main-outlet .category-list-item .badge-category__wrapper:has(.d-icon + .d-icon),
+  #main-outlet .category-list-item .category-title-link:has(.badge-category-parent-bg),
+  #main-outlet .category-list-item .category-title-link:has(.badge-category-bg ~ svg),
+  #main-outlet .category-list-item .category-title-link:has(.badge-category-bg ~ .d-icon),
+  #main-outlet .category-list-item .category-title-link:has(svg + svg),
+  #main-outlet .category-list-item .category-title-link:has(.d-icon + .d-icon),
+  #main-outlet .category-list tbody tr .badge-wrapper:has(.badge-category-parent-bg),
+  #main-outlet .category-list tbody tr .badge-wrapper:has(.badge-category-bg ~ svg),
+  #main-outlet .category-list tbody tr .badge-wrapper:has(.badge-category-bg ~ .d-icon),
+  #main-outlet .category-list tbody tr .badge-wrapper:has(svg + svg),
+  #main-outlet .category-list tbody tr .badge-wrapper:has(.d-icon + .d-icon),
+  #main-outlet .category-list tbody tr .badge-category__wrapper:has(.badge-category-parent-bg),
+  #main-outlet .category-list tbody tr .badge-category__wrapper:has(.badge-category-bg ~ svg),
+  #main-outlet .category-list tbody tr .badge-category__wrapper:has(.badge-category-bg ~ .d-icon),
+  #main-outlet .category-list tbody tr .badge-category__wrapper:has(svg + svg),
+  #main-outlet .category-list tbody tr .badge-category__wrapper:has(.d-icon + .d-icon),
+  #main-outlet .category-list tbody tr .category-title-link:has(.badge-category-parent-bg),
+  #main-outlet .category-list tbody tr .category-title-link:has(.badge-category-bg ~ svg),
+  #main-outlet .category-list tbody tr .category-title-link:has(.badge-category-bg ~ .d-icon),
+  #main-outlet .category-list tbody tr .category-title-link:has(svg + svg),
+  #main-outlet .category-list tbody tr .category-title-link:has(.d-icon + .d-icon),
+  #main-outlet .category-box .badge-wrapper:has(.badge-category-parent-bg),
+  #main-outlet .category-box .badge-wrapper:has(.badge-category-bg ~ svg),
+  #main-outlet .category-box .badge-wrapper:has(.badge-category-bg ~ .d-icon),
+  #main-outlet .category-box .badge-wrapper:has(svg + svg),
+  #main-outlet .category-box .badge-wrapper:has(.d-icon + .d-icon),
+  #main-outlet .category-box .badge-category__wrapper:has(.badge-category-parent-bg),
+  #main-outlet .category-box .badge-category__wrapper:has(.badge-category-bg ~ svg),
+  #main-outlet .category-box .badge-category__wrapper:has(.badge-category-bg ~ .d-icon),
+  #main-outlet .category-box .badge-category__wrapper:has(svg + svg),
+  #main-outlet .category-box .badge-category__wrapper:has(.d-icon + .d-icon),
+  #main-outlet .category-box .category-title-link:has(.badge-category-parent-bg),
+  #main-outlet .category-box .category-title-link:has(.badge-category-bg ~ svg),
+  #main-outlet .category-box .category-title-link:has(.badge-category-bg ~ .d-icon),
+  #main-outlet .category-box .category-title-link:has(svg + svg),
+  #main-outlet .category-box .category-title-link:has(.d-icon + .d-icon) {
+    padding-inline-start: 32px !important;
   }
 
   /* badge-category 내부에서 다시 padding-inline-start가 중첩되어 겹치는 현상 차단 */
