@@ -959,8 +959,7 @@ body.tag-page #main-outlet {
   .category-box,
   #main-outlet .category-list tbody tr,
   .category-list tbody tr {
-    padding-inline-end: var(--tds-space-m) !important; /* 12px 우측 패딩 확보 */
-    padding-inline-start: var(--tds-space-m) !important;  /* 12px 좌측 패딩 확보 */
+    padding: var(--tds-space-m) !important; /* 12px 상하좌우 패딩 균등 확보 */
     position: relative !important;
   }
 
@@ -968,11 +967,11 @@ body.tag-page #main-outlet {
   .category-list-item .category-description {
     font-size: var(--text-xs) !important;
     margin-block-start: var(--tds-space-xs) !important;
-    margin-inline-start: 24px !important; /* 카테고리명 텍스트 시작선(24px)과 완벽 수직 정렬 */
+    margin-inline-start: 30px !important; /* 카테고리명 텍스트 시작선(30px)과 완벽 수직 정렬 */
     padding: 0 !important;
   }
 
-  /* badge-category__wrapper 및 제목 영역 relative 지정 및 24px 오프셋 패딩 확보 (명시도 상향) */
+  /* badge-category__wrapper 및 제목 영역 relative 지정 및 30px 오프셋 패딩 확보 (명시도 상향) */
   #main-outlet .category-list-item .badge-wrapper,
   #main-outlet .category-list-item .badge-category__wrapper,
   #main-outlet .category-list-item .category-title-link,
@@ -988,7 +987,7 @@ body.tag-page #main-outlet {
     display: inline-flex !important;
     align-items: center !important;
     position: relative !important;
-    padding-inline-start: 24px !important; /* 24px 왼쪽 아이콘 전용 영역 확보 */
+    padding-inline-start: 30px !important; /* 30px 왼쪽 아이콘 전용 영역 확보 */
     font-size: 15px !important;
     font-weight: 700 !important;
   }
@@ -1056,7 +1055,7 @@ body.tag-page #main-outlet {
     height: 14px !important;
   }
 
-  /* 두 번째 자식/동형 아이콘 (자물쇠 등) 위치를 10px로 밀착 배치하여 겹침 해결 */
+  /* 두 번째 자식/동형 아이콘 (자물쇠 등) 위치를 13px로 배치하여 겹침 해결 (30px 여백과 안전거리 확보) */
   #main-outlet .badge-category-parent-bg ~ .badge-category-bg,
   #main-outlet .badge-category-parent-bg ~ .badge-category svg,
   #main-outlet .badge-category-parent-bg ~ .badge-category .d-icon,
@@ -1083,10 +1082,10 @@ body.tag-page #main-outlet {
   .badge-category .d-icon + .d-icon,
   .badge-category svg + .d-icon,
   .badge-category .d-icon + svg {
-    inset-inline-start: 10px !important;
+    inset-inline-start: 13px !important;
   }
 
-  /* 스탯 텍스트 잘림 해결 및 카드 내부 안전 영역 확보 (명시도 상향, nowrap 강제) */
+  /* 스탯 텍스트 잘림 해결 및 카드 내부 안전 영역 확보 (명시도 상향, nowrap 강제, 상단 정렬용 margin-top 추가) */
   #main-outlet .category-list-item .category-stat,
   #main-outlet .category-list-item .category-stats,
   #main-outlet .category-list-item .topics,
@@ -1106,6 +1105,7 @@ body.tag-page #main-outlet {
     margin-inline-end: 8px !important; /* 카드 내부 우측 코너에서 8px 안전 마진 확보 */
     padding-inline-end: 0 !important;
     white-space: nowrap !important; /* 줄바꿈 방지 */
+    margin-block-start: 2px !important; /* 첫 번째 줄(타이틀) 중앙에 매칭 */
   }
 
   /* 7. 모바일 하단 플로팅 조작계 (카테고리/렌치/글쓰기/관리자 드롭다운) 위치 및 배치 최적화 */
@@ -1314,12 +1314,14 @@ body.tag-page #main-outlet {
     font-size: 11px !important;
   }
 
-  /* 10. 모바일 카테고리 스탯(category-stat) 우측 정렬 */
+  /* 10. 모바일 카테고리 스탯(category-stat) 우측 정렬 및 상단 수직 정렬 */
   #main-outlet .category-list-item,
-  .category-list-item {
+  .category-list-item,
+  #main-outlet .category-list tbody tr,
+  .category-list tbody tr {
     display: flex !important;
     flex-direction: row !important;
-    align-items: center !important;
+    align-items: flex-start !important; /* 상단 정렬로 설명 길이에 무관하게 첫 행 정렬 유지 */
     justify-content: space-between !important;
   }
 
@@ -1335,6 +1337,7 @@ body.tag-page #main-outlet {
   .category-list-item .topics {
     margin-inline-start: auto !important; /* 우측 끝으로 밀기 */
     margin-left: auto !important;
+    margin-block-start: 2px !important; /* 타이틀 텍스트 행과 완벽한 정렬선 형성 */
     text-align: right !important;
     display: inline-flex !important;
     align-items: center !important;
